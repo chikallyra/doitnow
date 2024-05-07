@@ -9,6 +9,7 @@ use App\Http\Controllers\SocialiteController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
+<<<<<<< HEAD
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
@@ -16,6 +17,16 @@ use App\Http\Controllers\SocialiteController;
 
 Route::get('/', function () {
     return view('index');
+=======
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+Route::get('/', function () {
+    return view('login.index');
+>>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 })->name('index');
 
 // Untuk redirect ke Google

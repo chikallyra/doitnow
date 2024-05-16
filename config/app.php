@@ -1,10 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
-<<<<<<< HEAD
-=======
-use Illuminate\Support\ServiceProvider;
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 
 return [
 
@@ -144,11 +140,7 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
-<<<<<<< HEAD
         // 'store'  => 'redis',
-=======
-        // 'store' => 'redis',
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
     ],
 
     /*
@@ -162,7 +154,6 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'providers' => [
 
         /*
@@ -190,10 +181,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Ladumor\LaravelPwa\PWAServiceProvider::class,
 
-=======
-    'providers' => ServiceProvider::defaultProviders()->merge([
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
         /*
          * Package Service Providers...
          */
@@ -206,12 +195,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
 
     ],
-=======
-    ])->toArray(),
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 
     /*
     |--------------------------------------------------------------------------
@@ -225,11 +210,8 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-<<<<<<< HEAD
         // 'ExampleClass' => App\Example\ExampleClass::class,
-=======
-        // 'Example' => App\Facades\Example::class,
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
     ])->toArray(),
 
 ];

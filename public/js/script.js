@@ -29,6 +29,16 @@ document.getElementById('btnToggle').addEventListener('click', function() {
 });
 
 
+// navbar
+// window.addEventListener('scroll', function() {
+//   const navbar = document.querySelector('.navbar');
+//   if (window.scrollY > 0) {
+//     navbar.classList.add('scrolled');
+//   } else {
+//     navbar.classList.remove('scrolled');
+//   }
+// });
+
 // active
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll('.nav-link');
@@ -131,3 +141,5 @@ function closeForm() {
 // Mengaitkan fungsi closeForm dengan tombol "exit"
 document.getElementById("closeForm").addEventListener("click", closeForm);
 
+
+document.getElementById("closeForm").addEventListener("click", closeForm);

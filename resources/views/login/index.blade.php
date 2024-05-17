@@ -35,6 +35,13 @@
                               Password
                             </label>
                             <input class="shadow bg-white appearance-none border rounded-lg lg:w-full w-96 lg:ml-0 ml-3 py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Enter at least 8 characters">
+                            <input class="shadow appearance-none border rounded-lg lg:w-full w-96 lg:ml-0 ml-3 py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Enter your full email">
+                          </div>
+                          <div class="mb-4">
+                            <label class="block text-gray-700 text-lg font-bold mb-2 lg:ml-0 ml-4" for="password">
+                              Password
+                            </label>
+                            <input class="shadow appearance-none border rounded-lg lg:w-full w-96 lg:ml-0 ml-3 py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Enter at least 8 characters">
                           </div>
                           <!-- Button continue -->
                             <div class="flex justify-center items-center">
@@ -54,6 +61,7 @@
 
                             <div class="text-center mt-3 text-xl">
                                 <p>Don’t have an account yet ?  <a href="/registrasi" class="text-blue-500 hover:text-blue-700">Sign in</a></p>
+                                <p>Don’t have an account yet ?  <a href="/registrasi" class="text-blue-500 hover:text-blue-700">Sing in</a></p>
                             </div>        
                         </form>
                     </div>
@@ -95,6 +103,7 @@
 
                             <div class="text-center mt-3 text-xl">
                                 <p>Don’t have an account yet ?  <a href="/registrasi" class="text-blue-500 hover:text-blue-700">Sign in</a></p>
+                                <p>Don’t have an account yet ?  <a href="/registrasi" class="text-blue-500 hover:text-blue-700">Sing in</a></p>
                             </div>        
                         </form>
                     </div>

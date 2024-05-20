@@ -8,23 +8,19 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-<<<<<<< HEAD
-     *
-     * @return void
-     */
-    public function up()
-=======
      */
     public function up(): void
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('google_id')->unique();
+            $table->string('google_id')->unique()->nullable();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
+            $table->tinyInteger('type')->default(0);
+            /* Users: 0=>User, 1=>Company, 2=>Admin */
+            $table->integer('phone');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,15 +28,8 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-<<<<<<< HEAD
-     *
-     * @return void
-     */
-    public function down()
-=======
      */
     public function down(): void
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
     {
         Schema::dropIfExists('users');
     }

@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use Illuminate\Http\Request;
 
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Models\User;
-=======
-use App\Models\User;
-use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
-
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 
 class SocialiteController extends Controller
 {
@@ -36,7 +29,9 @@ class SocialiteController extends Controller
                 'google_id' => $userFromGoogle->getId(),
                 'name' => $userFromGoogle->getName(),
                 'email' => $userFromGoogle->getEmail(),
-                'password' => null
+                'password' => null,
+                'type' => 0,
+                'phone' => null
             ]);
 
             $newUser->save();
@@ -45,14 +40,14 @@ class SocialiteController extends Controller
             auth('web')->login($newUser);
             session()->regenerate();
 
-            return redirect('/');
+            return redirect(route('home'));
         }
 
         // Jika ada user langsung login saja
         auth('web')->login($userFromDatabase);
         session()->regenerate();
 
-        return redirect('/');
+        return redirect(route('home'));
     }
 
     public function logout(Request $request)

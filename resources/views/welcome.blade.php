@@ -12,8 +12,8 @@
                         <img src="/img/welcome1.png" class="" alt="selamat datang">
                     </div>
                     <h1 class="mb-4 text-3xl mt-4 font-extrabold tracking-widest leading-none text-gray-900 md:text-4xl lg:text-5xl ">Selamat Datang</h1>
-                    <p class="mb-8 text-lg font-bold pt-8 lg:text-3xl tracking-wide sm:px-16 lg:px-48 text-slate-800">Hi, {{ auth('web')->user()->name }}</p>
-                    <p class="mb-8 text-lg font-medium lg:text-2xl sm:px-16 lg:px-48 dark:text-gray-400">Selamat kamu telah menjadi missionary #{{ auth('web')->user()->id }} di <span class="font-extrabold text-[#FF0000] text-3xl">doitnow</span></p>        
+                    <p class="mb-8 text-lg font-bold pt-8 lg:text-3xl tracking-wide sm:px-16 lg:px-48 text-slate-800">Hi Missionary</p>
+                    <p class="mb-8 text-lg font-medium lg:text-2xl sm:px-16 lg:px-48 dark:text-gray-400">Selamat kamu telah menjadi missionary #01 di <span class="font-extrabold text-[#FF0000] text-3xl">doitnow</span></p>        
                 </div>
         </div>
       </div>
@@ -56,12 +56,9 @@
                 </div>
                 <h1 class="mb-4 text-3xl mt-4 font-bold tracking-normal lg:mb-10 leading-none text-gray-900 md:text-4xl lg:text-5xl ">Senang bekerja sama dengan anda</h1>  
                 <div class="flex flex-col space-x-2 space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                    <button class="inline-flex justify-center items-center py-2 lg:px-14 text-lg font-medium text-center mt-5 text-white rounded-full bg-red-400 border-2 shadow-xl shadow-slate-600 hover:bg-black focus:ring-4 focus:ring-red-300 ">
+                    <a href="/" class="inline-flex justify-center items-center py-2 lg:px-14 text-lg font-medium text-center mt-5 text-white rounded-full bg-red-400 border-2 shadow-xl shadow-slate-600 hover:bg-black focus:ring-4 focus:ring-red-300 ">
                         Logout                       
-                    </button>
-                    </form>
+                    </a>
                 </div>   
             </div>
         </div>

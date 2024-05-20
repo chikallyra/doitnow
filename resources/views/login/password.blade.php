@@ -27,17 +27,18 @@
             <form class="space-y-5">
                 @csrf
                 <h5 class="text-3xl font-bold text-center pb-3 text-gray-900">Log in to Button as...</h5>
-                <div>
-                    <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter your email" autofocus >
-                    @error('email')
-                    <div class="text-red-500">
-                        {{ $message }}
-                    </div>
+                <div >
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter at least 8 characters" required />
+                    @error('password')
+                          <div class="text-red-500">
+                              {{ $message }}
+                          </div>
                     @enderror
-                </div>
+                  </div>
                 <!-- Button Login -->
                 <button type="submit"
-                    class="w-full text-white bg-[#DD2120] font-bold hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-5 py-2.5 text-center">Next</button>
+                    class="w-full text-white bg-[#DD2120] font-bold hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-5 py-2.5 text-center">Login</button>
                 <p class="text-center font-bold text-lg text-gray-400">Or</p>
 
                 <!-- Button Login with Google -->

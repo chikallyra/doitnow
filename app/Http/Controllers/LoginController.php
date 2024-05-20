@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Providers\RouteServiceProvider;
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -42,7 +40,5 @@ class LoginController extends Controller
         }
     }
 
-    public function index( ) {
-        return view('login.index');
-    }
+
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 use Faker\Guesser\Name;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 });
 
+Route::get('/login', function () {
+    return view('login.index');
+})->name('login');
+
 // Untuk redirect ke Google
 Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
     ->middleware(['guest'])
@@ -65,4 +70,5 @@ Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
 
-
+// Registrasi
+Route::get('/registrasi', [RegistrasiController::class, 'index']);

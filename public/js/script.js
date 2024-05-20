@@ -29,6 +29,16 @@ document.getElementById('btnToggle').addEventListener('click', function() {
 });
 
 
+// navbar
+// window.addEventListener('scroll', function() {
+//   const navbar = document.querySelector('.navbar');
+//   if (window.scrollY > 0) {
+//     navbar.classList.add('scrolled');
+//   } else {
+//     navbar.classList.remove('scrolled');
+//   }
+// });
+
 // active
 document.addEventListener("DOMContentLoaded", function () {
   const links = document.querySelectorAll('.nav-link');
@@ -142,3 +152,5 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+document.getElementById("closeForm").addEventListener("click", closeForm);

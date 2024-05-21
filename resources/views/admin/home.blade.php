@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main')
   
 @section('container')
 <div class="container">
@@ -13,8 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-  
-                    You are a Admin.
+                    <x-forms.tinymce-editor/>
                 </div>
             </div>
         </div>

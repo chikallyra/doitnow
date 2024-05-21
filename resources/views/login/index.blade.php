@@ -24,7 +24,7 @@
       @endif
 
         <div class="max-w-md px-8 py-6 bg-white bg-opacity-30 border-2 border-gray-200 rounded-lg shadow-xl shadow-slate-300 sm:p-6 md:p-8 w-full mt-6 lg:ml-20 lg:w-full">
-            <form class="space-y-5">
+            <form class="space-y-5" action="{{ route('login.getemail') }}" method="POST">
                 @csrf
                 <h5 class="text-3xl font-bold text-center pb-3 text-gray-900">Log in to Button as...</h5>
                 <div>
@@ -38,20 +38,20 @@
                 <!-- Button Login -->
                 <button type="submit"
                     class="w-full text-white bg-[#DD2120] font-bold hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-5 py-2.5 text-center">Next</button>
+            </form>
                 <p class="text-center font-bold text-lg text-gray-400">Or</p>
 
                 <!-- Button Login with Google -->
                 <button type="submit"
-                    class="flex items-start justify-center w-full text-primary bg-gray-100 font-bold text-[24px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5">
+                    class="flex items-start justify-center w-full text-blue-700 bg-gray-100 font-bold text-[24px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5">
                     <img src="img/google.png" class="w-5 h-5" alt="">
-                    <a href=""> Login with Google</a>
+                    <a href="{{ route('redirect') }}"> Login with Google</a>
                 </button>
 
                 <div class="text-sm font-medium text-center text-gray-900">
-                    Don't have an accouny yet? <a href="/registrasi" class="text-blue-700 hover:underline font-bold">Register
+                    Don't have an account yet? <a href="/registrasi" class="text-blue-700 hover:underline font-bold">Register
                         Now!</a>
                 </div>
-            </form>
         </div>
 
     </div>

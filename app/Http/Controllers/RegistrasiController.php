@@ -31,7 +31,7 @@ class RegistrasiController extends Controller
 
         // auth()->login($user);
 
-        return redirect()->route('login')->with('success', 'Account successfully created! Please log in.');
+        return redirect()->route('login.mail')->with('success', 'Account successfully created! Please log in.');
     }
 
     public function user(Request $request){
@@ -53,6 +53,6 @@ class RegistrasiController extends Controller
 
         // auth()->login($user);
 
-        return redirect()->route('login')->with('success', 'Account successfully created! Please log in.');
+        return redirect()->route('login.mail')->with('success', 'Account successfully created! Please log in.');
     }
 }

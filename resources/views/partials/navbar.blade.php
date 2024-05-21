@@ -1,4 +1,5 @@
 <!-- navbar -->
+@guest
 <nav class=" bg-bg fixed z-50 w-full py-4 shadow-lg transition-all duration-300 backdrop:blur-xl bg-[#F4F4F4]">
   <div class=" mx-auto px-4 py-2 flex justify-between items-center">
     <div>
@@ -74,4 +75,5 @@
   </a>
   </div>
 </nav>
+@endguest
 <!-- navbar -->

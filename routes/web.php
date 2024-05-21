@@ -29,8 +29,11 @@ Route::post('/registrasi/company', [RegistrasiController::class, 'company'])->na
 Route::post('/registrasi/user', [RegistrasiController::class, 'user'])->name('register.user');
 
 // Login
-Route::get('/login', [LoginController::class, 'index'])->middleware(['guest'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login.mail');
+Route::post('/login', [LoginController::class, 'submitEmail'])->name('login.getemail');
+
+Route::get('/login/password', [LoginController::class, 'password'])->name('login.password');
+Route::post('/login/password', [LoginController::class, 'login'])->name('login');
 
 
 //Auth User
@@ -51,9 +54,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 });
 
-Route::get('/login', function () {
-    return view('login.index');
-})->name('login');
 
 // Untuk redirect ke Google
 Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
@@ -70,5 +70,4 @@ Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
 
-// Registrasi
-Route::get('/registrasi', [RegistrasiController::class, 'index']);
+

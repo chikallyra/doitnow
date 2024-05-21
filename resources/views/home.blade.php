@@ -255,15 +255,14 @@
                                 <img src="/img/hp.png" class="w-24 mt-14 lg:w-40 lg:mt-56" alt="">
                               </div>
                             </div>   
-                            
-                             
-                            <div class=" flex  justify-center items-center pt-32 ">
-                              <h1 class="bg-[#D20000] border-2 animate-move border-white px-8 z-30 lg:mt-[-100px] rounded-lg mt-[-200px]  lg:py-2 font-medium text-lg text-white">Join now <i class="fas fa-hand-point-down ml-3"></i></h1>
+                          
+                            <div class=" flex  justify-center items-center pt-32 lg:pt-52 ">
+                              <h1 class="bg-[#D20000] border-2 animate-move border-white px-8 z-30 lg:mt-[-190px] rounded-lg mt-[-200px]  lg:py-2 font-medium text-lg text-white">Join now <i class="fas fa-hand-point-down ml-3"></i></h1>
                             </div>
   
                         </div>
                           <!-- Modal body -->
-                          <div class="grid grid-cols-1 gap-4 h-full lg:grid-cols-3 lg:gap-8 pt-16 mt-[-100px] lg:mt-[100px] pb-16 bg-[#FF0000]">
+                          <div class="grid grid-cols-1 gap-4 h-full lg:grid-cols-3 lg:gap-8 pt-16 mt-[-100px] lg:mt-[-100px] pb-16 bg-[#FF0000]">
                             <div class="  lg:col-span-2">
                               <div class="flex flex-wrap items-center justify-center lg:mr-20 lg:mt-[10px] ">
                                 <div class="max-w-md px-8 py-6 w-full mx-2  mt-10 bg-[#D20000] bg-opacity-30 border-4 border-gray-200 rounded-lg shadow sm:p-6 md:p-8 lg:w-full">
@@ -341,7 +340,7 @@
                   <!-- Modal content -->
                   <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                       <!-- Modal header -->
-                      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                      <div class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600">
                           <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
                               <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -352,17 +351,17 @@
                       <!-- Modal body -->
                       <section class="rounded-3xl shadow-2xl">
                         <div class="p-8 text-center sm:p-12">
-                          <p class="text-sm font-semibold uppercase tracking-widest text-pink-500">
-                            Your order is on the way
+                          <p class="text-lg font-semibold uppercase tracking-widest text-red-600">
+                            Gain Brand Loyalty with DoitNow!
                           </p>
                       
-                          <h2 class="mt-6 text-3xl font-bold">Thanks for your purchase, we're getting it ready!</h2>
+                          <h2 class="mt-6 text-3xl font-bold"> Supercharge Your Marketing! Reach Engaged Audiences with DoitNow. </h2>
                       
                           <a
-                            class="mt-8 inline-block w-full rounded-full bg-pink-600 py-4 text-sm font-bold text-white shadow-xl transition custom-btn inline-blocfont-semibold  shadow-slate-300  duration-300 transform hover:scale-105"
+                            class="mt-8 inline-block w-full rounded-full bg-red-600 py-4 text-sm font-bold text-white shadow-xl transition custom-btn inline-blocfont-semibold  shadow-slate-300  duration-300 transform hover:scale-105"
                             href="#"
                           >
-                            Track Order
+                            Started doitnow
                           </a>
                         </div>
                       </section>
@@ -402,44 +401,39 @@
           <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 ">doitnow: Earn, Share, and Impact</p>
               {{-- missionary --}}
              <!-- Modal toggle -->
-          <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="block border rounded-lg text-[26px] lg:text-3xl px-8 py-1 lg:px-12 sm:px-10 sm:text-2xl md:text-3xl lg:py-3 bg-[#DD2120] text-white transition custom-btn inline-blocfont-semibold shadow-xl shadow-slate-300  duration-300 transform hover:scale-105 font-medium text-sm text-center" type="button">
-            Get started
-          </button>
+             <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block border rounded-lg text-[26px] lg:text-3xl px-8 py-1 lg:px-12 sm:px-10 sm:text-2xl md:text-3xl lg:py-3 bg-[#DD2120] text-white transition custom-btn inline-blocfont-semibold shadow-xl shadow-slate-300  duration-300 transform hover:scale-105 font-medium text-sm text-center" type="button">
+              Get Started
+             </button>
 
           <!-- Main modal -->
-          <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-              <div class="relative p-4 w-full max-w-2xl max-h-full">
-                  <!-- Modal content -->
-                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
-                              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                              </svg>
-                              <span class="sr-only">Close modal</span>
-                          </button>
+          <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-md max-h-full">
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <section class="rounded-3xl shadow-2xl">
+                      <div class="p-8 text-center sm:p-12">
+                        <p class="text-lg font-semibold uppercase tracking-widest text-red-600">
+                          Missions Calling! 
+                        </p>
+                    
+                        <h2 class="mt-6 text-3xl font-bold">Lets Have Fun and Earn Reward with doitnow!  </h2>
+                    
+                        <a
+                          class="mt-8 inline-block w-full rounded-full bg-red-600 py-4 text-sm font-bold text-white shadow-xl transition custom-btn inline-blocfont-semibold  shadow-slate-300  duration-300 transform hover:scale-105"
+                          href="#"
+                        >
+                          Started doitnow
+                        </a>
                       </div>
-                      <!-- Modal body -->
-                      <section class="rounded-3xl shadow-2xl">
-                        <div class="p-8 text-center sm:p-12">
-                          <p class="text-sm font-semibold uppercase tracking-widest text-pink-500">
-                            Your order is on the way
-                          </p>
-                      
-                          <h2 class="mt-6 text-3xl font-bold">Thanks for your purchase, we're getting it ready!</h2>
-                      
-                          <a
-                            class="mt-8 inline-block w-full rounded-full bg-pink-600 py-4 text-sm font-bold text-white shadow-xl transition custom-btn inline-blocfont-semibold  shadow-slate-300  duration-300 transform hover:scale-105"
-                            href="#"
-                          >
-                            Track Order
-                          </a>
-                        </div>
-                      </section>
-                  </div>
-              </div>
-          </div>
+                    </section>
+                </div>
+            </div>
+        </div>
       
     </div>
     

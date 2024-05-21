@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-
 namespace App\Http\Controllers;
+
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -14,31 +15,52 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function index() {
+    public function index()
+    {
         return view('login.index');
     }
 
-    public function login(Request $request) {
-        $input = $request->all();
+    public function submitEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users,email'
+        ]);
 
-        $this->validate($request, [
-            'email' => 'required|email',
+        Session::put('email', $request->email);
+        return redirect()->route('login.password');
+    }
+
+    public function password()
+    {
+        if (!Session::has('email')) {
+            return redirect()->route('login');
+        }
+        return view('login.password');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
             'password' => 'required'
         ]);
 
-        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-            if (auth()->user()->type == 'admin') {
+        $credentials = [
+            'email' => Session::get('email'),
+            'password' => $request->password
+        ];
+
+        if (Auth::attempt($credentials)) {
+            if (Auth::user()->type == 'admin') {
                 return redirect()->route('admin.home');
-            }else if (auth()->user()->type == 'company') {
+            } elseif (Auth::user()->type == 'company') {
                 return redirect()->route('company.home');
-            }else{
+            } else {
                 return redirect()->route('home');
             }
-        }else{
-            return redirect()->route('login')
-            ->with('error','Email-Address And Password Are Wrong.');
+        } else {
+            return redirect()->route('login.email')
+                ->with('loginError', 'Email-Address And Password Are Wrong.');
         }
     }
-
-
 }
+

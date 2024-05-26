@@ -7,7 +7,7 @@
   </div>
   <div class=" relative justify-center items-center lg:mt-24">
     <h1 class="mt-6 text-[45px] text-center font-bold text-gray-900 sm:text-3xl md:text-4xl">
-      Create your account company
+      Create your account missionary
     </h1>
     
     <p class="mt-1 text-center leading-relaxed text-gray-500">

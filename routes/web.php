@@ -21,11 +21,18 @@ use App\Http\Controllers\RegistrasiController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $blog = Blog::orderBy('id', 'desc')->paginate(3);
+    return view('home', compact('blog'));
 })->name('index');
 
+Route::get('/blog/index', function () {
+    $blog3 = Blog::latest()->paginate(3);
+    return view('blog.index', compact('blog3'));
+})->name('blog.index');
+
 // Registrasi
-Route::get('/registrasi', [RegistrasiController::class, 'index'])->middleware(['guest'])->name('register');
+Route::get('/registrasi', [RegistrasiController::class, 'regisCompany'])->middleware(['guest'])->name('register.com');
+Route::get('/registrasi/mission', [RegistrasiController::class, 'regisMiss'])->middleware(['guest'])->name('register.miss');
 Route::post('/registrasi/company', [RegistrasiController::class, 'company'])->name('register.company');
 Route::post('/registrasi/user', [RegistrasiController::class, 'user'])->name('register.user');
 
@@ -74,6 +81,7 @@ Route::post('logout', [SocialiteController::class, 'logout'])
     ->name('logout');
 
 // untuk blog
-Route::get('/blog', [BlogController::class, 'homeblog']);
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 

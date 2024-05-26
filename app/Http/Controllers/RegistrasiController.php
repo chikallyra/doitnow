@@ -12,6 +12,14 @@ class RegistrasiController extends Controller
         return view('registrasi.index');
     }
 
+    public function regisCompany() {
+        return view('registrasi.index');
+    }
+
+    public function regisMiss() {
+        return view('registrasi.missionary');
+    }
+
     public function company(Request $request) {
         $request->validate([
             'name' => 'required|min:3|max:255',

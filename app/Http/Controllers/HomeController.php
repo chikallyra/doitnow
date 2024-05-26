@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Blog;
 
 use Illuminate\Http\Request;
 
@@ -43,5 +44,10 @@ class HomeController extends Controller
     {
         $user = User::all();
         return view('welcome', compact('user'));
+    }
+
+    public function homePage() {
+        $blog = Blog::orderBy('id', 'desc')->paginate(3);
+        return view('home', compact('blog'));
     }
 }

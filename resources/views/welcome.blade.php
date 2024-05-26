@@ -67,13 +67,21 @@
             </div>
         </div>
       </div>
+      <div  data-carousel-item>
+           
+      </div>
+      <div  data-carousel-item>
+          
+      </div>
     </div>
   
     <!-- Indicators -->
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
+  <div class="absolute lg:bottom-10 bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
     <button type="button" class="w-5 h-5 rounded-full bg-red-500" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
     <button type="button" class="w-5 h-5 rounded-full bg-red-500" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
     <button type="button" class="w-5 h-5 rounded-full bg-red-500" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+    <button type="button" class="w-5 h-5 rounded-full bg-red-500 hidden" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-5 h-5 rounded-full bg-red-500 hidden" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
   </div>
 </div>
 @endsection

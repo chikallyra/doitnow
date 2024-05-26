@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Blog;
+use Faker\Guesser\Name;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
-use Faker\Guesser\Name;
 
 
 /*
@@ -69,5 +71,8 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
 Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
+
+// untuk blog
+Route::get('/blog', [BlogController::class, 'homeblog']);
 
 

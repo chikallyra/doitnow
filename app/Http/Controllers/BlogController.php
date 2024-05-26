@@ -20,7 +20,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        
+        $blogs = Blog::all();
+        $blog3 = Blog::latest()->paginate(3);
+        $newest = Blog::latest()->first();
+
+        return view('blog.homeblog', compact('blogs', 'blog3', 'newest'));
     }
 
     /**
@@ -89,9 +93,11 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog, $slug)
     {
-        //
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $blog3 = Blog::latest()->paginate(3);
+        return view('blog.index', compact('blog', 'blog3'));
     }
 
     /**

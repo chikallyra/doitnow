@@ -118,7 +118,7 @@
             </div>
           </a>
               {{-- missionary --}}
-              <a href="/registrasi#Missionary" class="block transition duration-300 transform hover:scale-105  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+              <a href="/registrasi/mission" class="block transition duration-300 transform hover:scale-105  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 <div class="lg:h-32  flex justify-center py-3 lg:py-0 content-center shadow-lg shadow-slate-500 rounded-lg bg-grid  ">
                   <div class="flex justify-center items-center ">
                     <img src="../img/missionary.png" class="lg:w-16 w-8 sm:w-11 md:w-14" alt="">
@@ -241,7 +241,7 @@
                     
                         <a
                           class="mt-8 inline-block w-full rounded-full bg-red-600 py-4 text-sm font-bold text-white shadow-xl transition custom-btn inline-blocfont-semibold  shadow-slate-300  duration-300 transform hover:scale-105"
-                          href="/registrasi/missionary"
+                          href="/registrasi/mission"
                         >
                           Started doitnow
                         </a>
@@ -301,46 +301,27 @@
 <section class="mt-16">
   <h1 class="text-center text-4xl font-bold mb-10">doitnow Recent Updates</h1>
   <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8 mx-10">
-    <div class="h-52 rounded-lg bg-gray-200">
-      
-      <figure class="relative cursor-pointer transition duration-700 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-        <a href="/blog">
-          <img class="rounded-lg" src="/img/blog.png" alt="news">
+    @foreach ($blog as $blog)
+    <div class="">
+      <div class="max-w-sm  border rounded-lg shadow-lg relative cursor-pointer transition duration-700 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+        <a href="#">
+            <img class="rounded-t-lg" src="{{ asset('/storage/' . $blog->image) }}" alt="" />
         </a>
-        <figcaption class="absolute text-lg  bottom-0 ">
-            <p class="bg-white w-44 px-10 text-base ">May 20, 2024</p>
-            <p class="bg-[#FF0000] rounded-b-lg px-10  ">doitnow! The ultimate online mission platform that makes earning rewards a blast!</p>
-        </figcaption>
-      </figure>
-
+        <div class="p-5">      
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $blog->created_date }}</p>
+            <a href="{{ route('blog.show', $blog->slug) }}">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-700 hover:underline hover:decoration-blue-700">{{ $blog->title }}</h5>
+            </a>
+            <a href="{{ route('blog.show', $blog->slug) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
+                Read more
+                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
     </div>
-    <div class="h-52 rounded-lg bg-gray-200">
-      
-      <figure class="relative cursor-pointer transition duration-700 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-        <a href="/blog">
-          <img class="rounded-lg" src="/img/blog.png" alt="news">
-        </a>
-        <figcaption class="absolute text-lg  bottom-0 ">
-            <p class="bg-white w-44 px-10 text-base ">May 20, 2024</p>
-            <p class="bg-[#FF0000] rounded-b-lg px-10  ">doitnow! The ultimate online mission platform that makes earning rewards a blast!</p>
-        </figcaption>
-      </figure>
-
     </div>
-    <div class="h-52 rounded-lg bg-gray-200">
-      
-      <figure class="relative cursor-pointer transition duration-700 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-        <a href="/blog">
-          <img class="rounded-lg" src="/img/blog.png" alt="news">
-        </a>
-        <figcaption class="absolute text-lg  bottom-0 ">
-            <p class="bg-white w-44 px-10 text-base ">May 20, 2024</p>
-            <p class="bg-[#FF0000] rounded-b-lg px-10  ">doitnow! The ultimate online mission platform that makes earning rewards a blast!</p>
-        </figcaption>
-      </figure>
-
-    </div>
-    
+    @endforeach
   </div>
   <div class="flex justify-center items-center mt-10 lg:mt-20">
     <a href="/blog" class="text-xl hover:text-gray-400 hover:underline hover:decoration-gray-400">See more ...</a>

@@ -299,7 +299,7 @@
 
 {{-- blog --}}
 <section class="mt-16">
-  <h1 class="text-center text-4xl font-bold mb-10">doitnow Recent Updates</h1>
+  <h1 class="text-center text-4xl font-bold mb-10 text-black">doitnow Recent Updates</h1>
   <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8 mx-10">
     @foreach ($blog as $blog)
     <div class="">
@@ -310,7 +310,7 @@
         <div class="p-5">      
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $blog->created_date }}</p>
             <a href="{{ route('blog.show', $blog->slug) }}">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-700 hover:underline hover:decoration-blue-700">{{ $blog->title }}</h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-red-700 hover:underline hover:decoration-red-700">{{ $blog->title }}</h5>
             </a>
             <a href="{{ route('blog.show', $blog->slug) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
                 Read more
@@ -510,7 +510,7 @@
     <div class=" mr-64 w-full text-center lg:col-span-2 mt-96">
       <h1 class="lg:text-[63px] text-5xl text-centertext-3xl lg:mt-[-500px] mt-[-200px] lg:pt-20 lg:h-44 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FF0000] to-[#010101]">Sign up and </h1>
       <h1 class="lg:text-[63px] text-5xl text-centertext-3xl lg:mt-[-20px]  lg:h-44 h-48 font-bold bg-clip-text text-transparent bg-gradient-to-r mb-[-90px]  from-[#FF0000] to-[#010101] lg:mb-[-60px] ">get the prize </h1>
-      <a class="inline-block rounded-full shadow-slate-500 shadow-xl bg-black px-8 py-3 text-[20px] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-black" href="/registrasi">Sign Up Now !
+      <a class="inline-block rounded-full shadow-slate-500 shadow-xl bg-black px-8 py-3 text-[20px] font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-black" href="/registrasi/mission">Sign Up Now !
       </a>
     </div>
   </div>

@@ -1,7 +1,7 @@
 @extends('layouts.mainlogin')
 
 @section('container')
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20 bg-white">
   <div class=" items-center flex  justify-center bg-red-600 lg:h-[610px]" >
     <img src="/img/loginbanner.png" class="w-[120px] lg:w-[400px] lg:mt-14" h-70 alt="">
   </div>
@@ -48,10 +48,7 @@
                     <a href="{{ route('redirect') }}"> Login with Google</a>
                 </button>
 
-                <div class="text-sm font-medium text-center text-gray-900">
-                    Don't have an account yet? <a href="/registrasi" class="text-blue-700 hover:underline font-bold">Register
-                        Now!</a>
-                </div>
+                
         </div>
 
     </div>

@@ -40,7 +40,7 @@
 
 <!-- copyright -->
 <div class="  ">
-  <p class="lg:text-[26px] md:text-[26px] sm:text-[26px]h-20 py-5 mt-4  bg-copyrigth  text-center"> Copyright &copy; 2024 doitnow. All rights reserved. </p>
+  <p class="lg:text-[26px] md:text-[26px] sm:text-[26px]h-20 py-5 mt-4  bg-copyrigth  text-center text-black"> Copyright &copy; 2024 doitnow. All rights reserved. </p>
  </div>
  <!-- copyright -->
 </footer>

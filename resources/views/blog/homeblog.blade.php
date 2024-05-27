@@ -17,7 +17,7 @@
             <img src="{{ asset('storage/' . $blog->image) }}" alt="" class=" w-72 h-32  ">
           </div>
           <div>
-            <a href="{{ route('blog.show', $blog->slug) }}" class="hover:text-blue-700 hover:underline hover:decoration-blue-800">
+            <a href="{{ route('blog.show', $blog->slug) }}" class="hover:text-red-700 hover:underline hover:decoration-red-800">
               <h1 class="font-medium text-[11px] lg:text-[15px]">{{ $blog->title }}</h1>
             </a>
             <p class="pt-2 pb-3">{{ $blog->created_date }}</p>
@@ -29,7 +29,7 @@
       <!-- Main -->
       <div class="lg:col-span-2 order-1 lg:order-2">
         <img src="/img/blog.png" alt="">
-        <a href="{{ route('blog.show', $blog->slug) }}" class="hover:text-blue-700 hover:underline hover:decoration-blue-800">
+        <a href="{{ route('blog.show', $blog->slug) }}" class="hover:text-red-700 hover:underline hover:decoration-red-800">
           <h1 class="text-4xl font-bold pt-5">{{ $newest->title }}</h1>
         </a>
       </div>
@@ -47,7 +47,7 @@
           <div class="p-5">      
               <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $blog->created_date }}</p>
               <a href="{{ route('blog.show', $blog->slug) }}">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-700 hover:underline hover:decoration-blue-700">{{ $blog->title }}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-red-700 hover:underline hover:decoration-red-700">{{ $blog->title }}</h5>
               </a>
               <a href="{{ route('blog.show', $blog->slug) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
                   Read more

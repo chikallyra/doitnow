@@ -54,9 +54,9 @@
                   </div>
                 @enderror
               </div>
-              <!-- Button Login -->
-                <button type="submit"class="w-full text-white bg-red-600 mb-3 font-bold text-[34px] hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-black rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
-                <p class=" text-sm font-medium text-center text-gray-900" >Already have an account ? <a href="/login" class="text-blue-700 hover:underline font-bold">Log in</a></p>
+              <!-- Button Sign up -->
+            <button type="submit"class="w-full text-white bg-red-600 mb-3 font-bold text-[34px] hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-black rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
+            <p class=" text-sm font-medium text-center text-gray-900" >Already have an account ? <a href="/login" class="text-red-700 hover:underline font-bold">Log in</a></p>
             </form>
         </div>
       </div>

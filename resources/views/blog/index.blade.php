@@ -2,7 +2,7 @@
 
 @section('container')
 
-<section class="pt-32">
+<section class="pt-32 bg-white">
     <div class="container-fluid mx-10 ">
         <div class="flex justify-end items-end">
             <img src="/img/logo.png" class="w-32 lg:w-72" alt="">
@@ -14,12 +14,12 @@
             <h1 class="text-center lg:text-5xl text-xl font-semibold text-red-600 tracking-wider ">{{ $blog->title }}</h1>
         </div>
         <div class="mt-3 lg:mt-8">
-            <p class="mt-3">{!! $blog->body !!}</p>
+            <p class="mt-3 text-black">{!! $blog->body !!}</p>
 
-            <h1 class="mt-5 font-medium">{{ $blog->created_date }}</h1>
+            <h1 class="mt-5 font-medium text-black">{{ $blog->created_date }}</h1>
 
             <div class="mt-16">
-                <h1 class="font-semibold text-xl lg:text-2xl">Related Artcle</h1>
+                <h1 class="font-semibold text-xl lg:text-3xl text-black ">Related Artcle</h1>
                 <div class="flex justify-end items-end">
                     <a href="/blog" class="px-8 border-2 bg-red-600 rounded-lg text-white hover:bg-red-800">Read More</a>
                 </div>
@@ -32,9 +32,9 @@
                           <img class="rounded-t-lg" src="{{ asset('/storage/' . $blog->image) }}" alt="" />
                       </a>
                       <div class="p-5">      
-                          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $blog->created_date }}</p>
+                          <p class="mb-3 font-normal text-black">{{ $blog->created_date }}</p>
                           <a href="{{ route('blog.show', $blog->slug) }}">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-blue-700 hover:underline hover:decoration-blue-700">{{ $blog->title }}</h5>
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 hover:text-red-700 hover:underline hover:decoration-red-700">{{ $blog->title }}</h5>
                           </a>
                           <a href="{{ route('blog.show', $blog->slug) }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
                               Read more

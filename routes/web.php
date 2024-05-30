@@ -10,7 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
-
+use App\Http\Controllers\StatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,4 +97,8 @@ Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('c
 // Dashboard Company
 Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
 Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
+
+// untuk stat
+Route::get('/stat', [StatController::class, 'index'])->name('stat');
+
 

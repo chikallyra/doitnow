@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 * text=auto
-=======
 * text=auto eol=lf
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 
 *.blade.php diff=html
 *.css diff=css

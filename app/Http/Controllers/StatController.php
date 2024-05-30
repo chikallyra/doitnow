@@ -16,4 +16,5 @@ class StatController extends Controller
 
         return view('stat', compact('companies', 't_com', 'missionaries', 't_miss'));
     }
+    // coba
 }

@@ -98,7 +98,7 @@ Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('c
 Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
 Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
 
-// untuk stat
+// untuk stat bisa yuuuu
 Route::get('/stat', [StatController::class, 'index'])->name('stat');
 
 

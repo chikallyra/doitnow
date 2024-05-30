@@ -3,8 +3,11 @@ use App\Models\Blog;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CompanyDashboardController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 
@@ -84,4 +87,14 @@ Route::post('logout', [SocialiteController::class, 'logout'])
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
+// platform
+Route::get('/platform', [PlatformController::class, 'index']);
+
+// Dashboard admin
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('create.blog');
+
+// Dashboard Company
+Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
+Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
 

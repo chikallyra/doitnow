@@ -5,6 +5,10 @@
         @error('title')
             <div class="text-red-600">{{ $message }}</div>
         @enderror
+        <input type="text" name="title" placeholder="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        @error('title')
+            <div class="text-red-600">{{ $message }}</div>
+        @enderror
 
         <textarea id="myeditorinstance" name="body">Hello, World!</textarea>
         @error('body')

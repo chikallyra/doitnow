@@ -43,7 +43,7 @@
                 let olElements = e.node.querySelectorAll('ol');
                 olElements.forEach(function (ol) {
                     if (!ol.classList.contains('list-decimal')) {
-                        ol.classList.add('list-decimal');  // ol pas proses
+                        ol.classList.add('list-decimal');  // ol  (abgka) pas proses
                     }
                 });
 

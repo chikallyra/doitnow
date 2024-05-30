@@ -126,7 +126,7 @@
                 </thead>
                 @php
                     $no = 1;
-                    // echo
+                    // echo "bisa di push euyyy"
                 @endphp
                 <tbody>
                   @foreach ($companies as $com)

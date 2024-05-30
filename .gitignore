@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /.phpunit.cache
->>>>>>> 87d675eca23ee81b856a93f8ab1f093e6c8abf36
 /node_modules
 /public/build
 /public/hot

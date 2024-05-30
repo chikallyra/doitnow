@@ -101,4 +101,14 @@ Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'crea
 // untuk stat bisa yuuuu
 Route::get('/stat', [StatController::class, 'index'])->name('stat');
 
+// platform
+Route::get('/platform', [PlatformController::class, 'index']);
+
+// Dashboard admin
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('create.blog');
+
+// Dashboard Company
+Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
+Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
 

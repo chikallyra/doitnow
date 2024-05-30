@@ -14,12 +14,12 @@
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex text-center flex-col p-2 md:p-0 mt-5 md:flex-row bg-[#F4F4F4] md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0  ">
-        <li>
+        {{-- <li>
           <a href="#" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2" aria-current="page">Mission and Reward</a>
         </li>
         <li>
           <a href="#" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">Marketplace</a>
-        </li>
+        </li> --}}
         <li>
           <a href="/blog" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">News</a>
         </li>

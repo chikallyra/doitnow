@@ -15,7 +15,7 @@
         <h1 class="text-center font-bold text-2xl mb-3 mt-5 text-white">Connect With Us</h1>
 
         <div class="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4  xl:grid-cols-4 mx-auto">
-          <a href="" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
+          <a href="https://www.instagram.com/doitnowid?igsh=MXVmMThjODVjenJrOA==" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
             <i class="fab fa-instagram lg:text-5xl md:text-4xl text-xl mx-2 text-white hover:text-black"></i>
           </a>
           <a href="" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">

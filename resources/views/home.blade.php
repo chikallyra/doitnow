@@ -139,10 +139,10 @@
   <h2 class=" lg:text-[53px] text-2xl h-20 mx-5 lg:ml-32 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101] sm:text-4xl  to-[#FF0000]">Do you as a company?</h2>
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-2 lg:gap-8 mx-5 -mt-8">
     <div class="h-96 lg:ml-32 text-sm md:text-3xl  lg:text-[34px] sm:text-xl font-semibold lg:mt-5 mt-3">
-      <p class="mb-1 lg:mb-5 lg:leading-9 md:mb-2">Connecting you with a community</p>
-      <p class="mb-1 lg:mb-5 md:mb-2">of active, reward-seeking</p>
-      <p class="mb-1 lg:mb-5 md:mb-2">individuals eager to interact with</p>
-      <p class="mb-3 lg:mb-8 md:mb-5">your brand</p>
+      <p class="mb-1 lg:mb-5 lg:leading-9 md:mb-2 text-black">Connecting you with a community</p>
+      <p class="mb-1 lg:mb-5 md:mb-2 text-black">of active, reward-seeking</p>
+      <p class="mb-1 lg:mb-5 md:mb-2 text-black">individuals eager to interact with</p>
+      <p class="mb-3 lg:mb-8 md:mb-5 text-black">your brand</p>
         {{-- company --}}
       
           <!-- Modal toggle -->
@@ -212,7 +212,7 @@
       
       <div class=" lg:mt-44 md:mt-10 md:ml-[-80px] lg:ml-0 sm:ml-[-80px] sm:mt-8 ml-[-30px] lg:col-span-2">      
         <h1 class="lg:text-[49px]  lg:mb-8 md:text-4xl sm:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101]  to-[#FF0000]">Do You as a missionary? </h1>
-        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[65px]  font-semibold mb-10">
+        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[65px] text-black  font-semibold mb-10">
           <p>Monetize Your Mission with</p>
           <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 ">doitnow: Earn, Share, and Impact</p>
               {{-- missionary --}}
@@ -263,7 +263,7 @@
 {{-- content 6 carousel --}}
 <section class=" lg:mx-20 mx-5 sm:ml-10 sm:mt-[-20px] lg:mt-0 md:ml-20 mt-3 justify-center items-center block ">
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8">
-    <div class="lg:h-72 h-32 rounded-lg bg-[#DD2120] lg:col-span-2">
+    <div class="lg:h-72 h-32 rounded-lg bg-[#DD2120] lg:col-span-2 text-black">
       <h1 class="lg:text-[52px] lg:font-semibold font-bold lg:mx-28 m-2">Unlock Rewards, Accomplish </h1>
       <p class="lg:text-[52px] lg:font-semibold lg:mx-28 font-bold mx-2">Missions.</p>
       <p class=" justify-end flex mr-5 lg:text-4xl font-bold text-white m-2 lg:mt-[-10px] ">doitnow</p>
@@ -343,7 +343,7 @@
           </div>
       </div>
       <div id="sliderContainer" class="w-full overflow-hidden">
-          <ul id="slider" class="flex w-full duration-700">
+          <ul id="slider" class="flex w-full duration-700 text-black">
             <li class="p-3 ">
               <div class="bg-white border border-gray-200 shadow-xl rounded-lg p-3 h-full w-full   ">
                   <p>

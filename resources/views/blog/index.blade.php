@@ -13,8 +13,8 @@
         <div class="mt-8 lg:mx-24">
             <h1 class="text-center lg:text-5xl text-xl font-semibold text-red-600 tracking-wider ">{{ $blog->title }}</h1>
         </div>
-        <div class="mt-3 lg:mt-8">
-            <p class="mt-3 text-black">{!! $blog->body !!}</p>
+        <div class="mt-3 lg:mt-8 text-black text-xl lg:mx-24">
+            <p class="mt-3  ">{!! $blog->body !!}</p>
 
             <h1 class="mt-5 font-medium text-black">{{ $blog->created_date }}</h1>
 

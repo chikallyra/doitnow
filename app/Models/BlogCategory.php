@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class BlogCategory extends Model
 {
     use HasFactory;
 
     protected $guard = ['id'];
 
-    public function blogCategory() {
-        return $this->belongsTo(BlogCategory::class);
+    public function blogs() {
+        return $this->hasMany(Blog::class);
     }
 }

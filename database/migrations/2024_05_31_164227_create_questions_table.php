@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->longText('message');
             $table->timestamps();
+            //for commit
         });
     }
 

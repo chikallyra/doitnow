@@ -10,7 +10,7 @@ class BlogCategory extends Model
     use HasFactory;
 
     protected $guard = ['id'];
-
+    //for commit
     public function blogs() {
         return $this->hasMany(Blog::class);
     }

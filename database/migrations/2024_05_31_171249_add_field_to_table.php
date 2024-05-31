@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->foreignId('blog_category_id')->constrained('blog_categories');
+            //for commit
         });
     }
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-
+    //for commit
     protected $guard = ['id'];
 
     public function blogCategory() {

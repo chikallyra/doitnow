@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MissionCategory extends Model
 {
     use HasFactory;
+    //for commit
     protected $guard = ['id'];
 }

@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="bg-white h-[600px]">
+        <div class="bg-white h-[850px]">
             
             <form class="max-w-md pt-28 mx-10 ">   
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
@@ -68,6 +68,171 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="bg-red-100 text-black text-center">
+                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
+                                    001
+                                </th>
+                                <td class="px-6 py-4">
+                                    Jhon
+                                </td>
+                                <td class="px-6 py-4">
+                                    jhon@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    1
+                                </td>
+                                <td class="px-6 py-4">
+                                    Rp.88.000
+                                </td>
+                                <td class="px-6 py-4">
+                                    Aktif
+                                </td>
+                                <td class="px-6 py-4  ">
+                                    <div class="grid grid-cols-3 ">
+                                        <div>
+                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                        </div>
+                                        <div class="">
+                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                        </div>
+                                        <div>
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-100 text-black text-center">
+                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
+                                    001
+                                </th>
+                                <td class="px-6 py-4">
+                                    Jhon
+                                </td>
+                                <td class="px-6 py-4">
+                                    jhon@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    1
+                                </td>
+                                <td class="px-6 py-4">
+                                    Rp.88.000
+                                </td>
+                                <td class="px-6 py-4">
+                                    Aktif
+                                </td>
+                                <td class="px-6 py-4  ">
+                                    <div class="grid grid-cols-3 ">
+                                        <div>
+                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                        </div>
+                                        <div class="">
+                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                        </div>
+                                        <div>
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-100 text-black text-center">
+                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
+                                    001
+                                </th>
+                                <td class="px-6 py-4">
+                                    Jhon
+                                </td>
+                                <td class="px-6 py-4">
+                                    jhon@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    1
+                                </td>
+                                <td class="px-6 py-4">
+                                    Rp.88.000
+                                </td>
+                                <td class="px-6 py-4">
+                                    Aktif
+                                </td>
+                                <td class="px-6 py-4  ">
+                                    <div class="grid grid-cols-3 ">
+                                        <div>
+                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                        </div>
+                                        <div class="">
+                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                        </div>
+                                        <div>
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-100 text-black text-center">
+                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
+                                    001
+                                </th>
+                                <td class="px-6 py-4">
+                                    Jhon
+                                </td>
+                                <td class="px-6 py-4">
+                                    jhon@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    1
+                                </td>
+                                <td class="px-6 py-4">
+                                    Rp.88.000
+                                </td>
+                                <td class="px-6 py-4">
+                                    Aktif
+                                </td>
+                                <td class="px-6 py-4  ">
+                                    <div class="grid grid-cols-3 ">
+                                        <div>
+                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                        </div>
+                                        <div class="">
+                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                        </div>
+                                        <div>
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-100 text-black text-center">
+                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
+                                    001
+                                </th>
+                                <td class="px-6 py-4">
+                                    Jhon
+                                </td>
+                                <td class="px-6 py-4">
+                                    jhon@gmail.com
+                                </td>
+                                <td class="px-6 py-4">
+                                    1
+                                </td>
+                                <td class="px-6 py-4">
+                                    Rp.88.000
+                                </td>
+                                <td class="px-6 py-4">
+                                    Aktif
+                                </td>
+                                <td class="px-6 py-4  ">
+                                    <div class="grid grid-cols-3 ">
+                                        <div>
+                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                        </div>
+                                        <div class="">
+                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                        </div>
+                                        <div>
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
+                                        </div>
+                                      </div>
+                                </td>
+                            </tr>
                             <tr class="bg-red-100 text-black text-center">
                                 <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
                                     001

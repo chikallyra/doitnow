@@ -30,13 +30,13 @@
       <div class="lg:col-span-2 order-1 lg:order-2">
         <img src="/img/blog.png" alt="">
         <a href="{{ route('blog.show', $blog->slug) }}" class="hover:text-red-700 hover:underline hover:decoration-red-800 text-black">
-          <h1 class="text-4xl font-bold pt-5 text-black">{{ $newest->title }}</h1>
+          <h1 class="text-4xl font-bold pt-5 text-black hover:text-red-500">{{ $newest->title }}</h1>
         </a>
       </div>
     </div>
 
     {{-- Main Bottom --}}
-
+    
     <div class="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8 mx-10 mt-28">
       @foreach ($blog3 as $blog)
       <div class="">

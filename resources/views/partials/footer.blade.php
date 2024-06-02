@@ -4,10 +4,10 @@
     <div class="grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-8 ">
       <div class=" mx-5 lg:mx-20 mt-5 lg:col-span-2   ">
         <div class=" text-white text-center lg:text-left mt-8 ">
-          <h1 class="font-bold text-2xl mb-4 ">doitnow</h1>
-          <p>PT. Pelopor Ide Kreatif</p>
-          <p><span class="font-bold"></span> +62 000 0000 0000</p>
-          <p> <span class="font-bold"> </span>doitnow@example.com</p>
+          <h1 class="font-extrabold text-3xl mb-4 ">doitnow</h1>
+          <p class="font-extrabold text-lg mt-2">PT. Pelopor Ide Kreatif</p>
+          <p class="font-extrabold text-sm mt-2">Telp :<span class="font-bold">+628892626889</span> </p>
+          <p class="font-extrabold text-sm mt-2"> Email : <span class="font-medium"> info@doitnow.id</span> </p>
           
         </div>
       </div>

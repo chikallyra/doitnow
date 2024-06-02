@@ -24,10 +24,10 @@
           <a href="/blog" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">News</a>
         </li>
         <li>
-          <a href="#" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">About Us</a>
+          <a href="/about" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">About Us</a>
         </li>
         <li>
-          <a href="#" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">Contact Us</a>
+          <a href="/contact" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">Contact Us</a>
         </li>
         <li>
           <a href="/login" class="inline-block rounded-full border border-current  ml-3 px-10 py-1 text-lg font-medium text-[#DD2120] transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-white hover:bg-[#DD2120] hover:text-white">Login</a>

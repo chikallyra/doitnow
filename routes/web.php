@@ -39,6 +39,16 @@ Route::get('/registrasi/mission', [RegistrasiController::class, 'regisMiss'])->m
 Route::post('/registrasi/company', [RegistrasiController::class, 'company'])->name('register.company');
 Route::post('/registrasi/user', [RegistrasiController::class, 'user'])->name('register.user');
 
+// About us
+Route::get('/about', function () {
+    return view('about');
+});
+
+// Contact us
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login.mail');
 Route::post('/login', [LoginController::class, 'submitEmail'])->name('login.getemail');

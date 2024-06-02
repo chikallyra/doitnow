@@ -11,11 +11,12 @@
                         <h1 class="text-3xl font-semibold text-red-600">Contact Us</h1>
                     </div>
                     
-                    <form>
+                    <form action="{{ route('question') }}" method="POST">
+                        @csrf
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
                             <div>
                                 <label for="Username" class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-red-600 focus-within:ring-1 focus-within:ring-red-600">
-                                <input type="text" id="Username" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Username" />
+                                <input type="text" name="first_name" id="Username" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Username" />
                                 <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xl text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-lg">
                                 First Name
                                 </span>
@@ -23,7 +24,7 @@
                             </div>
                             <div>
                                 <label for="Username" class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-red-600 focus-within:ring-1 focus-within:ring-red-600">
-                                <input type="text" id="Username" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Username" />
+                                <input type="text" name="last_name"" id="Username" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Username" />
                                 <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xl text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-lg">
                                 Last Name
                                 </span>
@@ -32,7 +33,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="email" class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-red-600 focus-within:ring-1 focus-within:ring-red-600">
-                            <input type="email" id="email" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Email" />
+                            <input type="email" name="email" id="email" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Email" />
                             <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xl text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-lg">
                             Email
                             </span>
@@ -40,7 +41,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="tel" class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-red-600 focus-within:ring-1 focus-within:ring-red-600">
-                            <input type="tel" id="tel" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Email" />
+                            <input type="tel" name="phone" id="tel" class="peer border-none bg-transparent placeholder-transparent py-3 focus:border-transparent focus:outline-none focus:ring-0  " required placeholder="Email" />
                             <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xl text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-lg">
                             Phone Number
                             </span>
@@ -48,7 +49,7 @@
                         </div>
                         <div class="mb-6 ">
                             <label for="message" class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-red-600 focus-within:ring-1 focus-within:ring-red-600">
-                              <textarea id="message" rows="2"  class="peer border-none bg-transparent placeholder-transparent py-3 px-4 focus:border-transparent focus:outline-none focus:ring-0 w-full" required placeholder="Message"></textarea>
+                              <textarea id="message" name="message" rows="2"  class="peer border-none bg-transparent placeholder-transparent py-3 px-4 focus:border-transparent focus:outline-none focus:ring-0 w-full" required placeholder="Message"></textarea>
                               <span class="pointer-events-none absolute left-3 top-0 -translate-y-1/2 bg-white px-1 text-xl text-gray-700 transition-all peer-placeholder-shown:top-1/4 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-lg">
                                 Message
                               </span>

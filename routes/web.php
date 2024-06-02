@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PlatformController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
@@ -45,9 +46,8 @@ Route::get('/about', function () {
 });
 
 // Contact us
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [QuestionController::class, 'index'])->name('contact');
+Route::post('/contact', [QuestionController::class, 'store'])->name('question');
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login.mail');

@@ -9,5 +9,5 @@ class Question extends Model
 {
     use HasFactory;
     //for commit
-    protected $guard = ['id'];
+    protected $guarded = ['id'];
 }

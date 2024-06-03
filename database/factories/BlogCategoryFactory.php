@@ -17,7 +17,8 @@ class BlogCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'desc' => $this->faker->word,
         ];
     }
 }

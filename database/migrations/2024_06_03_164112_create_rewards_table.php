@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('company_users', function (Blueprint $table) {
+        Schema::create('rewards', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('companies');
-            $table->foreignId('user_id')->constrained('users');
-            $table->tinyInteger('role'); //0:admin company; 1:supervision
+            $table->string('reward');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_users');
+        Schema::dropIfExists('rewards');
     }
 };

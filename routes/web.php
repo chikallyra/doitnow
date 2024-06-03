@@ -101,8 +101,11 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/platform', [PlatformController::class, 'index']);
 
 // Dashboard admin
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('create.blog');
+Route::get('/admin/dasboard', [DashboardController::class, 'index']);
+Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
+Route::get('/admin/dasboard/create', [DashboardController::class, 'create'])->name('create.blog');
+Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
+Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
 
 // Dashboard Company
 Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);

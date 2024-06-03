@@ -101,7 +101,7 @@
                 </div>
                 <!-- Team Member 6 -->
                 <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/profile.png" alt="Pak Tommy">
+                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/zilan.png" alt="Ahmad Zilan">
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Ahmad Zilan</h2>
                     <p class="text-gray-600 mb-4">Backend Development</p>
                     <a href="" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>

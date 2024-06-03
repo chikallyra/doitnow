@@ -32,8 +32,8 @@
     <x-head.tinymce-config/>
 </head>
 
-<body class=" bg-white h-[1000px]">
-    @include('dashboard.layouts.navbardashboard')
+<body class=" bg-white h-[1000px] ">
+    @include('admin.dasboard.layouts.navbardashboard')
     @yield('container')
 
         <script src="{{ asset('/sw.js') }}"></script>

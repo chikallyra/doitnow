@@ -1,7 +1,7 @@
 @extends('dashboardcompany.layouts.main')
 
 @section('container')
-<section class=" pt-64 " >
+<section class=" py-64  " >
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8 mx-8 ">
         <a href="{{ route('create.mission') }}">
              <div class="h-32 rounded-lg bg-white border-4 border-gray-300 hover:bg-gray-200">
@@ -18,7 +18,7 @@
                      <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                 </svg>
                             </div>
@@ -34,24 +34,24 @@
             </div>
 
             <div>
-                <div class="grid grid-cols-3 gap-4 lg:grid-cols-3 lg:gap-8 m-10">
+                <div class="grid grid-cols-3 gap-4 lg:grid-cols-3 lg:gap-8 p-8">
                     <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                             <div class="h-32 ">
                                 <img src="/img/misi.png" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
+                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
+                                <h2 class="text-black font-semibold text-xl truncate pt-1">Mission name</h2>
+                                <p class="text-sm text-gray-400">100 participant</p>
                                 <div class="flex justify-between">
                                     <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
                                         <h1 class="text-base text-center text-white font-bold">Rp</h1>
                                     </div>
                                     <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
+                                        <h1 class="text-2xl text-red-600 font-medium">rewards</h1>    
                                     </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
+                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">12 juni - 23 juni</h2>
                                 </div>
                             </div>
                           </div>
@@ -62,17 +62,17 @@
                                 <img src="/img/misi.png" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
+                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
+                                <h2 class="text-black font-semibold text-xl truncate pt-1">Mission name</h2>
+                                <p class="text-sm text-gray-400">100 participant</p>
                                 <div class="flex justify-between">
                                     <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
                                         <h1 class="text-base text-center text-white font-bold">Rp</h1>
                                     </div>
                                     <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
+                                        <h1 class="text-2xl text-red-600 font-medium">rewards</h1>    
                                     </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
+                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">12 juni - 23 juni</h2>
                                 </div>
                             </div>
                           </div>
@@ -83,17 +83,17 @@
                                 <img src="/img/misi.png" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
+                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
+                                <h2 class="text-black font-semibold text-xl truncate pt-1">Mission name</h2>
+                                <p class="text-sm text-gray-400">100 participant</p>
                                 <div class="flex justify-between">
                                     <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
                                         <h1 class="text-base text-center text-white font-bold">Rp</h1>
                                     </div>
                                     <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
+                                        <h1 class="text-2xl text-red-600 font-medium">rewards</h1>    
                                     </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
+                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">12 juni - 23 juni</h2>
                                 </div>
                             </div>
                           </div>
@@ -104,63 +104,22 @@
                                 <img src="/img/misi.png" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
+                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
+                                <h2 class="text-black font-semibold text-xl truncate pt-1">Mission name</h2>
+                                <p class="text-sm text-gray-400">100 participant</p>
                                 <div class="flex justify-between">
                                     <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
                                         <h1 class="text-base text-center text-white font-bold">Rp</h1>
                                     </div>
                                     <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
+                                        <h1 class="text-2xl text-red-600 font-medium">rewards</h1>    
                                     </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
+                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">12 juni - 23 juni</h2>
                                 </div>
                             </div>
                           </div>
                     </div>
-                    <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
-                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-                            <div class="h-32 ">
-                                <img src="/img/misi.png" class="w-full mt-3 " alt="">
-                            </div>
-                            <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
-                                <div class="flex justify-between">
-                                    <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
-                                        <h1 class="text-base text-center text-white font-bold">Rp</h1>
-                                    </div>
-                                    <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
-                                    </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                    <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
-                        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
-                            <div class="h-32 ">
-                                <img src="/img/misi.png" class="w-full mt-3 " alt="">
-                            </div>
-                            <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Sosial</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Follow @doitnow on Instagram</h2>
-                                <p class="text-sm text-gray-400">by doitnow</p>
-                                <div class="flex justify-between">
-                                    <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
-                                        <h1 class="text-base text-center text-white font-bold">Rp</h1>
-                                    </div>
-                                    <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">88.000</h1>    
-                                    </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">join mission</h2>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
+                    
                   </div>
             </div>
         </div>

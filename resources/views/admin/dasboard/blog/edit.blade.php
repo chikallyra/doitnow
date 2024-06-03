@@ -1,5 +1,8 @@
-<div>
-    <form action="{{ route('addBlog') }}" method="POST" enctype="multipart/form-data " class="mx-20 pt-10">
+@extends('admin.dasboard.layouts.maindashboard')
+
+@section('container')
+<div class="mt-52">
+    <form action="{{ route('addBlog') }}" method="POST" enctype="multipart/form-data " class="mx-20 pt-32">
         @csrf
         <div class="mb-6">
             <label for="title" class="block mb-2 text-xl font-medium text-gray-900 ">Title</label>
@@ -47,3 +50,6 @@
         
     </form>
 </div>
+
+    
+@endsection

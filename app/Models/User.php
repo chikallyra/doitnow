@@ -7,10 +7,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
+
+    public function companies(){
+        return $this->belongsToMany(Company::class, 'company_user')->withPivot('role')->withTimestamps();
+    }
+
+    public function missionaries(){
+        return $this->belongsTo(Missionary::class);
+    }
 
     /**
      * The attributes that are mass assignable.

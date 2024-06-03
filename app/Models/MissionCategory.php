@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class MissionCategory extends Model
 {
     use HasFactory;
-    //for commit
+    
+    public function missions() {
+        return $this->hasMany(Mission::class);
+    }
+
     protected $guard = ['id'];
 }

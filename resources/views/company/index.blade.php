@@ -1,4 +1,4 @@
-@extends('dashboardcompany.layouts.main')
+@extends('company.dashboardcompany.layouts.main')
 
 @section('container')
 <section class=" py-64  " >

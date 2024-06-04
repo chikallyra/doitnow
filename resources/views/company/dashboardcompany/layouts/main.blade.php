@@ -33,7 +33,7 @@
 </head>
 
 <body class=" bg-white h-full">
-    @include('dashboardcompany.layouts.navbar')
+    @include('company.dashboardcompany.layouts.navbar')
     @yield('container')
 
         <script src="{{ asset('/sw.js') }}"></script>

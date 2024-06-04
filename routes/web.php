@@ -65,15 +65,20 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 
 //Auth Company
 Route::middleware(['auth', 'user-access:company'])->group(function () {
-  
-    Route::get('/company/home', [HomeController::class, 'companyHome'])->name('company.home');
+
+    // Dashboard Company
+    Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index'])->name('company.index');
+    Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
 });
 
 //Auth Admin
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    Route::post('/admin/add', [BlogController::class, 'store'])->name('addBlog');
+    // Dashboard admin
+    Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
+    Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
+    Route::get('/admin/dasboard/create', [DashboardController::class, 'create'])->name('create.blog');
+    Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
+    Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
 
 });
 
@@ -101,7 +106,7 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/platform', [PlatformController::class, 'index']);
 
 // Dashboard admin
-Route::get('/admin/dasboard', [DashboardController::class, 'index']);
+Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
 Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
 Route::get('/admin/dasboard/create', [DashboardController::class, 'create'])->name('create.blog');
 Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');

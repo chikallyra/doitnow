@@ -10,7 +10,10 @@
                     <div class="text-black font-bold text-xl">John Doe</div> 
                     <p class="text-sm">ADMIN</p>    
                 </div>
-                <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-base px-5 py-2.5 text-center ml-5  dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Logout</button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-base px-5 py-2.5 text-center ml-5  dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Logout</button>
+            </form>
             </div>
         </div>
     </div>

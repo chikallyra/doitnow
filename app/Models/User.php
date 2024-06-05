@@ -14,12 +14,12 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function company(){
-        return $this->belongsTo(Company::class);
+        return $this->hasOne(Company::class);
     }
 
     public function companies(){
-        return $this->belongsToMany(Company::class, 'company_user')->withPivot('role')->withTimestamps();
-    }
+        return $this->belongsToMany(Company::class, 'company_users')->withPivot('role')->withTimestamps();
+    }    
 
     public function missionaries(){
         return $this->belongsTo(Missionary::class);
@@ -36,7 +36,8 @@ class User extends Authenticatable
         'email',
         'password',
         'type',
-        'phone'
+        'phone', 
+        'is_banned'
     ];
 
     /**
@@ -56,6 +57,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_banned' => 'boolean'
     ];
 
     protected function type(): Attribute

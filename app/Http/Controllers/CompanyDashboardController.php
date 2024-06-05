@@ -14,7 +14,7 @@ class CompanyDashboardController extends Controller
     // create
     public function create()
     {
-        return view('dashboardcompany.create', [
+        return view('company.dashboardcompany.create', [
         ]);
     }
 }

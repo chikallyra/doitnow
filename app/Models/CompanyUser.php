@@ -14,4 +14,6 @@ class CompanyUser extends Pivot
         'user_id',
         'role',
     ];
+
+    
 }

@@ -22,8 +22,8 @@ class Company extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(Company::class, 'company_user')->withPivot('role')->withTimestamps();
-    }
+        return $this->belongsToMany(User::class, 'company_users')->withPivot('role')->withTimestamps();
+    }    
 
     protected $guarded = ['id'];
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Mission;
 use App\Http\Requests\StoreMissionRequest;
 use App\Http\Requests\UpdateMissionRequest;
+use App\Models\MissionCategory;
+use App\Models\Reward;
 
 class MissionController extends Controller
 {
@@ -25,7 +27,10 @@ class MissionController extends Controller
      */
     public function create()
     {
-        //
+        $rewards = Reward::all();
+        $category = MissionCategory::all();
+        dd($category);
+        return view('company.dashboardcompany.create', compact('rewards', 'category'));
     }
 
     /**

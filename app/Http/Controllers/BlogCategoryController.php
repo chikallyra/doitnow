@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BlogCategory;
 use App\Http\Requests\StoreBlogCategoryRequest;
 use App\Http\Requests\UpdateBlogCategoryRequest;
+use App\Models\Blog;
+use App\Models\Reward;
 
 class BlogCategoryController extends Controller
 {
@@ -15,7 +17,10 @@ class BlogCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = BlogCategory::all();
+        $rewards = Reward::all();
+        $blogs = Blog::all();
+        return view('admin.dasboard.category', compact('category', 'rewards', 'blogs'));
     }
 
     /**

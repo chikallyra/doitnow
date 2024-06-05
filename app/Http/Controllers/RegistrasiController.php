@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Company;
+
+use App\Models\CompanyUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -37,7 +41,18 @@ class RegistrasiController extends Controller
             'phone' => $request->phone
         ]);
 
-        // auth()->login($user);
+        $company = Company::create([
+            'user_id' => $user->id,
+            'name' => $request->name
+        ]);
+
+        $company->users()->attach($user->id, ['role' => 0]);
+
+        // CompanyUser::create([
+        //     'user_id' => $user->id,
+        //     'company_id' => $company->id,
+        //     'role' => 0
+        // ]);
 
         return redirect()->route('login.mail')->with('success', 'Account successfully created! Please log in.');
     }

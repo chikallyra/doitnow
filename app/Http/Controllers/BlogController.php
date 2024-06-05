@@ -9,7 +9,7 @@ use App\Http\Requests\UpdateBlogRequest;
 use App\Models\BlogCategory;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
-use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 
 
@@ -179,6 +179,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+    $blog->delete();
+
+    return redirect('/admin/dashboard/blog')->with('success', 'Post has been deleted!');
     }
 }

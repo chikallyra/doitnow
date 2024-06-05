@@ -89,7 +89,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('/admin/dashboard/store', [BlogController::class, 'store'])->name('blog.store');
     Route::get('/admin/{blog}/blog/edit', [BlogController::class, 'edit'])->name('edit.blog');
     Route::put('/admin/{blog}/blog/update', [BlogController::class, 'update'])->name('update.blog');
-    Route::put('/admin/{id}/blog/destroy', [BlogController::class, 'destroy'])->name('destroy.blog');
+    Route::delete('/admin/{blog}/blog/destroy', [BlogController::class, 'destroy'])->name('destroy.blog');
 
     // Ban & Unban User
     Route::put('/admin/user/{user}/ban', [UserController::class, 'banUser'])->name('user.ban');

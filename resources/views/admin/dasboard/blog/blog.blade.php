@@ -52,23 +52,24 @@
                         <td class="px-6 py-4 border-2 border-black">
                             {{ $blog->excerpt }}
                         </td>
-                        <td class="px-6 py-4 border-2 border-black  ">
-                            <div class="grid grid-cols-3 ">
-                            <form onsubmit="return confirm('Are You Sure?');" action={{ route('destroy.blog', $blog->id) }}" method="POST">
-                                <div>
-                                    <a href="{{ route('blog.show', $blog->slug) }}"><i class="far fa-eye hover:text-green-500"></i></a> 
-                                </div>
-                                <div class="">
-                                    <a href="{{ route('edit.blog', $blog->id) }}"><i class="far fa-edit hover:text-yellow-500"></i></a>
-                                </div>
-                                <div>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"><i class="far fa-trash-alt hover:text-red-500"></i></button>
-                                </div>
-                            </form>
+                        <td class="px-6 py-4 border-2 border-black">
+                            <div class="grid grid-cols-3">
+                                <form onsubmit="return confirm('Are You Sure?');" action="{{ route('destroy.blog', $blog->id) }}" method="POST">
+                                    <div>
+                                        <a href="{{ route('blog.show', $blog->slug) }}"><i class="far fa-eye hover:text-green-500"></i></a> 
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('edit.blog', $blog->id) }}"><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                    </div>
+                                    <div>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"><i class="far fa-trash-alt hover:text-red-500"></i></button>
+                                    </div>
+                                </form>
                             </div>
                         </td>
+                        
                     </tr>
                     @endforeach
                 </tbody>

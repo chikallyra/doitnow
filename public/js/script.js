@@ -78,6 +78,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// copy
+function copyText() {
+    // Get the input field
+    var copyText = document.getElementById("myInput");
+
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value)
+        .then(() => {
+            alert("Text copied to clipboard: " + copyText.value);
+        })
+        .catch(err => {
+            console.error("Failed to copy text: ", err);
+        });
+}
+
+// referral code
+function copyReferralCode() {
+    const referralCode = 'ABCD-1234-EFGH';
+    navigator.clipboard.writeText(referralCode).then(() => {
+        const message = document.getElementById('copy-message');
+        message.classList.remove('hidden');
+        setTimeout(() => {
+            message.classList.add('hidden');
+        }, 2000);
+    });
+}
 
 
 

@@ -104,6 +104,8 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // platform
 Route::get('/platform', [PlatformController::class, 'index']);
+Route::get('/platform/misi', [PlatformController::class, 'misi'])->name('platform.misi');
+Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
 
 // Dashboard admin
 Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');

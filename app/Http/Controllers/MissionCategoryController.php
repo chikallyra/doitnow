@@ -13,9 +13,9 @@ class MissionCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function categories()
     {
-        //
+        return view('admin.dasboard.categories.categories');
     }
 
     /**
@@ -25,7 +25,7 @@ class MissionCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dasboard.categories.create');
     }
 
     /**
@@ -34,10 +34,10 @@ class MissionCategoryController extends Controller
      * @param  \App\Http\Requests\StoreMissionCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMissionCategoryRequest $request)
-    {
-        //
-    }
+    // public function store(StoreMissionCategoryRequest $request)
+    // {
+    //     //
+    // }
 
     /**
      * Display the specified resource.
@@ -45,10 +45,10 @@ class MissionCategoryController extends Controller
      * @param  \App\Models\MissionCategory  $missionCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(MissionCategory $missionCategory)
-    {
-        //
-    }
+    // public function show(MissionCategory $missionCategory)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +58,7 @@ class MissionCategoryController extends Controller
      */
     public function edit(MissionCategory $missionCategory)
     {
-        //
+        return view('admin.dasboard.categories.edit');
     }
 
     /**

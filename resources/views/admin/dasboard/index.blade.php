@@ -1,25 +1,59 @@
 @extends('admin.dasboard.layouts.maindashboard')
 
 @section('container')
-    <section class="bg-white pt-24">
-        <div class=" bg-red-600 h-72">
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-32 mx-96 pt-20">
-                <a href="">
-                    <div class="h-44 rounded-lg bg-white hover:bg-gray-200 shadow-lg shadow-gray-600 hover:shadow-gray-800">
-                        <div class="flex justify-center items-center pt-5">
-                            <img src="/img/user.png" alt="">
+    <section class="bg-white ">
+        <h1 class="ml-10 py-10 text-4xl font-bold text-slate-900 ">Welcome Back, Admin</h1>
+        <div class=" flex justify-start items-center">
+            <div class="grid grid-cols-4 gap-2 lg:grid-cols-4 lg:gap-8 mt-10 lg:mx-10 mx-5  ">
+                <a href="" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
+                        <div class="flex justify-center items-center mt-4">
+                            <div class="bg-[#F9D2BC] rounded-full h-14 w-14">
+                                <div class="flex justify-center items-center">
+                                    <i class="fas fa-user text-4xl pt-2 text-red-600"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h1 class="text-center text-black mt-3 text-xl">User Monitoring</h1>
+                        <h1 class="text-center text-black font-medium  text-base px-2 pt-1 ">User Monitoring</h1>
                     </div>
                 </a>
-                <a href="{{ route('table.blog') }}">
-                    <div class="h-44 rounded-lg bg-white hover:bg-gray-200 shadow-lg shadow-gray-600 hover:shadow-gray-800">
-                        <div class="flex justify-center items-center pt-5">
-                            <img src="/img/blog_d.png" alt="">
+                <a href="{{ route('table.blog') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
+                        <div class="flex justify-center items-center mt-4">
+                            <div class="bg-[#F9D2BC] rounded-full h-14 w-14">
+                                <div class="flex justify-center items-center">
+                                    <i class="fab fa-blogger-b text-4xl  text-red-600 p-2"></i>
+                                </div>
+                            </div>
                         </div>
-                        <h1 class="text-center text-black mt-3 text-xl">Blog Content</h1>
+                        <h1 class="text-center text-black font-medium  text-base px-2 pt-3">Blog Content</h1>
                     </div>
                 </a>
+                <a href="{{ route('categories.home') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
+                        <div class="flex justify-center items-center mt-4">
+                            <div class="bg-[#F9D2BC] rounded-full h-14 w-14">
+                                <div class="flex justify-center items-center">
+                                    <i class="fas fa-th-large text-4xl pt-2 text-red-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-center text-black font-medium  text-base px-2 pt-1 ">Categories</h1>
+                    </div>
+                </a>
+                <a href="{{ route('question.home') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
+                        <div class="flex justify-center items-center mt-4">
+                            <div class="bg-[#F9D2BC] rounded-full h-14 w-14">
+                                <div class="flex justify-center items-center">
+                                    <i class="far fa-question-circle  text-4xl pt-2 text-red-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-center text-black font-medium  text-base px-2 pt-1 ">Question</h1>
+                    </div>
+                </a>
+                
                 
             </div>
         </div>

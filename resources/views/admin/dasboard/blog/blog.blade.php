@@ -2,7 +2,7 @@
 
 @section('container')
  <section>
-    <div class="mx-10 pt-32 pb-20">
+    <div class="mx-10 pt-24 pb-20">
         <h1 class="text-red-600 font-bold text-5xl mb-12">Blog Content</h1>
         <a href="{{ route('blog.create') }}" class="bg-red-400 py-1.5 px-5 text-lg text-white font-semibold rounded-lg shadow-md shadow-slate-400 hover:bg-red-600  "> + Create Blog</a>
                 

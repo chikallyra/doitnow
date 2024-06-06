@@ -8,8 +8,10 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompanyDashboardController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardQuestionsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MissionCategoryController;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\QuestionController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
+use App\Models\MissionCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,11 +93,18 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/{blog}/blog/edit', [BlogController::class, 'edit'])->name('edit.blog');
     Route::put('/admin/{blog}/blog/update', [BlogController::class, 'update'])->name('update.blog');
     Route::delete('/admin/{blog}/blog/destroy', [BlogController::class, 'destroy'])->name('destroy.blog');
-
+    // CMS Question
+    Route::get('/admin/dashboard/question', [QuestionController::class, 'question'])->name('question.home');
+    Route::get('/admin/dashboard/show', [QuestionController::class, 'show'])->name('question.show');
+    // CMS Categories
+    Route::get('/admin/dashboard/categories', [MissionCategoryController::class, 'categories'])->name('categories.home');
+    Route::get('/admin/dashboard/create', [MissionCategoryController::class, 'create'])->name('categories.create');
+    Route::get('/admin/dashboard/edit', [MissionCategoryController::class, 'edit'])->name('categories.edit');
     // Ban & Unban User
     Route::put('/admin/user/{user}/ban', [UserController::class, 'banUser'])->name('user.ban');
     Route::put('/admin/user/{user}/unban', [UserController::class, 'unbanUser'])->name('user.unban');
 });
+
 
 // untuk blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');

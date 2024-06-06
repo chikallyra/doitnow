@@ -18,16 +18,26 @@ class QuestionController extends Controller
     {
         return view('contact');
     }
+    public function question()
+    {
+        return view('admin.dasboard.question.question');
+    }
+
+    // show
+    public function show()
+    {
+        return view('admin.dasboard.question.show');
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -55,10 +65,10 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
-    {
-        //
-    }
+    // public function show(Question $question)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -66,10 +76,10 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question)
-    {
-        //
-    }
+    // public function edit(Question $question)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -78,10 +88,10 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateQuestionRequest $request, Question $question)
-    {
-        //
-    }
+    // public function update(UpdateQuestionRequest $request, Question $question)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -89,8 +99,8 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
-    {
-        //
-    }
+    // public function destroy(Question $question)
+    // {
+    //     //
+    // }
 }

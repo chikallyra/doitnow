@@ -1,4 +1,4 @@
-@extends('dashboardcompany.layouts.main')
+@extends('company.dashboardcompany.layouts.main')
 @section('container')
 <section class=" pt-64 pb-10" >
     <form action="">
@@ -16,13 +16,13 @@
                 <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-1 mx-10 mb-8">
                     {{-- add foto --}}
                     <div class=" mt-8  ">
-                        <form class="inline-flex justify-center items-center"> 
+                        <form action="{{ route('mission.store') }}" method="POST" class="inline-flex justify-center items-center"> 
+                            @csrf
                             <div class="image-upload-wrapper @apply relative w-64 h-64 border-2 border-dashed border-gray-300 flex ml-14 items-center justify-center rounded-lg ">
                             <img src="/path/to/your/image-placeholder.jpeg" alt="Edit Picture" class="image-upload-placeholder @apply absolute w-12 h-12" />
-                            <input type="file" accept="image/*" class="@apply absolute w-full h-full opacity-0 cursor-pointer" />
+                            <input type="file" name="image" accept="image/*" class="@apply absolute w-full h-full opacity-0 cursor-pointer" />
                             </div>
                             <h2 class="mt-3 text-center  mr-4 text-lg font-medium text-red-500">Edit Picture</h2>
-                        </form>
                     </div>
                     {{-- end add foto --}}
 
@@ -30,14 +30,16 @@
                     <div class=" lg:col-span-2 mt-8">
                         <div class="mb-4">
                             <label for="mission_name" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Name</label>
-                            <input type="text" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 " placeholder="Name of mission" required />
+                            <input type="text" name="title" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 " placeholder="Name of mission" required />
                         </div>
                             
                             <h1 class="mb-2 text-lg font-medium text-black ml-1">Category</h1>
+                            
                             <fieldset class="flex flex-wrap gap-3">
                                 
                                 <legend class="sr-only text-black"></legend>
-                            
+                                @if (isset($category))
+                                @foreach ($categories as $category)
                                 <div>
                                 <label
                                     for="ColorBlack"
@@ -47,12 +49,16 @@
                                     name="ColorOption"
                                     value="ColorBlack"
                                     id="ColorBlack"
-                                    class="sr-only"
+                                    class="sr-only" 
+                                    value="{{ $category->id }}"
                                     checked/>                         
-                                    <p class="text-sm font-medium uppercase tracking-widest">social</p>
+                                    <p class="text-sm font-medium uppercase tracking-widest">{{ $category->name }}</p>
                                 </label>
                                 </div>
-                            
+                                @endforeach
+                                @else
+                                <p>Category not defined</p>
+                                @endif
                                 <div>
                                 <label
                                     for="ColorRed"
@@ -152,6 +158,7 @@
                   <div class="flex justify-end items-end">
                     <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-lg px-10 py-2.5 me-2 mb-5 mr-10 ">Create Mission</button>
                 </div>
+            </form>
                 {{-- tombol --}}           
         </div>
     </form>

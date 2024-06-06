@@ -1,17 +1,22 @@
 <?php
+
+use App\Http\Controllers\BlogCategoryController;
 use App\Models\Blog;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompanyDashboardController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +38,10 @@ Route::get('/blog/index', function () {
     $blog3 = Blog::latest()->paginate(3);
     return view('blog.index', compact('blog3'));
 })->name('blog.index');
+
+Route::get('/buatblog', function(){
+    return view('tambah-blog');
+});
 
 // Registrasi
 Route::get('/registrasi', [RegistrasiController::class, 'regisCompany'])->middleware(['guest'])->name('register.com');
@@ -56,9 +65,8 @@ Route::post('/login', [LoginController::class, 'submitEmail'])->name('login.gete
 Route::get('/login/password', [LoginController::class, 'password'])->name('login.password');
 Route::post('/login/password', [LoginController::class, 'login'])->name('login');
 
-
 //Auth User
-Route::middleware(['auth', 'user-access:user'])->group(function () {
+Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
@@ -67,20 +75,32 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 Route::middleware(['auth', 'user-access:company'])->group(function () {
 
     // Dashboard Company
-    Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index'])->name('company.index');
-    Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
+    Route::get('/dashboard/company', [CompanyDashboardController::class, 'index'])->name('company');
+    Route::get('/company/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
+    Route::get('/dashboardcompany/mission', [MissionController::class, 'store'])->name('mission.store');
 });
 
 //Auth Admin
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    // Dashboard admin
-    Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
-    Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
-    Route::get('/admin/dasboard/create', [DashboardController::class, 'create'])->name('create.blog');
-    Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
-    Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
+    //CMS Blog
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin');
+    Route::get('/admin/dashboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
+    Route::get('/admin/dashboard/create', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/admin/dashboard/store', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/admin/{blog}/blog/edit', [BlogController::class, 'edit'])->name('edit.blog');
+    Route::put('/admin/{blog}/blog/update', [BlogController::class, 'update'])->name('update.blog');
+    Route::delete('/admin/{blog}/blog/destroy', [BlogController::class, 'destroy'])->name('destroy.blog');
 
+    // Ban & Unban User
+    Route::put('/admin/user/{user}/ban', [UserController::class, 'banUser'])->name('user.ban');
+    Route::put('/admin/user/{user}/unban', [UserController::class, 'unbanUser'])->name('user.unban');
 });
+
+// untuk blog
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::post('/admin/dashboard/store', [BlogController::class, 'store'])->name('blog.store');
+
 
 
 // Untuk redirect ke Google
@@ -98,25 +118,23 @@ Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
 
-// untuk blog
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-
 // platform
 Route::get('/platform', [PlatformController::class, 'index']);
 Route::get('/platform/misi', [PlatformController::class, 'misi'])->name('platform.misi');
 Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
 
-// Dashboard admin
-Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
-Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
-Route::get('/admin/dasboard/create', [DashboardController::class, 'create'])->name('create.blog');
-Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
-Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
+// // Dashboard admin
+// Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
+// Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
+// Route::get('/admin/dasboard/create', [BlogController::class, 'create'])->name('create.blog');
+// Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
+// Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
 
-// Dashboard Company
-Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
-Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
+// // Dashboard Company
+// Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
+// Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
 
 // untuk statistik
 Route::get('/stat', [StatController::class, 'index'])->name('stat');
+
+Route::get('/catego', [BlogCategoryController::class, 'index']);

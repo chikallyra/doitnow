@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    //for commit
+
     protected $guard = ['id'];
 
     public function blogCategory() {
-        return $this->belongsTo(BlogCategory::class);
+        return $this->belongsTo(BlogCategory::class, 'blog_category_id');
     }
 }

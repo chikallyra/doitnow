@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class UserAccess
+class CheckUserBanned
 {
     /**
      * Handle an incoming request.
@@ -14,15 +14,14 @@ class UserAccess
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $userType)
+    public function handle(Request $request, Closure $next)
     {
-        if(auth()->check()) {
-            if(auth()->user()->type == $userType){
-                return $next($request);
-            }
+        if (auth()->check() && auth()->user()->is_banned) {
+            auth()->logout();
+
+            return redirect()->route('login.mail')->with('error', 'Your account has been banned.');
         }
 
-        return response()->json(['You do not have permission to access for this page.']);
-        /* return response()->view('errors.check-permission'); */
+        return $next($request);
     }
 }

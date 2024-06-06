@@ -53,7 +53,7 @@ class LoginController extends Controller
             if (Auth::user()->type == 'admin') {
                 return redirect()->route('admin');
             } elseif (Auth::user()->type == 'company') {
-                return redirect()->route('company.index');
+                return redirect()->route('company');
             } else {
                 return redirect()->route('home');
             }

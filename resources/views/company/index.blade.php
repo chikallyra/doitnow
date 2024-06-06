@@ -1,8 +1,9 @@
 @extends('company.dashboardcompany.layouts.main')
 
 @section('container')
-<section class=" py-64  " >
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8 mx-8 ">
+<section class=" py-64 ">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-8 mx-8">
+        @if(auth()->user()->role == 0 || auth()->user()->role == 1)
         <a href="{{ route('create.mission') }}">
              <div class="h-32 rounded-lg bg-white border-4 border-gray-300 hover:bg-gray-200">
                  <div class="flex justify-center items-center">
@@ -11,6 +12,7 @@
                  <h1 class="text-center mt-2 text-black">Create Mission</h1>
              </div>
         </a>
+        @endif
         <div class="h-full rounded-lg bg-white border-4 border-gray-300">
             <div class="flex justify-between mx-5 mt-5">
                  <h1 class="text-black text-3xl uppercase font-medium">your mission</h1>                

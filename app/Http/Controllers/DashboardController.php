@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\admin;
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,10 +17,13 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index () {
-        return view('admin.dasboard.index');
+        $users = User::where('type', 0)->get();
+        return view('admin.dasboard.index', compact('users'));
     }
+    
     public function blog() {
-        return view('admin.dasboard.blog.blog');
+        $blogs = Blog::with('blogCategory')->get();
+        return view('admin.dasboard.blog.blog', compact('blogs'));
     }
 
     /**
@@ -25,10 +31,6 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-    return view('admin.dasboard.blog.create', [
-    ]);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -47,11 +49,6 @@ class DashboardController extends Controller
      * @param  \App\Models\admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(admin $admin)
-    {
-        return view('admin.dasboard.blog.show', [
-        ]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -59,11 +56,6 @@ class DashboardController extends Controller
      * @param  \App\Models\admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(admin $admin)
-    {
-        return view('admin.dasboard.blog.create', [
-        ]);
-    }
 
     /**
      * Update the specified resource in storage.

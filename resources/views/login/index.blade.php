@@ -23,6 +23,13 @@
           </div>
       @endif
 
+      @if (session()->has('error'))
+          <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-300" role="alert">
+              {{ session('error') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      @endif
+
         <div class="max-w-md px-8 py-6 bg-white bg-opacity-30 border-2 border-gray-200 rounded-lg shadow-xl shadow-slate-300 sm:p-6 md:p-8 w-full mt-6 lg:ml-20 lg:w-full">
             <form class="space-y-5" action="{{ route('login.getemail') }}" method="POST">
                 @csrf

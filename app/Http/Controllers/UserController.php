@@ -20,4 +20,16 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'User has been unbanned.');
     }
+
+    public function edit(User $user) {
+        return view('admin.dasboard.edituser', compact('user'));
+    }
+    public function update(Request $request, User $user) {
+        $validatedData = $request->validate([
+            'name' => 'required'
+        ]);
+
+    $user->update($validatedData);
+    return redirect('/admin/dashboard')->with('success', 'Data has been updated');
+    }
 }

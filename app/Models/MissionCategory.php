@@ -13,5 +13,8 @@ class MissionCategory extends Model
         return $this->hasMany(Mission::class);
     }
 
-    protected $guard = ['id'];
+    protected $fillable = [
+        'name',
+        'desc'
+    ];
 }

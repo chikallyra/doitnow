@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogCategory;
 use App\Http\Requests\StoreBlogCategoryRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateBlogCategoryRequest;
 use App\Models\Blog;
 use App\Models\Reward;
@@ -30,7 +31,7 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dasboard.categories.createblog');
     }
 
     /**
@@ -39,9 +40,16 @@ class BlogCategoryController extends Controller
      * @param  \App\Http\Requests\StoreBlogCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBlogCategoryRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'desc' => 'required'
+        ]);
+
+        BlogCategory::create($validatedData);
+
+        return redirect('admin/dashboard/categories')->with('success', 'Category added!');
     }
 
     /**
@@ -86,6 +94,9 @@ class BlogCategoryController extends Controller
      */
     public function destroy(BlogCategory $blogCategory)
     {
-        //
+    $blogCategory->delete();
+
+    return redirect('admin/dashboard/categories')->with('success', 'Data has been deleted');
     }
+
 }

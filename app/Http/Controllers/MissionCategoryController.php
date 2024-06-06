@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\MissionCategory;
 use App\Http\Requests\StoreMissionCategoryRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateMissionCategoryRequest;
+use App\Models\BlogCategory;
 
 class MissionCategoryController extends Controller
 {
@@ -15,7 +17,9 @@ class MissionCategoryController extends Controller
      */
     public function categories()
     {
-        return view('admin.dasboard.categories.categories');
+        $missions =  MissionCategory::all();
+        $blogs = BlogCategory::all();
+        return view('admin.dasboard.categories.categories', compact('missions', 'blogs'));
     }
 
     /**
@@ -34,10 +38,18 @@ class MissionCategoryController extends Controller
      * @param  \App\Http\Requests\StoreMissionCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(StoreMissionCategoryRequest $request)
-    // {
-    //     //
-    // }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|min:2',
+            'desc' => 'required'
+        ]);
+
+        MissionCategory::create($validatedData);
+
+        return redirect('admin/dashboard/categories')->with('success', 'Category added!');
+    }
 
     /**
      * Display the specified resource.
@@ -58,7 +70,7 @@ class MissionCategoryController extends Controller
      */
     public function edit(MissionCategory $missionCategory)
     {
-        return view('admin.dasboard.categories.edit');
+        return view('admin.dasboard.categories.edit', compact('missionCategory'));
     }
 
     /**
@@ -81,6 +93,8 @@ class MissionCategoryController extends Controller
      */
     public function destroy(MissionCategory $missionCategory)
     {
-        //
+        $missionCategory->delete();
+
+        return redirect('admin/dashboard/categories')->with('success', 'Data has been deleted');
     }
 }

@@ -20,13 +20,8 @@ class QuestionController extends Controller
     }
     public function question()
     {
-        return view('admin.dasboard.question.question');
-    }
-
-    // show
-    public function show()
-    {
-        return view('admin.dasboard.question.show');
+        $questions = Question::all();
+        return view('admin.dasboard.question.question', compact('questions'));
     }
 
     /**
@@ -65,10 +60,11 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    // public function show(Question $question)
-    // {
-    //     //
-    // }
+    public function show(Question $question)
+    {
+
+        return view('admin.dasboard.question.show', compact('question'));
+    }
 
     /**
      * Show the form for editing the specified resource.

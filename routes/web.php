@@ -93,16 +93,29 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/{blog}/blog/edit', [BlogController::class, 'edit'])->name('edit.blog');
     Route::put('/admin/{blog}/blog/update', [BlogController::class, 'update'])->name('update.blog');
     Route::delete('/admin/{blog}/blog/destroy', [BlogController::class, 'destroy'])->name('destroy.blog');
+
     // CMS Question
     Route::get('/admin/dashboard/question', [QuestionController::class, 'question'])->name('question.home');
-    Route::get('/admin/dashboard/show', [QuestionController::class, 'show'])->name('question.show');
-    // CMS Categories
+    Route::get('/admin/question/{question}/show', [QuestionController::class, 'show'])->name('question.show');
+
+    // CMS Mission Categories
     Route::get('/admin/dashboard/categories', [MissionCategoryController::class, 'categories'])->name('categories.home');
-    Route::get('/admin/dashboard/create', [MissionCategoryController::class, 'create'])->name('categories.create');
-    Route::get('/admin/dashboard/edit', [MissionCategoryController::class, 'edit'])->name('categories.edit');
+    Route::get('/admin/dashboard/create/mcategories', [MissionCategoryController::class, 'create'])->name('mcategories.create');
+    Route::post('/admin/dashboard/store/mcategories', [MissionCategoryController::class, 'store'])->name('mcategories.store');
+    Route::get('/admin/{missionCategory}/dashboard/edit', [MissionCategoryController::class, 'edit'])->name('mcategories.edit');
+    Route::delete('/admin/{missionCategory}/dashboard/delete', [MissionCategoryController::class, 'destroy'])->name('mcategories.delete');
+
+    // CMS Blog Categories
+    Route::get('/admin/dashboard/create/bcategories', [BlogCategoryController::class, 'create'])->name('bcategories.create');
+    Route::post('/admin/dashboard/store/bcategories', [BlogCategoryController::class, 'store'])->name('bcategories.store');
+    Route::get('/admin/{id}/dashboard/bedit', [BlogCategoryController::class, 'edit'])->name('bcategories.edit');
+    Route::delete('/admin/{blogCategory}/dashboard/delete', [BlogCategoryController::class, 'destroy'])->name('bcategories.delete');
+
     // Ban & Unban User
     Route::put('/admin/user/{user}/ban', [UserController::class, 'banUser'])->name('user.ban');
     Route::put('/admin/user/{user}/unban', [UserController::class, 'unbanUser'])->name('user.unban');
+    Route::get('/admin/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/admin/user/{user}/update', [UserController::class, 'update'])->name('user.update');
 });
 
 

@@ -127,18 +127,18 @@
                                 <td class="px-6 py-4">
                                     <div class="grid grid-cols-4 gap-4">
                                         <!-- View Button -->
-                                        {{-- <div>
+                                        <div>
                                             <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
                                         </div>
                                         
                                         <!-- Edit Button -->
                                         <div>
-                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
+                                            <a href="{{ route('user.edit', $user->id) }}"><i class="far fa-edit hover:text-yellow-500"></i></a>
                                         </div>
                                         
                                         <!-- Delete Button -->
                                         <div>
-                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a> --}}
+                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
                                         </div>
                                         
                                         <!-- Ban/Unban Button -->

@@ -3,18 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mission;
+use App\Models\Missionary;
+use App\Models\MissionCategory;
+use App\Models\Reward;
 use Illuminate\Http\Request;
 
 class CompanyDashboardController extends Controller
 {
     public function index () {
-        return view('company.index');
+        $missions = Mission::with('reward')->get();
+        
+        foreach($missions as $mission){
+            $mission->start_date = \Carbon\Carbon::parse($mission->start_date)->format('d M');
+            $mission->end_date = \Carbon\Carbon::parse($mission->end_date)->format('d M');
+        }
+        return view('company.index', compact('missions'));
     }
 
     // create
     public function create()
     {
-        return view('company.dashboardcompany.create', [
-        ]);
+        $categories = MissionCategory::pluck('name', 'id');
+        $rewards = Reward::all();
+        return view('company.dashboardcompany.create', compact('categories', 'rewards'));
     }
 }

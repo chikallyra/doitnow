@@ -3,7 +3,7 @@
     <div class="pt-24">
         <div class="container mx-auto">
             <div class="bg-white shadow-md rounded-lg p-6">
-                <h2 class="text-4xl font-bold mb-6 text-center text-red-600">Edit Category</h2>
+                <h2 class="text-4xl font-bold mb-6 text-center text-red-600">Edit User</h2>
                 <form action="{{ route('user.update', $user->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -18,14 +18,14 @@
                     <div class="mb-4">
                         <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                         <input type="text" id="category" name="category" value="{{ $user->email }}" placeholder="Masukkan kategori"
-                               class="shadow appearance-none bg-white border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
+                               class="shadow appearance-none bg-gray-100 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
                     </div>
 
                     <!-- Phone -->
                     <div class="mb-4">
-                        <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Phone:</label>
                         <input type="text" id="category" name="category" value="{{ $user->phone }}" placeholder="Masukkan kategori"
-                               class="shadow appearance-none bg-white border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
+                               class="shadow appearance-none bg-gray-100 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" disabled>
                     </div>
                     
                     {{-- <!-- Phone -->

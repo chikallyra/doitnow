@@ -38,25 +38,27 @@
             <div>
                 <div class="grid grid-cols-3 gap-4 lg:grid-cols-3 lg:gap-8 p-8">
                     <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
+                        @foreach ($missions as $mission)
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                             <div class="h-32 ">
-                                <img src="/img/misi.png" class="w-full mt-3 " alt="">
+                                <img src="{{ asset('storage/' . $mission->image) }}" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
                                 <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
-                                <h2 class="text-black font-semibold text-xl truncate pt-1">Mission name</h2>
-                                <p class="text-sm text-gray-400">100 participant</p>
+                                <h2 class="text-black font-semibold text-xl truncate pt-1">{{ $mission->title }}</h2>
+                                <p class="text-sm text-gray-400">{{ $mission->max_missionaries }}</p>
                                 <div class="flex justify-between">
                                     <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10   ">
                                         <h1 class="text-base text-center text-white font-bold">Rp</h1>
                                     </div>
                                     <div class="flex justify-center items-center  -ml-4">
-                                        <h1 class="text-2xl text-red-600 font-medium">rewards</h1>    
+                                        <h1 class="text-2xl text-red-600 font-medium">{{ $mission->reward->reward }}</h1>    
                                     </div>
-                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">12 juni - 23 juni</h2>
+                                    <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 uppercase text-[12px] text-center py-1 font-medium">{{ $mission->start_date }} - {{ $mission->end_date }}</h2>
                                 </div>
                             </div>
                           </div>
+                          @endforeach
                     </div>
                     <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">

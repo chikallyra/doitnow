@@ -2,7 +2,7 @@
 
 @section('container')
     <section class="bg-white ">
-        <h1 class="ml-10 py-10 text-4xl font-bold text-slate-900 ">Welcome Back, Admin</h1>
+        <h1 class="ml-10 py-10 text-4xl font-bold text-slate-900 ">Welcome Back, {{ auth()->user()->name }}</h1>
         <div class=" flex justify-start items-center">
             <div class="grid grid-cols-4 gap-2 lg:grid-cols-4 lg:gap-8 mt-10 lg:mx-10 mx-5  ">
                 <a href="" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">

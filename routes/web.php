@@ -42,10 +42,6 @@ Route::get('/blog/index', function () {
     return view('blog.index', compact('blog3'));
 })->name('blog.index');
 
-Route::get('/buatblog', function(){
-    return view('tambah-blog');
-});
-
 // Registrasi
 Route::get('/registrasi', [RegistrasiController::class, 'regisCompany'])->middleware(['guest'])->name('register.com');
 Route::get('/registrasi/mission', [RegistrasiController::class, 'regisMiss'])->middleware(['guest'])->name('register.miss');
@@ -70,7 +66,6 @@ Route::post('/login/password', [LoginController::class, 'login'])->name('login')
 
 //Auth User
 Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function () {
-  
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
@@ -80,7 +75,7 @@ Route::middleware(['auth', 'user-access:company'])->group(function () {
     // Dashboard Company
     Route::get('/dashboard/company', [CompanyDashboardController::class, 'index'])->name('company');
     Route::get('/company/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
-    Route::get('/dashboardcompany/mission', [MissionController::class, 'store'])->name('mission.store');
+    Route::post('/dashboard/company/mission', [MissionController::class, 'store'])->name('mission.store');
 });
 
 //Auth Admin
@@ -124,8 +119,6 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::post('/admin/dashboard/store', [BlogController::class, 'store'])->name('blog.store');
 
-
-
 // Untuk redirect ke Google
 Route::get('login/google/redirect', [SocialiteController::class, 'redirect'])
     ->middleware(['guest'])
@@ -160,5 +153,3 @@ Route::get('/platform/history', [PlatformController::class, 'history'])->name('p
 
 // untuk statistik
 Route::get('/stat', [StatController::class, 'index'])->name('stat');
-
-Route::get('/catego', [BlogCategoryController::class, 'index']);

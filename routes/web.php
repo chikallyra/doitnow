@@ -141,6 +141,7 @@ Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->nam
 Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
 Route::get('/platform/notif', [PlatformController::class, 'notif'])->name('platform.notif');
 Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
+Route::get('/platform/profil', [PlatformController::class, 'profil'])->name('platform.profil');
 
 // // Dashboard admin
 // Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');

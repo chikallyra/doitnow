@@ -25,4 +25,7 @@ class PlatformController extends Controller
     public function mission_c() {
         return view('platform.mission_c');
     }
+    public function profil() {
+        return view('platform.profil');
+    }
 }

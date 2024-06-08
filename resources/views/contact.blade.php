@@ -79,7 +79,7 @@
                     <h1 class="text-center mt-1 text-xl text-black font-semibold">Phone</h1>
                     <p class="text-center mt-1 text-lg text-black font-semibold">+628892626889</p>
                 </div>
-              </div>
+            </div>
         </div>
 
     </section>

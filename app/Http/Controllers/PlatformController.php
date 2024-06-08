@@ -16,4 +16,7 @@ class PlatformController extends Controller
     public function addfriend() {
         return view('platform.addfriend');
     }
+    public function history() {
+        return view('platform.history');
+    }
 }

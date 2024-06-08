@@ -70,7 +70,7 @@
                    </svg>                          
                    <span class="sr-only">Search</span>
                </button>
-               <a href="" class="p-2.5  text-sm font-medium text-black ">
+               <a href="{{ route('platform.history') }}" class="p-2.5  text-sm font-medium text-black hover:bg-gray-200 ">
                         <h1 class=" flex justify-center items-center text-lg"><i class="fas fa-history pr-1 pt-0.5 text-lg"></i>History</h1>
                </a >
         </form> 
@@ -86,11 +86,13 @@
         <a href="{{ route('platform.misi') }}" class="">
             <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
             <div class="flex items-start mx-3 lg:mx-10 mt-5 ">
-                    <img src="/img/misi.png" class="w-32 lg:-ml-2" alt="">
+                <div class=" border-4 border-red-700 w-4/5 h-4/5 rounded-3xl mt-2">
+                    <img src="/img/misi.png" class="w-24 lg:-ml-2 mx-auto" alt="">
+                </div> 
                     <div class="truncate ml-2 lg:ml-8 ">
                         <div class="flex justify-between items-end">
-                            <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16">SOCIAL</h1>
-                        <h3 class=" mt-2 text-white bg-gray-500 rounded-md px-2 uppercase lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[860px]">12 juni - 23 juni</h3> 
+                            <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16 uppercase">SOCIAL</h1>
+                        <h3 class=" mt-2 text-white bg-gray-500 rounded-md px-2 uppercase lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[860px]">12- 23 juni</h3> 
                         </div>
                         <h2 class="  text-black font-semibold text-lg truncate">Follow @Mulai on Instagram</h2>
                         <p class="text-sm">100 participant</p>

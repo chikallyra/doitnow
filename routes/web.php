@@ -145,6 +145,7 @@ Route::post('logout', [SocialiteController::class, 'logout'])
 Route::get('/platform', [PlatformController::class, 'index']);
 Route::get('/platform/misi', [PlatformController::class, 'misi'])->name('platform.misi');
 Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
+Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
 
 // // Dashboard admin
 // Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');

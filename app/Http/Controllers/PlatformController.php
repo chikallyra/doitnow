@@ -19,4 +19,7 @@ class PlatformController extends Controller
     public function history() {
         return view('platform.history');
     }
+    public function notif() {
+        return view('platform.notif');
+    }
 }

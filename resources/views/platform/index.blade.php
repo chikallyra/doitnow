@@ -86,8 +86,8 @@
         <a href="{{ route('platform.misi') }}" class="">
             <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
             <div class="flex items-start mx-3 lg:mx-10 mt-5 ">
-                <div class=" border-4 border-red-700 w-4/5 h-4/5 rounded-3xl mt-2">
-                    <img src="/img/misi.png" class="w-24 lg:-ml-2 mx-auto" alt="">
+                <div class=" border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2 ">
+                    <img src="/img/misi.png" class="w-24 lg:w-24 h-24 mx-auto rounded-3xl" alt="misi foto">
                 </div> 
                     <div class="truncate ml-2 lg:ml-8 ">
                         <div class="flex justify-between items-end">

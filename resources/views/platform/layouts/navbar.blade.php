@@ -6,7 +6,7 @@
                 <h1 class="ml-2 tracking-wider uppercase text-sm lg:text-lg font-medium text-black "> John Doe <span class="bg-gray-200 p-1 rounded-lg text-[9px] lg:text-sm lg:ml-1">Expert</span></h1>
             </div>
             <div class="flex justify-end items-center">
-              <a href=""> <i class="far fa-bell text-3xl lg:m-2 m-5 text-white hover:text-gray-400"></i></a> 
+              <a href="{{ route('platform.notif') }}"> <i class="far fa-bell text-3xl lg:m-2 m-5 text-white hover:text-gray-400"></i></a> 
             </div>
         </div>
     </div>

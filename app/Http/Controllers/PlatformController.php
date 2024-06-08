@@ -22,4 +22,7 @@ class PlatformController extends Controller
     public function notif() {
         return view('platform.notif');
     }
+    public function mission_c() {
+        return view('platform.mission_c');
+    }
 }

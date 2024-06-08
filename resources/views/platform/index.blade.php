@@ -15,7 +15,7 @@
     {{-- card --}}
     <div class="flex justify-center items-center">
         <div class="grid grid-cols-4 gap-2 lg:grid-cols-4 lg:gap-8 mt-10 lg:mx-10 mx-5  ">
-            <a href="" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+            <a href="{{ route ('platform.mission_c') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
                 <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
                     <div class="flex justify-center items-center">
                         <img src="/img/home.png " class="w-10 lg:w-14 mt-2" alt="home center">

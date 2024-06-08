@@ -76,8 +76,7 @@
                 </div>
             </div>
                
-        </a>
-        
+        </a>        
     </div>
     
     {{-- end content --}}

@@ -140,6 +140,7 @@ Route::get('/platform/misi', [PlatformController::class, 'misi'])->name('platfor
 Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
 Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
 Route::get('/platform/notif', [PlatformController::class, 'notif'])->name('platform.notif');
+Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
 
 // // Dashboard admin
 // Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');

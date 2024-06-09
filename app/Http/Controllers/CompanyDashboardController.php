@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class CompanyDashboardController extends Controller
 {
     public function index () {
-        $missions = Mission::with('reward')->get();
+        $missions = Mission::with('reward', 'category')->get();
         
         foreach($missions as $mission){
             $mission->start_date = \Carbon\Carbon::parse($mission->start_date)->format('d M');

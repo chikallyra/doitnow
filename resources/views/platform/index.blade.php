@@ -83,6 +83,39 @@
         <div class="flex justify-between">
             <h1 class=" font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
         </div>
+        @foreach ($missions as $mission)
+        <a href="{{ route('platform.misi', $mission->id) }}" class="">
+            <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
+            <div class="flex items-start mx-3 lg:mx-10 mt-5 ">
+                <div class=" border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2 ">
+                    <img src="{{ asset('storage/' . $mission->image) }}"  class="w-24 lg:w-24 h-24 mx-auto rounded-3xl" alt="misi foto">
+                </div> 
+                    <div class="truncate ml-2 lg:ml-8 ">
+                        <div class="flex justify-between items-end">
+                            <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16 uppercase">{{ $mission->category->name }}</h1>
+                        <h3 class=" mt-2 text-white bg-gray-500 rounded-md px-2 uppercase lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[860px]">12- 23 juni</h3> 
+                        </div>
+                        <h2 class="  text-black font-semibold text-lg truncate">{{ $mission->title }}</h2>
+                        <p class="text-sm">{{ $mission->max_missionaries }} participant only</p>
+                        <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10 mt-2  ">
+                            <h1 class="text-base text-center text-white font-bold">Rp</h1>
+                        </div>
+                        <div class="flex justify-start items-center mt-[-35px] ml-12">
+                            <h1 class="text-2xl text-red-600 font-medium">{{ $mission->reward->reward }}</h1>    
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+        </a>
+        @endforeach  
+    </div>
+    {{-- end mission --}}
+
+    {{-- mission --}}
+    {{-- <div class="mx-10 lg:mx-32 mt-10 pb-10">
+        <div class="flex justify-between">
+            <h1 class=" font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
+        </div>
         <a href="{{ route('platform.misi') }}" class="">
             <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
             <div class="flex items-start mx-3 lg:mx-10 mt-5 ">
@@ -107,7 +140,7 @@
             </div>
         </a>
              
-    </div>
+    </div> --}}
     {{-- end mission --}}
     
 </section>

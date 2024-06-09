@@ -64,9 +64,18 @@ Route::post('/login', [LoginController::class, 'submitEmail'])->name('login.gete
 Route::get('/login/password', [LoginController::class, 'password'])->name('login.password');
 Route::post('/login/password', [LoginController::class, 'login'])->name('login');
 
-//Auth User
+//Auth MIssionary
 Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // platform
+    Route::get('/platform', [PlatformController::class, 'index'])->name('platform');
+    Route::get('/platform/misi/{id}', [PlatformController::class, 'misi'])->name('platform.misi');
+    Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
+    Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
+    Route::get('/platform/notif', [PlatformController::class, 'notif'])->name('platform.notif');
+    Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
+    Route::get('/platform/profil/{id}', [PlatformController::class, 'profil'])->name('platform.profil');
+    Route::put('/platform/profil/{id}/edit', [PlatformController::class, 'updateProfile'])->name('platform.profil.edit');
 });
 
 //Auth Company
@@ -133,26 +142,6 @@ Route::get('login/google/callback', [SocialiteController::class, 'callback'])
 Route::post('logout', [SocialiteController::class, 'logout'])
     ->middleware(['auth'])
     ->name('logout');
-
-// platform
-Route::get('/platform', [PlatformController::class, 'index']);
-Route::get('/platform/misi', [PlatformController::class, 'misi'])->name('platform.misi');
-Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
-Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
-Route::get('/platform/notif', [PlatformController::class, 'notif'])->name('platform.notif');
-Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
-Route::get('/platform/profil', [PlatformController::class, 'profil'])->name('platform.profil');
-
-// // Dashboard admin
-// Route::get('/admin/dasboard', [DashboardController::class, 'index'])->name('admin');
-// Route::get('/admin/dasboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
-// Route::get('/admin/dasboard/create', [BlogController::class, 'create'])->name('create.blog');
-// Route::get('/admin/dasboard/edit', [DashboardController::class, 'edit'])->name('edit.blog');
-// Route::get('/admin/dasboard/show', [DashboardController::class, 'show'])->name('show.blog');
-
-// // Dashboard Company
-// Route::get('/dashboardcompany', [CompanyDashboardController::class, 'index']);
-// Route::get('/dashboardcompany/create', [CompanyDashboardController::class, 'create'] )->name('create.mission');
 
 // untuk statistik
 Route::get('/stat', [StatController::class, 'index'])->name('stat');

@@ -55,7 +55,7 @@ class LoginController extends Controller
             } elseif (Auth::user()->type == 'company') {
                 return redirect()->route('company');
             } else {
-                return redirect()->route('home');
+                return redirect()->route('platform');
             }
         } else {
             return redirect()->route('login.mail')

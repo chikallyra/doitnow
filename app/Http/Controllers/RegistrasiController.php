@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 
 use App\Models\CompanyUser;
+use App\Models\Mission;
+use App\Models\Missionary;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -72,6 +74,13 @@ class RegistrasiController extends Controller
             'google_id' => null,
             'type' => 0,
             'phone' => $request->phone
+        ]);
+
+        Missionary::create([
+            'user_id' => $user->id,
+            'name' => $user->name,
+            'phone' => $user->phone,
+            'email' => $user->email,
         ]);
 
         // auth()->login($user);

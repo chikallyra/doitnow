@@ -19,19 +19,21 @@
 
     {{-- gambar --}}
     <div class="flex justify-center items-center pt-24">
-        <img src="/img/misi.png" class="w-64 " alt="">
+        <img src="{{ asset('storage/' . $mission->image) }}" class="w-64 " alt="">
     </div>
     {{--end  gambar --}}
 
     {{-- ket --}}
     <div class="mx-10 lg:mx-32 border p-3 rounded-lg mt-10 pb-10">
         <h1 class=" uppercase bg-red-600 font-semibold py-1 px-3 rounded-lg text-center tracking-wider max-w-fit text-white">social</h1>
-        <h5 class="mt-3 text-3xl text-black font-bold ">Follow @doitnow on Instagram</h5>
-        <p class="mt-2 font-semibold text-gray-500">by doitnow</p>
-        <p class="text-lg text-slate-800 font-medium mt-2">Follow @doitnow on Instagram and stay updated with inspirational content, tips, and exciting opportunities. Join our community of motivated individuals and be part of the journey towards financial growth.</p>
+        <h5 class="mt-3 text-3xl text-black font-bold ">{{ $mission->title}}</h5>
+        <p class="mt-2 font-semibold text-gray-500">by {{ $mission->company->name }}</p>
+        <p class="text-lg text-slate-800 font-medium mt-2">{{ $mission->description }}</p>
         <div class="flex justify-between mt-3">
-            <input type="text" id="myInput" value="https://www.instagram.com/p/C7nkpE6JPV1/?igsh=MTRhMjlwaHgwN3pwaQ==" class="w-full bg-gray-200 px-2 text-lg py-1 rounded-xl border-2 mr-5 border-gray-400">
+            @if (!@empty($mission->link))
+            <input type="text" id="myInput" value="{{ $mission->link }}" class="w-full bg-gray-200 px-2 text-lg py-1 rounded-xl border-2 mr-5 border-gray-400">
             <button onclick="copyText()"><i class="far fa-copy text-3xl text-gray-700"></i></button>
+            @endif
         </div>
     </div>
     {{-- end ket --}}

@@ -30,7 +30,7 @@
 </head>
 
 <body class=" bg-white ">
-    @include('platform.layouts.navbar')
+    @include('platform.layouts.navbar', ['user' => auth()->user()])
     @yield('container')
 
         <script src="{{ asset('/sw.js') }}"></script>

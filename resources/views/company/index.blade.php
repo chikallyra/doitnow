@@ -44,7 +44,7 @@
                                 <img src="{{ asset('storage/' . $mission->image) }}" class="w-full mt-3 " alt="">
                             </div>
                             <div class="h-32 lg:col-span-2">
-                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">Category</h1>
+                                <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">{{ $mission->category->name }}</h1>
                                 <h2 class="text-black font-semibold text-xl truncate pt-1">{{ $mission->title }}</h2>
                                 <p class="text-sm text-gray-400">{{ $mission->max_missionaries }}</p>
                                 <div class="flex justify-between">
@@ -81,7 +81,7 @@
                             </div>
                           </div>
                     </div>
-                    <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
+                    {{-- <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                             <div class="h-32 ">
                                 <img src="/img/misi.png" class="w-full mt-3 " alt="">
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                           </div>
-                    </div>
+                    </div> --}}
                     <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500">
                         <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                             <div class="h-32 ">

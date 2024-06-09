@@ -21,7 +21,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Company::class, 'company_users')->withPivot('role')->withTimestamps();
     }    
 
-    public function missionaries(){
+    public function missionary(){
         return $this->belongsTo(Missionary::class);
     }
 

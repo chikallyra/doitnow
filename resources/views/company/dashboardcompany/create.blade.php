@@ -21,7 +21,7 @@
                             <div class="relative w-64 h-64 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
                               <img id="image-preview" src="#" alt="Preview" class="absolute w-full h-full object-cover hidden" />
                               <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
-                              <input id="image-input" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
+                              <input id="image-input" name="image" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
                               @error('image')
                               <div class="text-red-500">
                                   {{ $message }}
@@ -37,7 +37,7 @@
                     <div class="lg:col-span-2 mt-8">
                         <div class="mb-4">
                             <label for="mission_name" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Mission Name</label>
-                            <input type="text" name="title" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="Name of mission" required />
+                            <input type="text" name="title" value="{{ old('title') }}" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="Name of mission" required />
                             @error('title')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -66,7 +66,7 @@
                                 <div class="flex space-x-2">
                                     <input type="number" id="day_start" name="day_start" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                     <input type="number" id="month_start" name="month_start" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="year_start" name="year_start" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="year_start" name="year_start" value="2024" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                 </div>
                                 @error('day_start')
                                 <div class="text-red-500">
@@ -89,7 +89,7 @@
                                 <div class="flex space-x-2">
                                     <input type="number" id="day_end" name="day_end" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                     <input type="number" id="month_end" name="month_end" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="year_end" name="year_end" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="year_end" name="year_end" value="2024" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                 </div>
                                 @error('day_end')
                                 <div class="text-red-500">
@@ -119,7 +119,7 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                     </svg>
                                 </button>
-                                <input type="text" name="max_missionary" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
+                                <input type="text" name="max_missionary" value="{{ old('max_missionary') }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
                                 @error('max_missionary')
                                 <div class="text-red-500">
                                     {{ $message }}
@@ -137,7 +137,7 @@
                         {{-- Link --}}
                         <div class="mb-4">
                             <label for="mission_link" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Link <span class="text-sm text-gray-400">(optional)</span></label>
-                            <input type="text" name="link" id="mission_link" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="https://example.com" />
+                            <input type="text" name="link" value="{{ old('link') }}" id="mission_link" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="https://example.com" />
                             @error('link')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -149,7 +149,7 @@
                         {{-- Rewards --}}
                         <div class="mb-4">
                             <label for="new_reward" class="block text-xl text-black font-semibold mb-2">Rewards</label>
-                            <input type="text" name="new_reward" id="new_reward" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="RP. ....">
+                            <input type="text" name="new_reward" value="{{ old('new_reward') }}" id="new_reward" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="RP. ....">
                             @error('new_reward')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -172,11 +172,24 @@
                             @enderror
                         </div>
                         {{-- End Rewards --}}
+                        
+                        {{-- Steps --}}
+                        {{-- <div class="mb-4">
+                            <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
+                            <input id="x" type="hidden" name="steps" value="Please press enter each time you finish writing one step.">
+                            <trix-editor input="x"></trix-editor>
+                            @error('steps')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div> --}}
+                        {{-- End Steps --}}
 
                         {{-- Steps --}}
                         <div class="mb-4">
                             <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
-                            <textarea id="steps" name="steps" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-red-600 focus:border-red-600" placeholder="Add steps for your mission"></textarea>
+                            <textarea id="steps" name="steps">{{ old('steps') }}</textarea>
                             @error('steps')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -188,7 +201,7 @@
                         {{-- Description --}}
                         <div class="mb-4">
                             <label for="description" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Description</label>
-                            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-red-600 focus:border-red-600" placeholder="Write your thoughts here..."></textarea>
+                            <textarea id="description" name="description">{{ old('description') }}</textarea>
                             @error('description')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -209,4 +222,40 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+
+    <script>
+       $('#steps').summernote({
+        placeholder: 'Please press enter each time you finish writing one step.',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+        //   ['table', ['table']],
+        //   ['insert', ['link', 'picture', 'video']],
+          ['view', ['codeview', 'help']]
+        ]
+      });
+
+       $('#description').summernote({
+        placeholder: 'Enter mission descriprtion here....',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+        //   ['table', ['table']],
+        //   ['insert', ['link', 'picture', 'video']],
+        //   ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+    </script>
+    
 @endsection

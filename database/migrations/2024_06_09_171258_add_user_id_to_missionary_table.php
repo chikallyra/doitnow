@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('missionaries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
-            $table->date('dob')->nullable();
-            $table->enum('gender', ['male', 'female'])->nullable();
-            $table->timestamps();
+        Schema::table('missionaries', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id')->after('id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('missionaries');
+        Schema::table('missionaries', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
     }
 };

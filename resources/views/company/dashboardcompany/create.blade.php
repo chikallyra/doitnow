@@ -2,12 +2,12 @@
 @section('container')
 <section class="pt-64 pb-10">
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-[120px_1fr] lg:gap-10 mx-10">
-        <a href="">
+        <a href="{{ route('company') }}">
             <div class="h-32 rounded-lg bg-white border-4 border-gray-300 hover:bg-gray-200">
                 <div class="flex justify-center items-center">
-                    <img src="/img/add.png" class="mt-4 rounded-full border-2 border-gray-300 p-1" alt="">
+                    <img src="/img/home.png" class="mt-4 rounded-full border-2 border-gray-300 p-1 w-14" alt="">
                 </div>
-                <h1 class="text-center mt-2 text-black">Create Mission</h1>
+                <h1 class="text-center mt-2 text-black font-medium">Dashboard</h1>
             </div>
         </a>
         <div class="h-full rounded-lg bg-white border-4 border-gray-300">
@@ -17,15 +17,18 @@
                 <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-1">
                     {{-- Add Foto --}}
                     <div class="mt-8">
-                        <div class="image-upload-wrapper relative w-64 h-64 border-2 border-dashed border-gray-300 flex ml-14 items-center justify-center rounded-lg">
-                            <img src="/path/to/your/image-placeholder.jpeg" alt="Edit Picture" class="image-upload-placeholder absolute w-12 h-12" />
-                            <input type="file" name="image" accept="image/*" class="absolute w-full h-full opacity-0 cursor-pointer" />
-                            @error('image')
-                            <div class="text-red-500">
-                                {{ $message }}
+                        <div class="flex items-center justify-center">
+                            <div class="relative w-64 h-64 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
+                              <img id="image-preview" src="#" alt="Preview" class="absolute w-full h-full object-cover hidden" />
+                              <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
+                              <input id="image-input" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
+                              @error('image')
+                              <div class="text-red-500">
+                                  {{ $message }}
+                              </div>
+                              @enderror
                             </div>
-                            @enderror
-                        </div>
+                          </div>
                         <h2 class="mt-3 text-center mr-4 text-lg font-medium text-red-500">Edit Picture</h2>
                     </div>
                     {{-- End Add Foto --}}

@@ -57,7 +57,24 @@
 
 {{-- script js --}}
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="/js/script.js"></script>
+<script>
+    // add foto
+document.getElementById('image-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('image-preview');
+            preview.src = e.target.result;
+            preview.classList.remove('hidden'); // Menampilkan gambar
+            document.getElementById('upload-placeholder').classList.add('hidden'); // Menyembunyikan placeholder
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+</script>
+{{-- <script src="/js/script.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
@@ -71,6 +88,7 @@
      --}}
     {{-- //It also supports NodeList
     // VanillaTilt.init(document.querySelectorAll(".your-element")); --}}
+    
 </script>
 
 </html>

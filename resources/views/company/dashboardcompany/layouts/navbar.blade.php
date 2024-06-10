@@ -4,7 +4,8 @@
             <div class="bg-white m-8 p-3 pr-8 rounded-xl flex justify-center items-center">
                 <img src="/img/profile.png" class="w-12 h-12 border-4 rounded-full border-gray-200" alt="">
                 <div class="ml-3">
-                    <h1 class="tracking-wider uppercase font-medium text-black">{{ auth()->user()->company->name }}</h1>
+                    <h1 class="tracking-wider uppercase font-medium text-black">{{ auth()->user()->company->name }}
+                    </h1>
                     <p class="text-gray-500">{{ auth()->user()->email }}</p>
                 </div>
             </div>

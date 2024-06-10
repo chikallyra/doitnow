@@ -13,7 +13,7 @@
                 <a href=""><i class="far fa-bell text-3xl mr-10 text-white hover:text-gray-400"></i></a>
                 <form action="{{ route('logout') }}" method="POST" class="ml-5 mr-8">
                     @csrf
-                    <button type="submit" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-base px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Logout</button>
+                    <button type="submit" class="text-red-700 hover:text-red-600 border bg-white border-red-700 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-base px-5 py-2.5 text-center ">Logout</button>
                 </form>
             </div>
         </div>

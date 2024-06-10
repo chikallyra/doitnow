@@ -84,6 +84,8 @@ Route::middleware(['auth', 'user-access:company'])->group(function () {
     // Dashboard Company
     Route::get('/dashboard/company', [CompanyDashboardController::class, 'index'])->name('company');
     Route::get('/company/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
+    Route::get('/company/show', [CompanyDashboardController::class, 'show'])->name('show.mission');
+    Route::get('/company/edit', [CompanyDashboardController::class, 'edit'])->name('edit.mission');
     Route::post('/dashboard/company/mission', [MissionController::class, 'store'])->name('mission.store');
 });
 

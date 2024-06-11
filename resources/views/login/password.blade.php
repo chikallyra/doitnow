@@ -1,7 +1,7 @@
 @extends('layouts.mainlogin')
 
 @section('container')
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20 bg-white">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20 bg-white h-screen">
   <div class=" items-center flex  justify-center bg-red-600 lg:h-[610px]" >
     <img src="/img/loginbanner.png" class="w-[120px] lg:w-[400px] lg:mt-14" h-70 alt="">
   </div>

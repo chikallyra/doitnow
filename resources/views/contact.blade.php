@@ -64,7 +64,8 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 lg:grid-cols-2 lg:gap-8 lg:mx-96  ">
+            {{-- grid --}}
+            {{-- <div class="grid grid-cols-2 gap-4 lg:grid-cols-2 lg:gap-8 lg:mx-96  ">
                 <div class="h-48 lg:w-72 rounded-lg bg-white border-2 shadow-lg shadow-gray-300">
                     <div class="flex justify-center items-center">
                         <p class="bg-[#F9D2BC] mt-5 rounded-lg "><i class="fas fa-envelope text-5xl p-6 text-gray-900"></i></p>
@@ -79,7 +80,25 @@
                     <h1 class="text-center mt-1 text-xl text-black font-semibold">Phone</h1>
                     <p class="text-center mt-1 text-lg text-black font-semibold">+628892626889</p>
                 </div>
-            </div>
+            </div> --}}
+
+            <div class="">
+                <form action="/send-email" method="POST" class="w-full  bg-white p-6 rounded-lg shadow-lg space-y-4">
+                  <!-- Label dan Input Email -->
+                  <div>
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">
+                        Send a message via email
+                    </label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required
+                      class="w-full px-4 py-2 border border-gray-300 bg-white rounded focus:outline-none focus:ring-2 focus:ring-[#DD2120]">
+                  </div>
+                  <!-- Tombol Submit -->
+                  <button type="submit"
+                    class="w-full md:w-auto px-6 py-2 bg-[#DD2120] text-white rounded hover:bg-[#c51e1d] transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#DD2120]">
+                    Submit
+                  </button>
+                </form>
+              </div>
         </div>
 
     </section>

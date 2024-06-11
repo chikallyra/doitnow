@@ -5,18 +5,18 @@
   <div class=" items-center flex  justify-center bg-red-600 h-20 lg:h-[700px]" >
     <img src="/img/loginbanner.png" class="w-[120px] lg:w-[400px] lg:mt-14" h-70 alt="">
   </div>
-  <div class=" relative justify-center items-center lg:mt-24">
-    <h1 class="mt-6 text-[45px] text-center font-bold text-gray-900 sm:text-3xl md:text-4xl">
+  <div class=" relative justify-center items-center mx-8 lg:mt-24">
+    <h1 class="mt-6 text-[35px] text-center font-bold text-gray-900 sm:text-3xl  lg:text-4xl">
       Create your account company
     </h1>
     
     <p class="mt-1 text-center leading-relaxed text-gray-500">
         Get started  - deliver your best work with us
     </p>
-    <h2 class="text-center mt-5 text-[25px] font-medium text-black">Sign Up to Button as...</h2>
+    <h2 class="text-center mt-5 text-lg lg:text-[25px] font-medium text-gray-600">Sign Up to Button as...</h2>
       <div class="mb-4 ">
         <div class="max-w-md relative justify-center items-center mx-auto">
-          <form class="max-w-sm mx-auto  "  action="{{ route('register.company') }}" method="POST">
+          <form class="max-w-sm mx-auto mt-6 "  action="{{ route('register.company') }}" method="POST">
             @csrf
             <div class="mb-5">
               <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name</label>

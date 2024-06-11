@@ -33,7 +33,7 @@
             </a>
           </div>
           <div class="">
-            <a class="group relative inline-flex items-center overflow-hidden rounded-full mt-10 bg-[#DD2120] px-5 sm:px-16  lg:px-16 py-3  text-white focus:outline-none focus:ring active:bg-black" href="#">
+            <a class="group relative inline-flex items-center overflow-hidden rounded-full mt-10 bg-[#DD2120] px-5 sm:px-16  lg:px-16 py-3  text-white focus:outline-none focus:ring active:bg-black" href="/about">
               <span class="absolute -end-full transition-all group-hover:end-4">
                   <svg
                     class="size-5 rtl:rotate-180"
@@ -111,9 +111,10 @@
           <a href="/registrasi" class="block transition duration-300 transform hover:scale-105  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
             <div class="lg:h-32  flex justify-center py-3 lg:py-0 content-center shadow-lg shadow-slate-500 rounded-lg bg-grid  ">
               <div class="flex justify-center items-center ">
-                <img src="../img/company.png" class="lg:w-16 w-8  sm:w-11 md:w-14" alt="">
+                <h1 class="text-white text-xl lg:text-5xl mx-1"><span><i class="fas fa-building mr-3"></i></span>Company</h1>
+                {{-- <img src="../img/company.png" class="lg:w-16 w-8  sm:w-11 md:w-14" alt="">
                 <p class="lg:text-4xl text-lg lg:ml-4 mx-2 sm:text-3xl font-semibold text-white">Company </p>
-                <i class="fas fa-chevron-right text-sm text-white sm:text-2xl  lg:text-4xl pt-1 ml-1 lg:pt-3 lg:ml-5 "></i>
+                <i class="fas fa-chevron-right text-sm text-white sm:text-2xl  lg:text-4xl pt-1 ml-1 lg:pt-3 lg:ml-5 "></i> --}}
               </div>  
             </div>
           </a>
@@ -121,9 +122,7 @@
               <a href="/registrasi/mission" class="block transition duration-300 transform hover:scale-105  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 <div class="lg:h-32  flex justify-center py-3 lg:py-0 content-center shadow-lg shadow-slate-500 rounded-lg bg-grid  ">
                   <div class="flex justify-center items-center ">
-                    <img src="../img/missionary.png" class="lg:w-16 w-8 sm:w-11 md:w-14" alt="">
-                    <p class="lg:text-4xl text-lg lg:ml-4 mx-2 sm:text-3xl font-semibold text-white"> Missionary </p>
-                    <i class="fas fa-chevron-right text-sm text-white sm:text-2xl  lg:text-4xl pt-1 ml-1 lg:pt-3 lg:ml-5  "></i>
+                    <h1 class="text-white text-xl lg:text-5xl mx-1"><span><i class="fas fa-clipboard-list mr-3"></i></span>Missionary</h1>
                   </div>  
                 </div>
               </a>

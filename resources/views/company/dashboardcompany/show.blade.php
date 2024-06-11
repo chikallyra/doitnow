@@ -48,7 +48,7 @@
                         <div class="text-gray-900  text-lg font-bold">Rewards <span class="ml-[80px]">:</span> </div>
                        <div class=" text-lg  ml-[-10px] "> <span>Rp.</span> {{ $mission->reward->reward }}</div>
                     </div>
-                    <div class="grid grid-cols-2  py-2">
+                    <div class="grid grid-cols-2 text-black py-2">
                         <div class="text-gray-900  text-lg font-bold">Description <span class="ml-[15px]">:</span> </div>
                        <div class=" text-lg  ml-[-19px] "> {!! $mission->description !!}</div>
                     </div>

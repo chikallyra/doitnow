@@ -182,7 +182,7 @@
                     {{-- Description --}}
                     <div class="mb-4">
                         <label for="description" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Description</label>
-                        <textarea id="description" name="description">{{ old('description', $mission->description) }}</textarea>
+                        <textarea id="description" name="description" class="text-black">{{ old('description', $mission->description) }}</textarea>
                         @error('description')
                         <div class="text-red-500">
                             {{ $message }}

@@ -8,20 +8,31 @@ use App\Models\Missionary;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Helpers\TimeAgoHelper;
 use Illuminate\Support\Facades\Storage;
 
 class PlatformController extends Controller
 {
     public function index() {
         $missions = Mission::with('reward', 'category')->get();
-        
-        foreach($missions as $mission){
-            $mission->start_date = \Carbon\Carbon::parse($mission->start_date)->format('d M');
-            $mission->end_date = \Carbon\Carbon::parse($mission->end_date)->format('d M');
+    
+        foreach ($missions as $mission) {
+            $start_date = Carbon::parse($mission->start_date)->format('d M Y');
+            $end_date = Carbon::parse($mission->end_date)->format('d M Y');
+    
+            $time_ago = TimeAgoHelper::timeAgo($mission->start_date, $mission->end_date);
+            $mission->time_ago = $time_ago;
+    
+            $mission->end_time_unix = Carbon::parse($mission->end_date)->timestamp;
+    
+            $mission->formatted_start_date = $start_date;
+            $mission->formatted_end_date = $end_date;
         }
-
+    
         return view('platform.index', compact('missions'));
     }
+    
+    
 
     public function misi($id) {
         $mission = Mission::with('company', 'reward', 'category')->findOrFail($id);
@@ -54,14 +65,14 @@ class PlatformController extends Controller
     if (!empty($dob) && strpos($dob, '-') !== false) {
         $pecahan = explode('-', $dob);
         if (count($pecahan) === 3) {
-            $year = $pecahan[0];
-            $month = $pecahan[1];
-            $day = $pecahan[2];
+            $year = (int)  $pecahan[0];
+            $month = (int)  $pecahan[1];
+            $day = (int)  $pecahan[2];
         }
     }
 
     return view('platform.profil', compact('user', 'missionary', 'year', 'month', 'day'));
-}
+    }
     
     public function updateProfile(Request $request, $id) {
         $validatedData = $request->validate([

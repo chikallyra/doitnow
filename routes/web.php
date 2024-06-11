@@ -84,9 +84,11 @@ Route::middleware(['auth', 'user-access:company'])->group(function () {
     // Dashboard Company
     Route::get('/dashboard/company', [CompanyDashboardController::class, 'index'])->name('company');
     Route::get('/company/create', [CompanyDashboardController::class, 'create'])->name('create.mission');
-    Route::get('/company/show', [CompanyDashboardController::class, 'show'])->name('show.mission');
-    Route::get('/company/edit', [CompanyDashboardController::class, 'edit'])->name('edit.mission');
+    Route::get('/company/edit/{id}', [MissionController::class, 'edit'])->name('edit.mission');
+    Route::put('/company/update/{mission}', [MissionController::class, 'update'])->name('update.mission');
     Route::post('/dashboard/company/mission', [MissionController::class, 'store'])->name('mission.store');
+    Route::get('/company/{id}/show', [MissionController::class, 'show'])->name('show.mission');
+    Route::delete('/company/{mission}/delete', [MissionController::class, 'destroy'])->name('delete.mission');
 });
 
 //Auth Admin

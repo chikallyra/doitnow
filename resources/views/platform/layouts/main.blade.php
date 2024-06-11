@@ -32,7 +32,7 @@
 <body class=" bg-white ">
     @include('platform.layouts.navbar', ['user' => auth()->user()])
     @yield('container')
-
+    @yield('scripts')
         <script src="{{ asset('/sw.js') }}"></script>
     <script>
     if ("serviceWorker" in navigator) {

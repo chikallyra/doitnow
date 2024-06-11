@@ -22,7 +22,7 @@ class User extends Authenticatable
     }    
 
     public function missionary(){
-        return $this->belongsTo(Missionary::class);
+        return $this->hasOne(Missionary::class);
     }
 
     /**

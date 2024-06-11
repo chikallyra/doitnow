@@ -38,7 +38,7 @@
             <div>
                 <div class="grid grid-cols-3 gap-4 lg:grid-cols-3 lg:gap-8 p-8">
                     @foreach ($missions as $mission)
-                    <a href="{{ route('show.mission') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <a href="{{ route('show.mission', $mission->id) }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
                         <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500"> 
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                                 <div class="border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2 ml-2  ">
@@ -55,7 +55,9 @@
                                         <div class="flex justify-center items-center  -ml-4">
                                             <h1 class="text-2xl text-red-600 font-medium">{{ $mission->reward->reward }}</h1>    
                                         </div>
-                                        <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 flex justify-center items-center uppercase text-[12px] text-center py-1 font-medium">{{ $mission->start_date }} - {{ $mission->end_date }}</h2>
+                                        <h2 class="mr-2 mt-2 text-white bg-red-500 rounded-md px-1 flex justify-center items-center uppercase text-[12px] text-center py-1 font-medium">
+                                            {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }}
+                                        </h2>                                        
                                     </div>
                                 </div>
                             </div>             

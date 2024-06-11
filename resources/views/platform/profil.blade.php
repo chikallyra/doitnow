@@ -18,7 +18,7 @@
                 <!-- Image Upload Wrapper -->
                 <div class="relative lg:w-64 lg:h-64 w-32 h-32 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg">
                     <!-- Placeholder Image -->
-                    <img src="/path/to/your/image-placeholder.jpeg" alt="Edit Picture" class="absolute w-12 h-12" />
+                    <img src="{{ asset('storage/' . $user->missionary->image) }}" alt="Edit Picture" class="absolute w-12 h-12" />
                     <!-- File Input -->
                     <input type="file" name="image" accept="image/*" class="absolute w-full h-full opacity-0 cursor-pointer" />
                     <!-- Error Message -->

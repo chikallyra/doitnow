@@ -56,4 +56,34 @@
     </div>
     {{-- end  steps --}}
 
+     {{-- steps --}}
+     <div class="mx-10 lg:mx-32  mt-10 pb-10">
+        <h1 class="mb-3 font-bold text-3xl text-black">Steps</h1>
+        <div class="border p-3 rounded-lg" > 
+                  {{-- 1 --}}
+                <div class="flex flex-row items-start">
+                    <input  id="checkbox-1" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
+                    <label for="checkbox-1" class="ms-2 text-lg font-medium text-gray-900 "><a href="" class="text-red-600 hover:underline hover:decoration-red-600">Click here </a> and start this mission</label>
+                </div>
+                  {{-- 2 --}}
+                <div class="flex flex-row items-start py-2">
+                    <input  id="checkbox-2" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
+                    <label for="checkbox-2" class="ms-2 text-lg font-medium text-gray-900 ">Find the official "@DoitNow" account on Instagram and click on “Follow”.</label>
+                </div>
+                  {{-- 3 --}}
+                <div class="flex flex-row items-start pb-2">
+                    <input  id="checkbox-3" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
+                    <label for="checkbox-3" class="ms-2 text-lg font-medium text-gray-900 ">Comment on the latest post “Followed”</label>
+                </div>
+                  {{-- 4 --}}
+                <div class="flex flex-row items-start">
+                    <input  id="checkbox-4" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
+                    <label for="checkbox-4" class="ms-2 text-lg font-medium text-gray-900 ">Upload proof of follow</label>
+                </div>
+        </div>
+
+    </div>
+    {{-- end  steps --}}
+
+
 </section>

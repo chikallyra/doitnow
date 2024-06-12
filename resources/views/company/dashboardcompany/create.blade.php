@@ -64,9 +64,9 @@
                                 <h1 class="text-xl text-black font-semibold mb-2">Mission Activate</h1>
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="day_start">From</label>
                                 <div class="flex space-x-2">
-                                    <input type="number" id="day_start" name="day_start" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="month_start" name="month_start" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="year_start" name="year_start" value="2024" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="day_start" name="day_start" value="{{ old('day_start') }}" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="month_start" name="month_start" value="{{ old('month_start') }}" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="year_start" name="year_start" value="2024{{ old('year_start') }}" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                 </div>
                                 @error('day_start')
                                 <div class="text-red-500">
@@ -87,9 +87,9 @@
                             <div class="mb-4 mt-[53px]">
                                 <label class="block text-gray-400 text-sm font-bold mb-2" for="day_end">Until</label>
                                 <div class="flex space-x-2">
-                                    <input type="number" id="day_end" name="day_end" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="month_end" name="month_end" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                    <input type="number" id="year_end" name="year_end" value="2024" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="day_end" name="day_end" value="{{ old('day_end') }}" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="month_end" name="month_end" value="{{ old('month_end') }}" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                    <input type="number" id="year_end" name="year_end" value="2024{{ old('year_end') }}" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                 </div>
                                 @error('day_end')
                                 <div class="text-red-500">
@@ -119,8 +119,8 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                     </svg>
                                 </button>
-                                <input type="text" name="max_missionary" value="{{ old('max_missionary') }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
-                                @error('max_missionary')
+                                <input type="text" name="max_missionaries" value="{{ old('max_missionaries') }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
+                                @error('max_missionaries')
                                 <div class="text-red-500">
                                     {{ $message }}
                                 </div>
@@ -187,7 +187,7 @@
                         {{-- End Steps --}}
 
                         {{-- Steps --}}
-                        <div class="mb-4">
+                        {{-- <div class="mb-4">
                             <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
                             <textarea id="steps" name="steps">{{ old('steps') }}</textarea>
                             @error('steps')
@@ -195,8 +195,17 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                        </div>
+                        </div> --}}
                         {{-- End Steps --}}
+
+                        <div class="form-group">
+                            <label for="steps">Steps</label>
+                            <ul id="steps-list" class="list-group">
+                                <!-- Existing steps will be populated here -->
+                            </ul>
+                            <button type="button" class="btn btn-primary mt-2" id="add-step">Add Step</button>
+                        </div>
+                    </div>
 
                         {{-- Description --}}
                         <div class="mb-4">
@@ -227,6 +236,46 @@
 @section('scripts')
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var stepsList = document.getElementById('steps-list');
+            var addStepButton = document.getElementById('add-step');
+    
+            // Initialize SortableJS
+            Sortable.create(stepsList, {
+                animation: 150,
+                onEnd: function(evt) {
+                    updateStepOrder();
+                }
+            });
+    
+            // Add new step
+            addStepButton.addEventListener('click', function() {
+                var newStep = document.createElement('li');
+                newStep.className = 'list-group-item';
+                newStep.innerHTML = `
+                    <input type="text" name="steps[]" class="form-control" placeholder="Step description">
+                    <button type="button" class="btn btn-danger remove-step">Remove</button>
+                `;
+                stepsList.appendChild(newStep);
+            });
+    
+            // Remove step
+            stepsList.addEventListener('click', function(evt) {
+                if (evt.target.classList.contains('remove-step')) {
+                    evt.target.closest('li').remove();
+                    updateStepOrder();
+                }
+            });
+    
+            // Update step order
+            function updateStepOrder() {
+                var steps = stepsList.querySelectorAll('li');
+                steps.forEach((step, index) => {
+                    step.querySelector('input').name = `steps[${index}]`;
+                });
+            }
+        });
+
        $('#steps').summernote({
         placeholder: 'Please press enter each time you finish writing one step.',
         tabsize: 2,

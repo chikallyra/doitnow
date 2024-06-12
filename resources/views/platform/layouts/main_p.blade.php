@@ -34,6 +34,7 @@
 <body class=" bg-white ">
     
     @yield('container')
+    @yield('script')
 
         <script src="{{ asset('/sw.js') }}"></script>
     <script>

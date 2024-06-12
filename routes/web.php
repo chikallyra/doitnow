@@ -19,6 +19,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationController;
 use App\Models\MissionCategory;
 
 /*
@@ -42,6 +43,10 @@ Route::get('/blog/index', function () {
     return view('blog.index', compact('blog3'));
 })->name('blog.index');
 
+Route::get('/coba', function () {
+    return view('company.dashboardcompany.coba-create');
+});
+
 // Registrasi
 Route::get('/registrasi', [RegistrasiController::class, 'regisCompany'])->middleware(['guest'])->name('register.com');
 Route::get('/registrasi/mission', [RegistrasiController::class, 'regisMiss'])->middleware(['guest'])->name('register.miss');
@@ -64,7 +69,7 @@ Route::post('/login', [LoginController::class, 'submitEmail'])->name('login.gete
 Route::get('/login/password', [LoginController::class, 'password'])->name('login.password');
 Route::post('/login/password', [LoginController::class, 'login'])->name('login');
 
-//Auth MIssionary
+//Auth Missionary
 Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // platform
@@ -76,6 +81,15 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
     Route::get('/platform/profil/{id}', [PlatformController::class, 'profil'])->name('platform.profil');
     Route::put('/platform/profil/{id}/edit', [PlatformController::class, 'updateProfile'])->name('platform.profil.edit');
+
+    // notifikasi 
+    Route::post('/notify/new-mission/{missionId}', [NotificationController::class, 'notifyNewMission']);
+    Route::post('/notify/mission-error/{userMissionId}', [NotificationController::class, 'notifyMissionError']);
+    Route::post('/notify/reward-received/{userRewardId}', [NotificationController::class, 'notifyRewardReceived']);
+
+    Route::get('/notifications', [NotificationController::class, 'getNotifications']);
+
+
 });
 
 //Auth Company

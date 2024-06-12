@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('max_missionaries')->default(0);
             $table->text('steps');
             $table->string('image')->nullable();
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

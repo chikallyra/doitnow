@@ -15,6 +15,24 @@ class MissionCategorySeeder extends Seeder
      */
     public function run()
     {
-        MissionCategory::factory()->count(10)->create();
+        $categories = [
+            'Edukasi' => 'Articles related to education and learning',
+            'Bisnis' => 'Articles about business, marketing, and entrepreneurship',
+            'Teknologi' => 'Articles covering technology trends, gadgets, and software',
+            'Gaya Hidup' => 'Articles on lifestyle topics like productivity, health, and hobbies',
+            'Keuangan' => 'Articles about personal finance, saving, and investing',
+            'Pendidikan' => 'Articles about education',
+            'Pengembangan Diri' => 'Articles about personal self growth',
+            'Hobi & Hiburan' => 'Articles about hobby and entertaiment',
+            'Investasi' => 'Articles about personal finance, saving, and investing',
+        ];
+
+        // Loop through each category and create a record
+        foreach ($categories as $name => $desc) {
+            MissionCategory::create([
+                'name' => $name,
+                'desc' => $desc,
+            ]);
+        }
     }
 }

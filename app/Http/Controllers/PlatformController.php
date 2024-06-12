@@ -46,7 +46,8 @@ class PlatformController extends Controller
         return view('platform.history');
     }
     public function notif() {
-        return view('platform.notif');
+        $notifications = auth()->user()->notifications;
+        return view('platform.notif', ['notifications' => $notifications]);
     }
     public function mission_c() {
         return view('platform.mission_c');

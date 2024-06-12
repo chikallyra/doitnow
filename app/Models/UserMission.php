@@ -17,5 +17,9 @@ class UserMission extends Model
         return $this->BelongsTo(Mission::class);
     }
 
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+
     protected $guarded = ['id'];
 }

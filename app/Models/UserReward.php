@@ -18,5 +18,9 @@ class UserReward extends Model
         return $this->BelongsTo(Reward::class);
     }
 
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+
     protected $guarded = ['id'];
 }

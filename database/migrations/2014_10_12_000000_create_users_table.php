@@ -21,6 +21,7 @@ return new class extends Migration
             $table->tinyInteger('type')->default(0);
             /* Users: 0=>User, 1=>Company, 2=>Admin */
             $table->string('phone')->nullable();
+            $table->boolean('is_banned')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,6 +32,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_banned');
+        });
+        
         Schema::dropIfExists('users');
     }
 };

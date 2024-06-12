@@ -25,6 +25,10 @@ class Mission extends Model
         return $this->belongsToMany(Missionary::class, 'user_missions')->withPivot('joined_at', 'mission_complete_at')->withTimestamps();
     }
 
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+
     protected $guarded = ['id'];
 
     protected $casts = [

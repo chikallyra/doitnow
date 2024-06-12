@@ -3,6 +3,7 @@
     {{-- navbar --}}
     <div class="flex justify-between lg:mx-24 mx-10 pt-5 ">
         <a href="/platform"><i class="fas fa-arrow-left text-black font-bold text-3xl"></i></a>
+        <h1 class="text-black text-3xl font-bold">Descriptions</h1>
         <ul class="flex">
             <li>
                 <i class="fas fa-code-branch mx-3 text-black font-bold text-3xl"></i>
@@ -28,7 +29,7 @@
         <h1 class=" uppercase bg-red-600 font-semibold py-1 px-3 rounded-lg text-center tracking-wider max-w-fit text-white">social</h1>
         <h5 class="mt-3 text-3xl text-black font-bold ">{{ $mission->title}}</h5>
         <p class="mt-2 font-semibold text-gray-500">by {{ $mission->company->name }}</p>
-        <p class="text-lg text-slate-800 font-medium mt-2">{!! $mission->description !!}</p>
+        <p class="text-lg  text-slate-800 font-medium mt-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus nulla delectus dicta non nihil dolorum eum suscipit id cum odit!</p>
         <div class="flex justify-between mt-3">
             @if (!@empty($mission->link))
             <input type="text" id="myInput" value="{{ $mission->link }}" class="w-full bg-gray-200 px-2 text-lg py-1 rounded-xl border-2 mr-5 border-gray-400">
@@ -45,45 +46,67 @@
         <h1 class="mb-3 font-bold text-3xl text-black">Steps</h1>
         <div class="border p-3 rounded-lg"> 
             @foreach(explode('</p>', $mission->steps) as $index => $step)
+            <!-- Checkbox -->
+            <div class="m-4 flex items-center ">
+                <input type="checkbox" id="togglePopup" class="form-checkbox h-5 w-5 text-blue-600 bg-white border-gray-400">
+                <label for="togglePopup-{{ $index + 1 }}" class="ml-2 text-black font-normal">{!! $step !!}</label>
+            </div>
+
+            <!-- Pop-up -->
+            <div class="flex justify-center items-center">
+                <div id="popup" class=" flex justify-center items-center hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-50  z-50 " >
+                    <div class="bg-white p-8 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">Input Form</h2>
+                    <form id="popupForm">
+                        <div class="mb-6">
+                            <label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 ">Default input</label>
+                            <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  ">
+                        </div>
+                    </form>
+                        <button id="closePopup" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Close</button>
+                    </div>
+                </div> 
+            </div>
+            @endforeach
+            {{-- @foreach(explode('</p>', $mission->steps) as $index => $step)
                 <div class="flex flex-row items-start {{ $index != 0 ? 'py-2' : '' }}">
                     <input id="checkbox-{{ $index + 1 }}" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white border-red-300 border-2 rounded-xl focus:ring-red-500">
                     <label for="checkbox-{{ $index + 1 }}" class="ms-2 text-lg font-medium text-gray-900">
                         {!! $step !!}
                     </label>
                 </div>
-            @endforeach
+            @endforeach --}}
+        </div>
+        <div class="mt-8">
+            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class=" block bg-red-700 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-red-800 " >Take a mission</button>
+            
+                <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-md max-h-full">
+                        <div class="relative bg-white rounded-lg shadow ">
+                            <button  class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="popup-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                            <div class="p-4 md:p-5 text-center">
+                                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                </svg>
+                                <h3 class="mb-5 text-lg font-normal text-gray-500 ">Are you sure you want to take on this mission? Your deadline is until <span class="text-red-500">November 12, 2024.</span></h3>
+                                <button data-modal-hide="popup-modal"  class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300  font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                    Yes, I'm sure
+                                </button>
+                                <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 ">No, cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </div>
     </div>
     {{-- end  steps --}}
 
-     {{-- steps --}}
-     <div class="mx-10 lg:mx-32  mt-10 pb-10">
-        <h1 class="mb-3 font-bold text-3xl text-black">Steps</h1>
-        <div class="border p-3 rounded-lg" > 
-                  {{-- 1 --}}
-                <div class="flex flex-row items-start">
-                    <input  id="checkbox-1" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
-                    <label for="checkbox-1" class="ms-2 text-lg font-medium text-gray-900 "><a href="" class="text-red-600 hover:underline hover:decoration-red-600">Click here </a> and start this mission</label>
-                </div>
-                  {{-- 2 --}}
-                <div class="flex flex-row items-start py-2">
-                    <input  id="checkbox-2" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
-                    <label for="checkbox-2" class="ms-2 text-lg font-medium text-gray-900 ">Find the official "@DoitNow" account on Instagram and click on “Follow”.</label>
-                </div>
-                  {{-- 3 --}}
-                <div class="flex flex-row items-start pb-2">
-                    <input  id="checkbox-3" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
-                    <label for="checkbox-3" class="ms-2 text-lg font-medium text-gray-900 ">Comment on the latest post “Followed”</label>
-                </div>
-                  {{-- 4 --}}
-                <div class="flex flex-row items-start">
-                    <input  id="checkbox-4" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-white  border-red-300 border-2 rounded-xl focus:ring-red-500 ">
-                    <label for="checkbox-4" class="ms-2 text-lg font-medium text-gray-900 ">Upload proof of follow</label>
-                </div>
-        </div>
-
-    </div>
-    {{-- end  steps --}}
-
+    
 
 </section>

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->date('dob')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +33,10 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('missionaries', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        
         Schema::dropIfExists('missionaries');
     }
 };

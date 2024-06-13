@@ -6,6 +6,7 @@ use App\Models\CobaStep;
 use App\Http\Requests\StoreCobaStepRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCobaStepRequest;
+use Illuminate\Support\Facades\Log;
 
 class CobaStepController extends Controller
 {
@@ -35,29 +36,37 @@ class CobaStepController extends Controller
      * @param  \App\Http\Requests\StoreCobaStepRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'steps' => 'required|array',
-            'steps.*.type' => 'required|string|in:text,file', // Validasi untuk jenis langkah-langkah
-            'steps.*.description' => 'required|string', // Validasi untuk deskripsi langkah-langkah
-        ]);
+   
 
-        // Proses langkah-langkah
-        $steps = $request->input('steps');
-        $missionSteps = [];
-        foreach ($steps as $step) {
-            $missionSteps[] = [
-                'description' => $step['description'],
-                'type' => $step['type'],
-                // 'label' => $step['label'], // Uncomment this line if label is needed
-            ];
-        }
+     public function store(Request $request)
+     {
+         $request->validate([
+             'steps' => 'required|array',
+             'steps.*.type' => 'required|string|in:text,file,hidden', // Validasi untuk jenis langkah-langkah
+             'steps.*.description' => 'required|string', // Validasi untuk deskripsi langkah-langkah
+         ]);
+     
+         // Proses langkah-langkah
+         $steps = $request->input('steps');
+         $missionSteps = [];
+         foreach ($steps as $step) {
+             $missionSteps[] = [
+                 'description' => $step['description'],
+                 'type' => $step['type'],
+                 // 'label' => $step['label'], // Uncomment this line if label is needed
+             ];
+         }
+     
+         // Store the mission with its steps
+         CobaStep::create([
+             'steps' => json_encode($missionSteps),
+         ]);
+     
+         return back()->with('success', 'Mission steps have been successfully saved.');
+     }
+     
 
-        CobaStep::create([
-            'steps' => json_encode($missionSteps),
-        ]);
-    }
+    
 
     /**
      * Display the specified resource.

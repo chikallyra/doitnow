@@ -50,7 +50,7 @@ class MissionController extends Controller
             'title' => 'required|min:5',
             'link' => 'nullable',
             'steps' => 'required|array',
-            'steps.*.type' => 'required|string|in:text,file', // Validasi untuk jenis langkah-langkah
+            'steps.*.type' => 'required|string|in:text,file,hidden', // Validasi untuk jenis langkah-langkah
             'steps.*.description' => 'required|string', // Validasi untuk deskripsi langkah-langkah
             'description' => 'required|min:10',
             'max_missionaries' => 'required|integer',

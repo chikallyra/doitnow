@@ -174,7 +174,7 @@
                         {{-- End Rewards --}}
 
                         
-
+                        {{-- Steps --}}
                         <div class="mb-4">
                             <label for="steps">Steps</label>
                             <ul id="steps-list" class="list-group">
@@ -219,71 +219,60 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var stepsList = document.getElementById('steps-list');
-    var addStepButton = document.getElementById('add-step');
+        var stepsList = document.getElementById('steps-list');
+        var addStepButton = document.getElementById('add-step');
 
-    // Initialize SortableJS
-    Sortable.create(stepsList, {
-        animation: 150,
-        onEnd: function(evt) {
+        // Initialize SortableJS
+        var sortable = Sortable.create(stepsList, {
+            animation: 150,
+            onEnd: function(evt) {
+                updateStepOrder();
+            }
+        });
+
+        // Add new step
+        addStepButton.addEventListener('click', function() {
+            var newStep = document.createElement('li');
+            newStep.className = 'list-group-item';
+            newStep.innerHTML = `
+                <select class="form-control mb-2">
+                    <option value="text">Text</option>
+                    <option value="file">File</option>
+                    <option value="hidden">None</option>
+                    <!-- Add more options for different step types -->
+                </select>
+                <input type="text" class="form-control mb-2" placeholder="Step description">
+                <button type="button" class="btn btn-danger remove-step">Remove</button>
+            `;
+            stepsList.appendChild(newStep);
             updateStepOrder();
-        }
-    });
+        });
 
-    // Add new step
-    addStepButton.addEventListener('click', function() {
-        var newStep = document.createElement('li');
-        newStep.className = 'list-group-item';
-        newStep.innerHTML = `
-            <select name="stepType[]" class="form-control mb-2" onchange="toggleDescriptionInput(this)">
-                <option value="text">Text</option>
-                <option value="file">File</option>
-                <option value="hidden">None</option>
-                <!-- Add more options for different step types -->
-            </select>
-            <input type="text" name="stepDescriptions[]" class="form-control mb-2" placeholder="Step description">
-            <button type="button" class="btn btn-danger remove-step">Remove</button>
-        `;
-        stepsList.appendChild(newStep);
+        // Remove step
+        stepsList.addEventListener('click', function(evt) {
+            if (evt.target.classList.contains('remove-step')) {
+                evt.target.closest('li').remove();
+                updateStepOrder();
+            }
+        });
+
+        // Update step order
+        function updateStepOrder() {
+            var steps = stepsList.querySelectorAll('li');
+            steps.forEach((step, index) => {
+                var stepTypeSelect = step.querySelector('select');
+                stepTypeSelect.name = `steps[${index}][type]`;
+
+                var stepDescriptionInput = step.querySelector('input');
+                stepDescriptionInput.name = `steps[${index}][description]`;
+            });
+        }
+
+        // No toggleDescriptionInput logic needed since inputs are always visible
+
+        // Initialize updateStepOrder on page load
         updateStepOrder();
     });
-
-    // Remove step
-    stepsList.addEventListener('click', function(evt) {
-        if (evt.target.classList.contains('remove-step')) {
-            evt.target.closest('li').remove();
-            updateStepOrder();
-        }
-    });
-
-    // Update step order
-    function updateStepOrder() {
-        var steps = stepsList.querySelectorAll('li');
-        steps.forEach((step, index) => {
-            var stepTypeSelect = step.querySelector('select[name="stepType[]"]');
-            stepTypeSelect.name = `steps[${index}][type]`;
-
-            var stepDescriptionInput = step.querySelector('input[name="stepDescriptions[]"]');
-            stepDescriptionInput.name = `steps[${index}][description]`;
-
-            // Ensure the visibility of the description input is set correctly
-            toggleDescriptionInput(stepTypeSelect);
-        });
-    }
-
-    // Toggle description input based on step type
-    window.toggleDescriptionInput = function(selectElement) {
-        var descriptionInput = selectElement.nextElementSibling;
-        if (selectElement.value === 'hidden') {
-            descriptionInput.style.display = 'none';
-        } else {
-            descriptionInput.style.display = 'block';
-        }
-    }
-});
-
-
-
 
        $('#description').summernote({
         placeholder: 'Enter mission descriprtion here....',

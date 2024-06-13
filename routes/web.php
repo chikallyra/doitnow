@@ -5,6 +5,7 @@ use App\Models\Blog;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CobaStepController;
 use App\Http\Controllers\CompanyDashboardController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
+use App\Models\CobaStep;
 use App\Models\MissionCategory;
 
 /*
@@ -46,6 +48,8 @@ Route::get('/blog/index', function () {
 Route::get('/coba', function () {
     return view('company.dashboardcompany.coba-create');
 });
+
+Route::post('coba/store', [CobaStepController::class, 'store'])->name('step.store');
 
 // Registrasi
 Route::get('/registrasi', [RegistrasiController::class, 'regisCompany'])->middleware(['guest'])->name('register.com');

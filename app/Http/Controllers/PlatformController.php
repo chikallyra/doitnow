@@ -36,6 +36,7 @@ class PlatformController extends Controller
 
     public function misi($id) {
         $mission = Mission::with('company', 'reward', 'category')->findOrFail($id);
+        $mission->steps = json_decode($mission->steps, true);
         return view('platform.misi', compact('mission'));
     }
 

@@ -34,5 +34,6 @@ class Mission extends Model
     protected $casts = [
         'start_date' => 'date',
         'end_date' => 'date',
+        'steps' => 'array'
     ];
 }

@@ -172,40 +172,22 @@
                             @enderror
                         </div>
                         {{-- End Rewards --}}
+
                         
-                        {{-- Steps --}}
-                        {{-- <div class="mb-4">
-                            <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
-                            <input id="x" type="hidden" name="steps" value="Please press enter each time you finish writing one step.">
-                            <trix-editor input="x"></trix-editor>
-                            @error('steps')
-                            <div class="text-red-500">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div> --}}
-                        {{-- End Steps --}}
 
-                        {{-- Steps --}}
-                        {{-- <div class="mb-4">
-                            <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
-                            <textarea id="steps" name="steps">{{ old('steps') }}</textarea>
-                            @error('steps')
-                            <div class="text-red-500">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div> --}}
-                        {{-- End Steps --}}
-
-                        <div class="form-group">
+                        <div class="mb-4">
                             <label for="steps">Steps</label>
                             <ul id="steps-list" class="list-group">
                                 <!-- Existing steps will be populated here -->
                             </ul>
+                            @error('steps')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                            @enderror
                             <button type="button" class="btn btn-primary mt-2" id="add-step">Add Step</button>
                         </div>
-                    </div>
+                        
 
                         {{-- Description --}}
                         <div class="mb-4">
@@ -236,60 +218,72 @@
 @section('scripts')
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var stepsList = document.getElementById('steps-list');
-            var addStepButton = document.getElementById('add-step');
-    
-            // Initialize SortableJS
-            Sortable.create(stepsList, {
-                animation: 150,
-                onEnd: function(evt) {
-                    updateStepOrder();
-                }
-            });
-    
-            // Add new step
-            addStepButton.addEventListener('click', function() {
-                var newStep = document.createElement('li');
-                newStep.className = 'list-group-item';
-                newStep.innerHTML = `
-                    <input type="text" name="steps[]" class="form-control" placeholder="Step description">
-                    <button type="button" class="btn btn-danger remove-step">Remove</button>
-                `;
-                stepsList.appendChild(newStep);
-            });
-    
-            // Remove step
-            stepsList.addEventListener('click', function(evt) {
-                if (evt.target.classList.contains('remove-step')) {
-                    evt.target.closest('li').remove();
-                    updateStepOrder();
-                }
-            });
-    
-            // Update step order
-            function updateStepOrder() {
-                var steps = stepsList.querySelectorAll('li');
-                steps.forEach((step, index) => {
-                    step.querySelector('input').name = `steps[${index}]`;
-                });
-            }
-        });
+    document.addEventListener('DOMContentLoaded', function() {
+    var stepsList = document.getElementById('steps-list');
+    var addStepButton = document.getElementById('add-step');
 
-       $('#steps').summernote({
-        placeholder: 'Please press enter each time you finish writing one step.',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-        //   ['table', ['table']],
-        //   ['insert', ['link', 'picture', 'video']],
-          ['view', ['codeview', 'help']]
-        ]
-      });
+    // Initialize SortableJS
+    Sortable.create(stepsList, {
+        animation: 150,
+        onEnd: function(evt) {
+            updateStepOrder();
+        }
+    });
+
+    // Add new step
+    addStepButton.addEventListener('click', function() {
+        var newStep = document.createElement('li');
+        newStep.className = 'list-group-item';
+        newStep.innerHTML = `
+            <select name="stepType[]" class="form-control mb-2" onchange="toggleDescriptionInput(this)">
+                <option value="text">Text</option>
+                <option value="file">File</option>
+                <option value="hidden">None</option>
+                <!-- Add more options for different step types -->
+            </select>
+            <input type="text" name="stepDescriptions[]" class="form-control mb-2" placeholder="Step description">
+            <button type="button" class="btn btn-danger remove-step">Remove</button>
+        `;
+        stepsList.appendChild(newStep);
+        updateStepOrder();
+    });
+
+    // Remove step
+    stepsList.addEventListener('click', function(evt) {
+        if (evt.target.classList.contains('remove-step')) {
+            evt.target.closest('li').remove();
+            updateStepOrder();
+        }
+    });
+
+    // Update step order
+    function updateStepOrder() {
+        var steps = stepsList.querySelectorAll('li');
+        steps.forEach((step, index) => {
+            var stepTypeSelect = step.querySelector('select[name="stepType[]"]');
+            stepTypeSelect.name = `steps[${index}][type]`;
+
+            var stepDescriptionInput = step.querySelector('input[name="stepDescriptions[]"]');
+            stepDescriptionInput.name = `steps[${index}][description]`;
+
+            // Ensure the visibility of the description input is set correctly
+            toggleDescriptionInput(stepTypeSelect);
+        });
+    }
+
+    // Toggle description input based on step type
+    window.toggleDescriptionInput = function(selectElement) {
+        var descriptionInput = selectElement.nextElementSibling;
+        if (selectElement.value === 'hidden') {
+            descriptionInput.style.display = 'none';
+        } else {
+            descriptionInput.style.display = 'block';
+        }
+    }
+});
+
+
+
 
        $('#description').summernote({
         placeholder: 'Enter mission descriprtion here....',

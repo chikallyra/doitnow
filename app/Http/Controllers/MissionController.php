@@ -50,9 +50,10 @@ class MissionController extends Controller
             'title' => 'required|min:5',
             'link' => 'nullable',
             'steps' => 'required|array',
-            'steps.*' => 'required|string',
+            'steps.*.type' => 'required|string|in:text,file', // Validasi untuk jenis langkah-langkah
+            'steps.*.description' => 'required|string', // Validasi untuk deskripsi langkah-langkah
             'description' => 'required|min:10',
-            'max_missionaries' => 'required|integer', // Ganti ke 'max_missionaries'
+            'max_missionaries' => 'required|integer',
             'category_id' => 'required|exists:mission_categories,id',
             'existing_reward' => 'nullable|exists:rewards,id',
             'new_reward' => 'nullable|string|required_without:existing_reward',
@@ -68,7 +69,6 @@ class MissionController extends Controller
         $end_date = sprintf('%04d-%02d-%02d', $request->year_end, $request->month_end, $request->day_end);
     
         if ($request->hasFile('image')) {
-            Log::info('File image detected, attempting to store...');
             try {
                 $imagePath = $request->file('image')->store('images/blogs', 'public');
                 Log::info('Image stored at: ' . $imagePath);
@@ -87,13 +87,24 @@ class MissionController extends Controller
             $reward = Reward::create(['reward' => $request->new_reward]);
         }
     
+        // Proses langkah-langkah
+        $steps = $request->input('steps');
+        $missionSteps = [];
+        foreach ($steps as $step) {
+            $missionSteps[] = [
+                'description' => $step['description'],
+                'type' => $step['type'],
+                // 'label' => $step['label'], // Uncomment this line if label is needed
+            ];
+        }
+    
         $mission = Mission::create([
             'company_id' => auth()->user()->company->id,
             'category_id' => $request->category_id,
             'reward_id' => $reward->id,
             'title' => $request->title,
             'description' => $request->description,
-            'steps' => json_encode($request->steps),
+            'steps' => json_encode($missionSteps), // Simpan langkah-langkah sebagai JSON
             'link' => $request->link,
             'start_date' => $start_date,
             'end_date' => $end_date,

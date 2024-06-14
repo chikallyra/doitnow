@@ -15,6 +15,7 @@ class PlatformController extends Controller
 {
     public function index() {
         $missions = Mission::with('reward', 'category')->get();
+        $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->get(); 
     
         foreach ($missions as $mission) {
             $start_date = Carbon::parse($mission->start_date)->format('d M Y');
@@ -28,6 +29,9 @@ class PlatformController extends Controller
             $mission->formatted_start_date = $start_date;
             $mission->formatted_end_date = $end_date;
         }
+
+        
+
     
         return view('platform.index', compact('missions'));
     }

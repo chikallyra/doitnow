@@ -7,14 +7,14 @@
             <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16  ">
                 <h1 class="text-center text-xl lg:text-4xl text-white font-bold">Rp</h1>
             </div>
-            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">88.000 ></h1>    
+            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">88.000 </h1>    
         </div>
     </a>
     {{-- end rewads --}}
 
     {{-- card --}}
-    <div class="flex justify-center items-center">
-        <div class="grid grid-cols-3 gap-2 lg:grid-cols-3 lg:gap-8 mt-10 lg:mx-10 mx-5  ">
+    <div class="flex justify-start items-center">
+        <div class="grid grid-cols-2 gap-2 lg:grid-cols-2 lg:gap-8 mt-10 lg:mx-32 mx-5  ">
             <a href="{{ route ('platform.mission_c') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
                 <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
                     <div class="flex justify-center items-center">
@@ -31,15 +31,6 @@
                     <h1 class="text-center text-black font-medium lg:text-lg text-sm px-2">Invite a Friend</h1>
                 </div>
             </a>
-            <a href="" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
-                <div class="h-24 w-20  lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
-                    <div class="flex justify-center items-center">
-                        <img src="/img/mp.png " class="w-10 lg:w-14 mt-2" alt="home center">
-                    </div>
-                    <h1 class="text-center text-black font-medium lg:text-lg text-sm px-2 lg:mt-3">Market Place</h1>
-                </div>
-            </a>
-            
         </div>
     </div>
     {{-- end card --}}
@@ -71,7 +62,7 @@
     {{-- end live searching --}}
 
  {{-- Mission --}}
- <div class="mx-10 lg:mx-32 mt-10 pb-10">
+ <div class="mx-5 lg:mx-32 mt-10 pb-10">
     <div class="flex justify-between">
         <h1 class="font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
     </div>
@@ -79,15 +70,15 @@
     <a href="{{ route('platform.misi', $mission->id) }}" class="">
         <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
             <div class="flex items-start mx-3 lg:mx-10 mt-5">
-                <div class="border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2">
+                <div class="border-4 border-red-700 w-3/5 lg:w-24 h-3/5 rounded-3xl mt-2">
                     <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 lg:w-24 h-24 mx-auto rounded-3xl" alt="misi foto">
                 </div>
                 <div class="truncate ml-2 lg:ml-8">
-                    <div class="flex justify-between items-end">
+                    <div class="flex justify-between items-end gap-2">
                         <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16 uppercase">{{ $mission->category->name }}</h1>
-                        <h3 class="mt-2 text-white bg-gray-500 rounded-md px-2 uppercase lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[860px]" data-end-time="{{ $mission->end_time_unix }}">
+                        <h3 class="mt-2 text-white bg-gray-500 rounded-md px-2 uppercase w-full lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[750px] " data-end-time="{{ $mission->end_time_unix }}">
                             {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
-                            <span class="time-remaining" data-time-ago="{{ $mission->time_ago }}">
+                            <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
                                 {{ $mission->time_ago }}
                             </span>
                         </h3>

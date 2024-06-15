@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class PlatformController extends Controller
 {
     public function index() {
-        $missions = Mission::with('reward', 'category')->get();
+        $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->get();
     
         foreach ($missions as $mission) {
             $start_date = Carbon::parse($mission->start_date)->format('d M Y');

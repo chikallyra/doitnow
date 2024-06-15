@@ -31,7 +31,7 @@
     <title>DoitNow</title>
 </head>
 
-<body class=" bg-white ">
+<body class=" bg-white w-full h-full">
     
     @yield('container')
     @yield('script')
@@ -52,32 +52,74 @@
     } else {
         console.error("Service workers are not supported.");
     }
+
+    // add foto
+document.getElementById('image-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('image-preview');
+            preview.src = e.target.result;
+            preview.classList.remove('hidden'); // Menampilkan gambar
+            document.getElementById('upload-placeholder').classList.add('hidden'); // Menyembunyikan placeholder
+        };
+        reader.readAsDataURL(file);
+    }
+});
 </script>
 </body>
 
 {{-- script js --}}
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-{{-- step --}}
+
+{{-- copy--}}
 <script>
-//    <!-- JavaScript to toggle pop-up -->
-        const togglePopup = document.getElementById('togglePopup');
-        const popup = document.getElementById('popup');
-        const closePopup = document.getElementById('closePopup');
+    function copyText() {
+        // Dapatkan elemen input dan elemen feedback
+        var inputElement = document.getElementById("myInput");
+        var feedbackElement = document.getElementById("copyFeedback");
 
-        togglePopup.addEventListener('change', function() {
-            if (this.checked) {
-                popup.classList.remove('hidden');
+        // Pilih teks di dalam input
+        inputElement.select();
+        inputElement.setSelectionRange(0, 99999); // Untuk perangkat mobile
+
+        try {
+            // Salin teks ke clipboard
+            var successful = document.execCommand('copy');
+            
+            if (successful) {
+                // Tampilkan pesan umpan balik
+                feedbackElement.classList.remove("hidden");
+                
+                // Sembunyikan pesan umpan balik setelah 2 detik
+                setTimeout(function() {
+                    feedbackElement.classList.add("hidden");
+                }, 2000);
             } else {
-                popup.classList.add('hidden');
+                feedbackElement.innerText = "Failed to copy text";
+                feedbackElement.classList.remove("text-green-500");
+                feedbackElement.classList.add("text-red-500");
+                feedbackElement.classList.remove("hidden");
+                
+                // Sembunyikan pesan umpan balik setelah 2 detik
+                setTimeout(function() {
+                    feedbackElement.classList.add("hidden");
+                }, 2000);
             }
-        });
+        } catch (err) {
+            console.log('Oops, unable to copy', err);
+        }
 
-        closePopup.addEventListener('click', function() {
-            popup.classList.add('hidden');
-            togglePopup.checked = false; // Uncheck the checkbox
-        });
+        // Hapus seleksi
+        window.getSelection().removeAllRanges();
+    }
+</script>
+
+<script>
+    
 </script>
 
 </html>

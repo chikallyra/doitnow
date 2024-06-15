@@ -1,173 +1,233 @@
 @extends('layouts.main')
 
 @section('container')
-<section class="lg:pt-32 pt-32  bg-white h-full pb-10 lg:pb-32">
-    <div class="container">
-        <div>
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 mx-10">
-                <div class=" flex justify-center items-center">
-                    <img src="/img/banner.png" class="w-[500px]" alt="">
-                </div>
-                <div class="lg:mt-32 lg:mr-10">
-                    <h5 class="text-6xl font-extrabold text-red-600 mb-8">doitnow</h5>
-                    <p class="text-black font-medium text-xl">doitnow is a platform that matches mission creators with mission participants. The platform offers a variety of interesting missions that you can complete to earn rewards such as money, vouchers, and products.</p>
-                    
-                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium  mt-5 rounded-full text-lg px-8 py-1 text-center " type="button">
-                        Join Us
-                    </button>
-                        
-                        <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50        justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                            <div class="relative p-4 w-full max-w-md max-h-full">
-                                <div class="relative bg-white rounded-lg shadow ">
-                                    <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent  hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="popup-modal">
-                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                                        </svg>
-                                        <span class="sr-only">Close modal</span>
-                                    </button>
-                                    <div class="p-8 lg:p-10 md:p-5 text-center">
-                                        
-                                        <h3 class="mb-5 text-lg font-normal text-black  
-                                        ">We provide a 
-                                        digital marketing platform that supports both business growth and social missions. Join us and leverage technology to achieve your goals more efficiently and effectively.</h3>
-                                        <a href="/registrasi" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center">Company</a>
-                                        <a href="/registrasi/mission" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium ml-2 rounded-lg text-lg inline-flex items-center px-5 py-2.5 text-center">Missionary</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                </div>
-            </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFF7F1" fill-opacity="1" d="M0,32L48,37.3C96,43,192,53,288,96C384,139,480,213,576,213.3C672,213,768,139,864,117.3C960,96,1056,128,1152,154.7C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-    
-        <div class=" bg-[#FFF7F1] -mt-10 ">
-            
-            <h1 class="text-center font-semibold text-red-700 text-2xl lg:text-3xl pt-10 lg:pt-0 ">VISION & MISION</h1>
-            <p class="border-b-4 mx-44 lg:mx-[700px] text-center pt-2 font-bold border-orange-700"></p>
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 mt-5 mx-10 lg:mx-64 lg:mt-14">
-                <div class="h-44 rounded-lg bg-[#FFECE4] shadow-lg shadow-gray-300">
-                    <h1 class="uppercase text-center text-xl lg:text-2xl text-black font-semibold pt-4">our vision</h1>
-                    <p class="text-center lg:text-lg text-black mx-8 font-medium pt-6">To build a community where every task is an opportunity and every achievement is celebrated</p>
-                </div>
-                <div class="h-44 rounded-lg bg-[#FFECE4] shadow-lg shadow-gray-300 mb-10">
-                    <h1 class="uppercase text-center text-xl text-black lg:text-2xl font-semibold pt-4">our mission</h1>
-                    <p class="text-center lg:text-lg text-black mx-8 font-medium pt-6">To motivate individuals to accomplish their goals by providing exciting missions and rewarding their efforts.</p>
-                </div>
-              </div>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#FFF7F1" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,117.3C384,117,480,107,576,128C672,149,768,203,864,186.7C960,171,1056,85,1152,90.7C1248,96,1344,192,1392,240L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-        </svg>
 
-        <div class="pt-14">
-            <h1 class="text-center uppercase text-3xl text-red-700 font-semibold">our team</h1>
-            <p class="border-b-4 mx-48 lg:mx-[730px] pt-2 font-bold border-orange-700"></p>
-            {{-- grid 3 --}}
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:mx-44">
-                <!-- Team Member 1 -->
-                <div class="p-6 text-center">
-                  <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/paktommy.jpg" alt="Pak Tommy">
-                  <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Tommy Hartono</h2>
-                  <p class="text-gray-600 mb-4">Project Manager</p>
-                  <a href="" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/profile.png" alt="Pak Tommy">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">jhon</h2>
-                    <p class="text-gray-600 mb-4">Project Manager</p>
-                    <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</button>
-                  </div>
-                <!-- Team Member 3 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/profile.png" alt="Pak Tommy">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">jhon</h2>
-                    <p class="text-gray-600 mb-4">Project Manager</p>
-                    <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</button>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/indri.jpg" alt="Widya Dwi Indrianti">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Widya Dwi Indrianti</h2>
-                    <p class="text-gray-600 mb-4">Frontend Development</p>
-                    <a href="https://drive.google.com/file/d/1ECGvwp8TUE4aQrVNUfqTZVunoviZYz6v/view" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 5 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/chikal.jpg" alt="Chikal Lyra">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Chikal Lyra Saeni P </h2>
-                    <p class="text-gray-600 mb-4">Backend Development</p>
-                    <a href="https://github.com/chikallyra" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 6 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/zilan.png" alt="Ahmad Zilan">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Ahmad Zilan</h2>
-                    <p class="text-gray-600 mb-4">Backend Development</p>
-                    <a href="" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-            </div>
-    
-            {{-- grid 4 --}}
-            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:mx-12">
-                <!-- Team Member 1 -->
-                <div class="p-6 text-center">
-                  <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/nilla.jpg" alt="Nilla salsa Billa">
-                  <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Nilla Salsa Billa</h2>
-                  <p class="text-gray-600 mb-4">UI/UX Designer</p>
-                  <a href="https://portofolionillasalsabillaputri.framer.website/" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 2 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/noni.jpg" alt="Noni">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Noni WindiYanti</h2>
-                    <p class="text-gray-600 mb-4">UI/UX Designer</p>
-                    <a href="https://www.figma.com/design/b7F2D2ZxUvLZHAOyLxbK7h/Noni-windiYanti?node-id=0-1&t=cBGp10J3PXNyCLYi-0" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                  </div>
-                <!-- Team Member 3 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/yunda.jpg" alt="yunda">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Yunda Herawati</h2>
-                    <p class="text-gray-600 mb-4">UI/UX Designer</p>
-                    <a href="https://drive.google.com/file/d/14j7jxjDOPPJXlsEngvHY13PKgPspptlP/view?usp=drivesdk" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/nona.jpg" alt="nona">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Nona Widaningsih</h2>
-                    <p class="text-gray-600 mb-4">UI/UX Designer</p>
-                    <a href="" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 5 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/yuena.jpeg" alt="yuena">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Yuena Adhalia Putri </h2>
-                    <p class="text-gray-600 mb-4">Digital Markeler</p>
-                    <a href="https://drive.google.com/drive/folders/1c7r4bLpAaUGYAtwCKDV70hVw45mnvyhk?usp=sharing" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 6 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/silvana.png" alt="silvana">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Silvana Zalista Nuraini G </h2>
-                    <p class="text-gray-600 mb-4">Digital Markeler</p>
-                    <a href="https://drive.google.com/file/d/11makuMpCYxD19rhVAfgqBS4Xj_RaUdmN/view?usp=drivesdk " class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 7 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/waldah.jpg" alt="waldah">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Waldah Salasah </h2>
-                    <p class="text-gray-600 mb-4">Digital Markeler</p>
-                    <a href="https://drive.google.com/file/d/1_xPizGz1UHyLRDAnGBxNu7H7DBiuRuUw/view?usp=drivesdk" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-                <!-- Team Member 8 -->
-                <div class="p-6 text-center">
-                    <img class="w-full h-72 object-cover object-center rounded-lg" src="/img/wandany.jpg" alt="wandany">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-2 mt-3">Wandany M Faitullah </h2>
-                    <p class="text-gray-600 mb-4">Digital Markeler</p>
-                    <a href="https://drive.google.com/drive/folders/1q9Ns3d1yJoAemNTkA30D12Q9wTrV7ZRv?usp=sharing" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Portofolio</a>
-                </div>
-            </div>
+  <!-- About Us Section -->
+  <section class="bg-white p-8 ">
+    <h1 class="pt-28 text-center text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#dd211f] via-[#771211] to-[#771211]">About Us</h1>
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 p-4">
+            <img src="/img/banner.png" alt="Illustration" class="w-full h-auto">
+        </div>
+        <div class="md:w-1/2 p-4">
+            <h1 class="text-5xl font-bold text-red-600">doitnow</h1>
+            <p class="mt-4 mb-6 text-gray-900 text-lg">doitnow is a platform that matches mission creators with mission participants. The platform offers a variety of interesting missions that you can complete to earn rewards such as money, vouchers, and products.</p>
+            <a href="" class=" bg-red-600 text-white px-10 py-2 rounded-xl shadow-lg text-lg hover:bg-red-800 transition duration-300">Join Us</a href="">
+        </div>
     </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="bg-[linear-gradient(90deg,rgba(169,25,24,1)_51%,rgba(119,18,17,1)_100%)] text-white py-5 lg:py-20">
+    <div class=" mx-auto text-center">
+        <h2 class="lg:text-4xl text-xl  font-bold">" Have fun, get paid, and earn rewards with doitnow! "</h2>
+    </div>
+</section>
+
+<section class="bg-white pb-8 flex justify-center ">
+    <div class="border-2 border-white shadow-gray-300 shadow-lg p-5 rounded-xl lg:mt-[-20px]  bg-white  ">
+        <h1 class="text-center font-extrabold mb-5 lg:text-3xl text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#dd211f] via-[#771211] to-[#771211]">VISION & MISSION</h1>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl font-bold text-red-500">VISION</h3>
+                <p class="mt-4 text-gray-600">To build a community where every task is an opportunity and every achievement is celebrated.</p>
+            </div>
+            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center">
+                <h3 class="text-xl font-bold text-red-500">MISSION</h3>
+                <p class="mt-4 text-gray-600">To motivate individuals to accomplish their goals by providing exciting missions and rewarding their efforts.</p>
+            </div>
+        </div>
+    </div>
+   
+</section>
+
+
+{{-- Our Team Section --}}
+<section class="bg-white pb-8 pt-10 flex justify-center ">
+    <div class=" ">
+        <h1 class="text-center font-extrabold mb-3 lg:text-3xl text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#dd211f] via-[#771211] to-[#771211]">OUR TEAM</h1>
+        <P class="lg:mb-14 text-center mb-5 text-sm lg:text-xl text-gray-500">Meet our diverse team consisting of creators, the UI/UX team, programmers, the digital marketing team</P>
+        
+        {{-- grid 3 --}}
+        <div class=" max-w-7xl lg:mx-auto mx-5 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {{-- pak tommy --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full w-40 h-40 object-cover mb-4" src="img/paktommy.jpg" alt="Jack Clark">
+                <h2 class="text-2xl text-slate-900 font-semibold">Tommy Hartanto</h2>
+                <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
+                <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- pak nollan --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full w-40 h-40 object-cover mb-4" src="https://via.placeholder.com/150" alt="Jack Clark">
+                <h2 class="text-2xl text-slate-900 font-semibold">pak nollan</h2>
+                <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
+                <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- pak Michell --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full w-40 h-40 object-cover mb-4" src="https://via.placeholder.com/150" alt="Jack Clark">
+                <h2 class="text-2xl text-slate-900 font-semibold">pak michell</h2>
+                <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
+                <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        {{-- grid 5 --}}
+        <div class=" max-w-full  mx-5 grid grid-cols-2 md:grid-cols-5 gap-8 mt-14">
+            {{-- Widya Dwi Indrianti --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="/img/team/indri.png" alt="Widya Dwi Indrianti">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Widya Dwi Indrianti</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Front-end Development</p>
+                <a href="https://drive.google.com/file/d/1ECGvwp8TUE4aQrVNUfqTZVunoviZYz6v/view" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium hover:bg-red-800">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/widya-dwi-indrianti-31a4ba223/" class="text-gray-600 hover:text-blue-500" target="blank"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/indrii_anti/?hl=id" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Chikal Lyra Saeni Putri  --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/chikal.png" alt="Chikal Lyra Saeni Putri ">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Chikal Lyra Saeni P </h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Back-end Development</p>
+                <a href="https://github.com/chikallyra" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/chikallyra/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/kalqulus?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Ahmad Zilan --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 g:h-40 object-cover mb-4" src="img/team/zilan.png" alt="Ahmad Zilan">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Ahmad Zilan</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Back-end Development</p>
+                <a href="https://drive.google.com/file/d/13Fd63MCIBu7dLsUipkwu_0jJThUdwoeC/view?usp=drivesdk" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" target="balnk" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/_ahmadzilan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="balnk" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Nilla Salsa Billa Putri--}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/nilla.png" alt="Nilla Salsa Billa Putri">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Nilla Salsa Billa Putri</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">UI/UX Desainer</p>
+                <a href="https://portofolionillasalsabillaputri.framer.website/" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/nillasalsabillaputri/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/nillaaslsbillaaptr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Noni Widiyanti --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/noni.png" alt="Noni Widiyanti">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Noni Widiyanti</h2>
+                <p class="text-red-600 mb-1 text-sm lg:text-lg ">UI/UX Desainer</p>
+                <a href="https://www.figma.com/design/b7F2D2ZxUvLZHAOyLxbK7h/Noni-windiYanti?node-id=0-1&t=cBGp10J3PXNyCLYi-0" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/cicichioni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        {{-- grid 6 --}}
+        <div class=" max-w-full  mx-5 grid grid-cols-2 md:grid-cols-6 gap-8 mt-14">
+            {{-- Yunda Putri Herawati --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg;w-40 lg:h-40 object-cover mb-4" src="img/team/yunda.png" alt="Yunda Putri Herawati">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Yunda Putri H</h2>
+                <p class="text-red-600 mb-1 text-sm lg:text-lg ">UI/UX Desainer</p>
+                <a href="https://drive.google.com/file/d/14j7jxjDOPPJXlsEngvHY13PKgPspptlP/view?usp=drivesdk" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/yndptri?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Nona Widaningsih --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/nona.png" alt="Nona Widaningsih">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Nona W</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm">UI/UX Desainer</p>
+                <a href="https://www.figma.com/design/RAuD5FKV7P1ndGAwo0Heri/Portofolio_Nona-Widaningsih?node-id=0-1&t=sQJK6kGcpbYXNIMw-1" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/dynaa__03?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{--  Silvana Zalista Nuraini Ghoyali --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/silvana.png" alt=" Silvana Zalista Nuraini Ghoyali">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold"> Silvana Zalista</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Digital Marketing</p>
+                <a href="https://drive.google.com/file/d/11makuMpCYxD19rhVAfgqBS4Xj_RaUdmN/view?usp=drivesdk" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/silvanazlt/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/silsillz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Yuena Adhalia Putri --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/yuena.png" alt="Yuena Adhalia Putri">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Yuena A P</h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm">Digital Marketing</p>
+                <a href="https://drive.google.com/drive/folders/1c7r4bLpAaUGYAtwCKDV70hVw45mnvyhk?usp=sharing" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="#" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/vemoyez?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{--Waldah Salasah --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/waldah.png" alt="Waldah Salasah ">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Waldah Salasah </h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Digital Marketing</p>
+                <a href="https://drive.google.com/file/d/1_xPizGz1UHyLRDAnGBxNu7H7DBiuRuUw/view?usp=drivesdk" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/waldah-salasah/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/waldahsh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            {{-- Wandany Muhamad Faitul Mi'raj --}}
+            <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
+                <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/wandany.png" alt=" Wandany Muhamad Faitul Mi'raj ">
+                <h2 class="lg:text-2xl text-slate-900 font-semibold"> Wandany M F </h2>
+                <p class="text-red-600 mb-1 lg:text-lg text-sm ">Digital Marketing</p>
+                <a href="https://drive.google.com/drive/folders/1q9Ns3d1yJoAemNTkA30D12Q9wTrV7ZRv?usp=sharing" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
+                <div class="flex space-x-3 text-lg">
+                  <a href="https://www.linkedin.com/in/wandany-faitul-a90a79249/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/wandanyfaitul_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+   
 </section>
     
 @endsection

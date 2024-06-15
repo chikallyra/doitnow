@@ -40,7 +40,7 @@
     <x-head.tinymce-config/>
 </head>
 
-<body class=" bg-white h-full">
+<body class=" bg-white min-h-full">
     @include('company.dashboardcompany.layouts.navbar')
     @yield('container')
 

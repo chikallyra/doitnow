@@ -24,7 +24,7 @@
           <a href="/" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">Home</a>
         </li>
         <li>
-          <a href="/blog" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">News</a>
+          <a href="/blog" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">Blog</a>
         </li>
         <li>
           <a href="/about" class="nav-link text-black active:text-[#DD2120] font-semibold text-lg hover:text-[#DD2120] px-1 py-2">About Us</a>

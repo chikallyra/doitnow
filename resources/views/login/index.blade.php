@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20 bg-white h-screen ">
-  <div class=" items-center flex  justify-center bg-red-600 lg:h-[610px] h-32  " >
+  <div class=" items-center flex  justify-center lg:h-full bg-red-600 h-32  " >
     <img src="/img/loginbanner.png" class="w-[200px] lg:w-[400px] lg:mt-14 md:mt-10" h-70 alt="">
   </div>
   <div class="">
@@ -44,7 +44,7 @@
                 </div>
                 <!-- Button Login -->
                 <button type="submit"
-                    class="w-full text-white bg-[#DD2120] font-bold hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-5 py-2.5 text-center">Next</button>
+                    class="w-full  text-white bg-[#DD2120] font-bold hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-base px-5 py-2.5 text-center">Next</button>
             </form>
                 <p class="text-center font-bold text-lg text-gray-400">Or</p>
 
@@ -53,9 +53,7 @@
                     class="flex items-start justify-center w-full text-blue-700 bg-gray-100 font-bold text-[24px] hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5">
                     <img src="img/google.png" class="w-5 h-5" alt="">
                     <a href="{{ route('redirect') }}"> Login with Google</a>
-                </button>
-
-                
+                </button>           
         </div>
 
     </div>

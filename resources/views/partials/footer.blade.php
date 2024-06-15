@@ -1,47 +1,54 @@
-<!-- footer -->
-<footer class="md:mt-[-700px] sm:mt-[-700px] mt-[-380px] lg:mt-0 lg:mx-3">
-  <div class=" footer  lg:h-56 h-60  bg-[#DD2120] rounded-lg  mt-96 lg:mt-10  md:mx-auto  ">
-    <div class="grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-8 ">
-      <div class=" mx-5 lg:mx-20 mt-5 lg:col-span-2   ">
-        <div class=" text-white text-center lg:text-left mt-8 ">
-          <h1 class="font-extrabold text-3xl mb-4 ">doitnow</h1>
-          <p class="font-extrabold text-lg mt-2">PT. Pelopor Ide Kreatif</p>
-          <p class="font-extrabold text-sm mt-2">Telp :<span class="font-bold">+628892626889</span> </p>
-          <p class="font-extrabold text-sm mt-2"> Email : <span class="font-medium"> info@doitnow.id</span> </p>
-          
-        </div>
-      </div>
-      <div class=" mx-20 lg:mt-5 mt-8 md:ml-[110px]">
-        <h1 class="text-center font-bold text-2xl mb-3 mt-5 text-white">Connect With Us</h1>
-
-        <div class="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4  xl:grid-cols-4 mx-auto">
-          <a href="https://www.instagram.com/doitnowid?igsh=MXVmMThjODVjenJrOA==" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
-            <i class="fab fa-instagram lg:text-5xl md:text-4xl text-xl mx-2 text-white hover:text-black"></i>
-          </a>
-          <a href="" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
-            <i class="fab fa-youtube lg:text-5xl md:text-4xl text-xl mx-2 text-white hover:text-black"></i>
-          </a>
-          <a href="" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
-            <i class="fab fa-whatsapp lg:text-5xl md:text-4xl text-xl mx-2 text-white hover:text-black"></i>
-          </a>
-          <a href="" class=" flex justify-center items-center text-center transition duration-300 transform hover:scale-105  ">
-           </i> <i class="far fa-envelope lg:text-5xl md:text-4xl text-xl mx-2 text-white hover:text-black"></i>
-          </a>
-         
-        </div> 
-        <a href="" class="transition duration-300 transform hover:scale-105">
-          <div class=" flex justify-center items-center mt-2">
-            <img src="/img/playstore 4.png" class="transition duration-300 transform hover:scale-105" alt=""></div>         
-          </div>
-        </a>
+<footer class="bg-red-600 text-white py-8 mx-5 rounded-lg mt-5">
+  <div class="container mx-auto px-3 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-5 gap-8">
+    
+    <!-- Logo dan Deskripsi -->
+    <div class="lg:col-span-2 col-span-1">
+      <h2 class="text-5xl font-extrabold text-white">doitnow</h2>
+      <p class="mt-4 lg:mr-52">The ultimate online mission platform that makes earning rewards a blast! Find your exciting adventure while completing mission and getting attractive reward!</p>
+      <div class="flex space-x-4 mt-4 text-xl lg:text-3xl ">
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f text-white hover:text-gray-400"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter text-white hover:text-gray-400 "></i></a>
+        <a href="https://www.instagram.com/doitnowid?igsh=MXVmMThjODVjenJrOA==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram text-white hover:text-gray-400"></i></a>
+        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin text-white hover:text-gray-400"></i></a>
       </div>
     </div>
-</div>
-
-<!-- copyright -->
-<div class="  ">
-  <p class="lg:text-[26px] md:text-[26px] sm:text-[26px]h-20 py-5 mt-4  bg-copyrigth  text-center text-black"> Copyright &copy; 2024 doitnow. All rights reserved. </p>
- </div>
- <!-- copyright -->
+    
+    <!-- Tautan Berguna -->
+    <div class="col-span-1">
+      <h3 class="text-xl font-semibold text-white underline"> Links</h3>
+      <ul class="mt-4 space-y-1 lg:space-y-2  ">
+        <li><a href="/" class="hover:text-white hover:underline">Home</a></li>
+        <li><a href="/blog" class="hover:text-white hover:underline">Blog</a></li>
+        <li><a href="/about" class="hover:text-white hover:underline">About Us</a></li>
+        <li><a href="/contact" class="hover:text-white hover:underline">Contact Us</a></li>
+        <li><a href="#" class="hover:text-white hover:underline">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <!-- Kontak Kami -->
+    <div class="col-span-1">
+      <h3 class="text-xl font-semibold text-white underline">Contact Us</h3>
+      <ul class="mt-4 space-y-2">
+        <li class="flex items-center"><i class="far fa-building text-white"></i><span class="ml-2">PT. Pelopor Ide Kreatif</span></li>
+        <li class="flex items-center"><i class="fas fa-phone-alt text-white"></i><span class="ml-2">+62 (0) 8892 626 889</span></li>
+        <li class="flex items-center"><i class="fas fa-envelope text-white"></i><span class="ml-2">info@doitnow.id</span></li>
+        <li class="flex items-baseline"><i class="fas fa-map-marker-alt text-white"></i><span class="ml-2">PP, Jl. Duta Harapan Indah No.19, RT.8/RW.2 14460 Daerah Khusus Ibukota Jakarta Jawa</span></li>
+      </ul>
+    </div>
+    
+    <!-- Download Aplikasi -->
+    <div class="col-span-1">
+      <h3 class="text-xl font-semibold text-white">Download App</h3>
+      <div class="mt-4">
+        <a href="#" class="block mb-2 transition duration-300 transform hover:scale-105"><img src="/img/playstore 4.png" alt="Download on Google Play"></a>
+      </div>
+    </div>
+  </div>
 </footer>
+<!-- Footer Bawah -->
+<div class="mt-8 border-t  bg-copyrigth py-4">
+  <div class="container lg:text-2xl font-medium text-slate-900 mx-auto flex flex-col md:flex-row justify-center items-center">
+    <p> Copyright &copy; 2024 doitnow. All rights reserved.</p>
+  </div>
+</div>
 

@@ -1,14 +1,16 @@
 @extends('layouts.main')
 @section('container')
-    <section class="bg-white h-full">
-        <div class="container pt-32 px-10">
-            <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
+     
+<section class="bg-white h-full flex justify-center ">
+        <div class="container pt-32 lg:mx-0 mx-10">
+            {{-- awal --}}
+            <div class="grid grid-cols-1 gap-0.5 lg:grid-cols-2 lg:gap-8">
                 <div class="">
                     <img src="/img/banner.png" alt="">
                 </div>
                 <div class=" mb-20 mt-28">
                     <div class="flex justify-center items-center mb-10">
-                        <h1 class="text-3xl font-semibold text-red-600">Contact Us</h1>
+                        <h1 class="text-3xl lg:text-4xl font-semibold text-red-600">Contact Us</h1>
                     </div>
                     
                     <form action="{{ route('question') }}" method="POST">
@@ -64,42 +66,38 @@
                 </div>
             </div>
 
-            {{-- grid --}}
-            {{-- <div class="grid grid-cols-2 gap-4 lg:grid-cols-2 lg:gap-8 lg:mx-96  ">
-                <div class="h-48 lg:w-72 rounded-lg bg-white border-2 shadow-lg shadow-gray-300">
-                    <div class="flex justify-center items-center">
-                        <p class="bg-[#F9D2BC] mt-5 rounded-lg "><i class="fas fa-envelope text-5xl p-6 text-gray-900"></i></p>
-                    </div>
-                    <h1 class="text-center mt-1 text-xl text-black font-semibold">Email</h1>
-                    <p class="text-center mt-1 text-lg text-black font-semibold">info@doitnow.id </p>
-                </div>
-                <div class="h-48 lg:w-72 rounded-lg bg-white border-2 shadow-lg shadow-gray-300 mb-10">
-                    <div class="flex justify-center items-center">
-                        <p class="bg-[#F9D2BC] mt-5 rounded-lg "><i class="fas fa-phone-alt text-5xl p-6 text-gray-900"></i></p>
-                    </div>
-                    <h1 class="text-center mt-1 text-xl text-black font-semibold">Phone</h1>
-                    <p class="text-center mt-1 text-lg text-black font-semibold">+628892626889</p>
-                </div>
-            </div> --}}
-
-            <div class="">
-                <form action="/send-email" method="POST" class="w-full  bg-white p-6 rounded-lg shadow-lg space-y-4">
-                  <!-- Label dan Input Email -->
-                  <div>
-                    <label for="email" class="block text-gray-700 font-semibold mb-2">
-                        Send a message via email
-                    </label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required
-                      class="w-full px-4 py-2 border border-gray-300 bg-white rounded focus:outline-none focus:ring-2 focus:ring-[#DD2120]">
+            {{-- card --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10 mb-10">
+                <!-- Kartu Alamat -->
+                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
+                  <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                    <i class="fas fa-map-marker-alt text-3xl"></i>
                   </div>
-                  <!-- Tombol Submit -->
-                  <button type="submit"
-                    class="w-full md:w-auto px-6 py-2 bg-[#DD2120] text-white rounded hover:bg-[#c51e1d] transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#DD2120]">
-                    Submit
-                  </button>
-                </form>
-              </div>
-        </div>
+                  <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Address</h3>
+                  <p class="text-gray-600 mb-4 text-center text-lg">PP, Jl. Duta Harapan Indah No.19, RT.8/RW.2 14460 Daerah Khusus Ibukota Jakarta Jawa</p>
+                  <a href="https://www.bing.com/ck/a?!&&p=42c0fce203124634JmltdHM9MTcxODQwOTYwMCZpZ3VpZD0wZGEzZjBlNi1kMjEyLTY1MmYtMjA1NC1lMjUwZDM0NDY0NmQmaW5zaWQ9NTQ3Mw&ptn=3&ver=2&hsh=3&fclid=0da3f0e6-d212-652f-2054-e250d344646d&u=a1L21hcHM_Jm1lcGk9MTA5fn5Ub3BPZlBhZ2V-QWRkcmVzc19MaW5rJnR5PTE4JnE9UFQlMjBQZWxvcG9yJTIwSWRlJTIwS3JlYXRpZiZzcz15cGlkLllONzk5OXg5NTYxMTczMjU3OTU5MjQ0NjkmcHBvaXM9LTYuMTM1ODgxOTAwNzg3MzUzNV8xMDYuNzcyMzYxNzU1MzcxMV9QVCUyMFBlbG9wb3IlMjBJZGUlMjBLcmVhdGlmX1lONzk5OXg5NTYxMTczMjU3OTU5MjQ0Njl-JmNwPS02LjEzNTg4Mn4xMDYuNzcyMzYyJnY9MiZzVj0xJkZPUk09TVBTUlBM&ntb=1" class="text-orange-500 font-medium hover:underline" target="_blank" rel="noopener noreferrer">View on map &rarr;</a>
+                </div>
+                
+                <!-- Kartu contact -->
+                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                        <i class="fas fa-phone text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Contact</h3>
+                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="mailto:support@mailerbakery.com" target="_blank" rel="noopener noreferrer" class="hover:underline">+62 8892 626 889</a></p>
+                </div>
+
+                  <!-- Kartu email -->
+                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
+                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Email</h3>
+                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="mailto:info@doitnow.id" target="_blank" rel="noopener noreferrer" class="hover:underline">info@doitnow.id</a></p>        
+                </div>
+            </div>
 
     </section>
+
+  
 @endsection

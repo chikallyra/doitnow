@@ -10,24 +10,22 @@
 
     {{-- content --}}
     <div class="bg-white h-full">
-            {{-- edit foto --}}
+            
         <form action="{{ route('platform.profil.edit', $user->id) }}" method="POST" enctype="multipart/form-data" class="mt-8 mx-8">
             @csrf
             @method('PUT')
+            {{-- edit foto --}}
             <div class="mt-8 flex flex-col items-center">
-                <!-- Image Upload Wrapper -->
-                <div class="relative lg:w-64 lg:h-64 w-32 h-32 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg">
-                    <!-- Placeholder Image -->
-                    <img src="{{ asset('storage/' . $user->missionary->image) }}" alt="Edit Picture" class="absolute w-12 h-12" />
-                    <!-- File Input -->
-                    <input type="file" name="image" accept="image/*" class="absolute w-full h-full opacity-0 cursor-pointer" />
-                    <!-- Error Message -->
+                <div class="relative w-64 h-64 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
+                    <img id="image-preview" src="{{ asset('storage/' . $user->missionary->image) }}" alt="Preview" class="absolute w-full h-full object-cover hidden" />
+                    <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
+                    <input id="image-input" name="image" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
                     @error('image')
                     <div class="text-red-500">
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
+                  </div>
                 
                 <!-- Edit Picture Text -->
                 <h2 class="mt-3 text-lg font-medium text-red-500">Edit Picture</h2>
@@ -59,7 +57,7 @@
                             <path d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z"/>
                         </svg>
                     </div>
-                    <input type="text" name="phone" value="{{ $formatPhone }}" id="phone-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full ps-10 p-2.5  " pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
+                    <input type="text" name="phone" value="{{ $formatPhone }}" id="phone-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full ps-10 p-2.5  "  placeholder="123-456-7890" required />
                 </div>
             </div>
             {{-- brith date --}}

@@ -176,7 +176,7 @@
                         
                         {{-- Steps --}}
                         <div class="mb-4">
-                            <label for="steps">Steps</label>
+                            <label for="steps" class="block mb-2 text-lg font-medium text-gray-900">Steps</label>
                             <ul id="steps-list" class="list-group">
                                 <!-- Existing steps will be populated here -->
                             </ul>
@@ -185,7 +185,7 @@
                                 {{ $message }}
                             </div>
                             @enderror
-                            <button type="button" class="btn btn-primary mt-2" id="add-step">Add Step</button>
+                            <button type="button" class=" bg-slate-800 mt-2 rounded-lg px-8 py-1 text-white hover:bg-slate-950" id="add-step">Add Step</button>
                         </div>
                         
 
@@ -235,14 +235,17 @@
             var newStep = document.createElement('li');
             newStep.className = 'list-group-item';
             newStep.innerHTML = `
-                <select class="form-control mb-2">
+                <select class="form-control mb-2 bg-white border-2 text-black rounded-lg px-5 py-1 ">
                     <option value="text">Text</option>
                     <option value="file">File</option>
-                    <option value="hidden">None</option>
+                    <option value="hidden">Confirmation</option>
                     <!-- Add more options for different step types -->
                 </select>
-                <input type="text" class="form-control mb-2" placeholder="Step description">
-                <button type="button" class="btn btn-danger remove-step">Remove</button>
+                <input type="text" class="form-control mb-2 bg-white border-2 text-black rounded-lg  w-full pl-3 py-1" placeholder=" -- Step description -- ">
+                <div class="flex justify-end">
+                    <button type="button" class=" bg-red-600 rounded-lg px-2 py-1 text-white hover:bg-red-800 remove-step">Remove</button>
+                </div>
+                
             `;
             stepsList.appendChild(newStep);
             updateStepOrder();

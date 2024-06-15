@@ -31,7 +31,7 @@
     <title>DoitNow</title>
 </head>
 
-<body class=" bg-white w-full">
+<body class=" bg-white w-full h-full">
     
     @yield('container')
     @yield('script')
@@ -52,6 +52,21 @@
     } else {
         console.error("Service workers are not supported.");
     }
+
+    // add foto
+document.getElementById('image-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('image-preview');
+            preview.src = e.target.result;
+            preview.classList.remove('hidden'); // Menampilkan gambar
+            document.getElementById('upload-placeholder').classList.add('hidden'); // Menyembunyikan placeholder
+        };
+        reader.readAsDataURL(file);
+    }
+});
 </script>
 </body>
 
@@ -105,24 +120,6 @@
 
 <script>
     
-
-//    <!-- JavaScript to toggle pop-up -->
-        // const togglePopup = document.getElementById('togglePopup');
-        // const popup = document.getElementById('popup');
-        // const closePopup = document.getElementById('closePopup');
-
-        // togglePopup.addEventListener('change', function() {
-        //     if (this.checked) {
-        //         popup.classList.remove('hidden');
-        //     } else {
-        //         popup.classList.add('hidden');
-        //     }
-        // });
-
-        // closePopup.addEventListener('click', function() {
-        //     popup.classList.add('hidden');
-        //     togglePopup.checked = false; // Uncheck the checkbox
-        // });
 </script>
 
 </html>

@@ -238,7 +238,7 @@
                 <select class="form-control mb-2 bg-white border-2 text-black rounded-lg px-5 py-1 ">
                     <option value="text">Text</option>
                     <option value="file">File</option>
-                    <option value="hidden">None</option>
+                    <option value="hidden">Confirmation</option>
                     <!-- Add more options for different step types -->
                 </select>
                 <input type="text" class="form-control mb-2 bg-white border-2 text-black rounded-lg  w-full pl-3 py-1" placeholder=" -- Step description -- ">

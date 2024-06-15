@@ -104,7 +104,7 @@
             {{-- Chikal Lyra Saeni Putri  --}}
             <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
                 <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/chikal.png" alt="Chikal Lyra Saeni Putri ">
-                <h2 class="lg:text-2xl text-slate-900 font-semibold">Chikal Lyra Saeni Putri </h2>
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Chikal Lyra Saeni P </h2>
                 <p class="text-red-600 mb-1 lg:text-lg text-sm ">Back-end Development</p>
                 <a href="https://github.com/chikallyra" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
@@ -191,7 +191,7 @@
             {{-- Yuena Adhalia Putri --}}
             <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
                 <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/yuena.png" alt="Yuena Adhalia Putri">
-                <h2 class="lg:text-2xl text-slate-900 font-semibold">Yuena Adhalia P</h2>
+                <h2 class="lg:text-2xl text-slate-900 font-semibold">Yuena A P</h2>
                 <p class="text-red-600 mb-1 lg:text-lg text-sm">Digital Marketing</p>
                 <a href="https://drive.google.com/drive/folders/1c7r4bLpAaUGYAtwCKDV70hVw45mnvyhk?usp=sharing" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
@@ -215,7 +215,7 @@
             {{-- Wandany Muhamad Faitul Mi'raj --}}
             <div class="bg-white rounded-lg p-6 flex flex-col items-center text-center shadow-lg">
                 <img class="rounded-full lg:w-40 lg:h-40 object-cover mb-4" src="img/team/wandany.png" alt=" Wandany Muhamad Faitul Mi'raj ">
-                <h2 class="lg:text-2xl text-slate-900 font-semibold"> Wandany M Faitul </h2>
+                <h2 class="lg:text-2xl text-slate-900 font-semibold"> Wandany M F </h2>
                 <p class="text-red-600 mb-1 lg:text-lg text-sm ">Digital Marketing</p>
                 <a href="https://drive.google.com/drive/folders/1q9Ns3d1yJoAemNTkA30D12Q9wTrV7ZRv?usp=sharing" class=" mb-4 bg-red-600 hover:bg-red-800 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">

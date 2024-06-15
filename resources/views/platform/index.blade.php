@@ -1,6 +1,6 @@
 @extends('platform.layouts.main')
  @section('container')
- <section class="pt-52">
+ <section class="lg:pt-52 pt-32">
     {{-- rewads --}}
     <a href="" class="">
         <div class="flex items-center mx-5 lg:mx-32">

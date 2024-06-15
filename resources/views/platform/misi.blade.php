@@ -2,7 +2,7 @@
 @section('container')
 <section>
     {{-- navbar --}}
-    <div class="fixed bg-white border-b-2 border-gray-300 w-full z-10 -mt-2">
+    <div class="fixed bg-white border-b-2 border-gray-300 w-full z-10 -mt-2 ">
         <div class="flex lg:mx-24 mx-10 py-5 items-center justify-between">
             <a href="/platform" class="flex-none">
                 <i class="fas fa-arrow-left text-black font-bold text-3xl"></i>
@@ -89,7 +89,7 @@
             @endforeach
         </div>
         <div class="mt-8">
-            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block bg-red-700 text-white focus:ring-4 focus:outline-none focus:ring-reds-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:bg-red-800">Request</button>
+            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block bg-red-700 text-white focus:ring-4 focus:outline-none focus:ring-reds-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-16 hover:bg-red-800">Take a mission</button>
 
             <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-md max-h-full">

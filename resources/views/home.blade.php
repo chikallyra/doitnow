@@ -13,25 +13,6 @@
       {{-- tombol --}}
       <div class=" container flex justify-center items-center">
         <div class="grid grid-cols-2 gap-2 sm:gap-x-0 lg:grid-cols-2 lg:gap-8">       
-          <div class=" ">
-            <a class="group relative inline-flex items-center overflow-hidden rounded-full mt-10 bg-black px-5 sm:px-16  lg:px-16 py-3  text-white focus:outline-none focus:ring active:bg-black" href="#">
-              <span class="absolute -end-full transition-all group-hover:end-4">
-                  <svg
-                    class="size-5 rtl:rotate-180"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                  </svg>
-              </span>
-                <span class="lg:text-[24px] sm:text-xl md:text-3xl font-bold transition-all group-hover:me-4">Get Reward</span>
-            </a>
-          </div>
           <div class="">
             <a class="group relative inline-flex items-center overflow-hidden rounded-full mt-10 bg-[#DD2120] px-5 sm:px-16  lg:px-16 py-3  text-white focus:outline-none focus:ring active:bg-black" href="/about">
               <span class="absolute -end-full transition-all group-hover:end-4">

@@ -22,4 +22,10 @@ class UserMission extends Model
     }
 
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'joined_at' => 'datetime',
+        'mission_complete_at' => 'datetime',
+        'steps_completed' => 'array',
+    ];
 }

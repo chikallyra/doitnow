@@ -6,7 +6,13 @@ use App\Models\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Missionary;
+use App\Models\Notification;
+use App\Models\Reward;
 use App\Models\User;
+use App\Models\UserMission;
+use App\Models\UserReward;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,7 +23,19 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index () {
-        $users = User::where('type', 0)->get();
+        $users = User::where('type', 0)->with('missionary')->get();
+        foreach($users as $user){
+            $user->missionary = Missionary::where('user_id', $user->id)->first();
+            if ($user->missionary) {
+                $user->completed_mission = UserMission::where('missionary_id', $user->missionary->id)->whereNotNull('mission_complete_at')->count();
+
+                $rewards = UserReward::where('missionary_id', $user->missionary->id)->whereNotNull('reward_id')->pluck('reward_id');
+                $user->reward_earned = Reward::whereIn('id',  $rewards)->sum('reward');
+            }else{
+                $user->completed_mission = 0;
+                $user->reward_earned = 000;
+            }
+        }
         return view('admin.dasboard.index', compact('users'));
     }
     
@@ -26,57 +44,61 @@ class DashboardController extends Controller
         return view('admin.dasboard.blog.blog', compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function userMission($id) {
+    $missionary = Missionary::where('user_id', $id)->first();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    // public function store(Request $request)
-    // {
-    //     //
-    // }
+    if (!$missionary) {
+        return redirect()->back()->with('error', 'Missionary not found');
+    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\admin  $admin
-     * @return \Illuminate\Http\Response
-     */
+    $missions = UserMission::with('mission', 'missionary.user')
+        ->where('missionary_id', $missionary->id)
+        ->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\admin  $admin
-     * @return \Illuminate\Http\Response
-     */
+        return view('admin.dasboard.mission.index', compact('missions'));
+    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    // public function update(Request $request, admin $admin)
-    // {
-    //     //
-    // }
+    public function listMission() {
+        $missions = UserMission::with('mission', 'missionary.user')->get();
+        return view('admin.dasboard.mission.index', compact('missions'));
+    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    // public function destroy(admin $admin)
-    // {
-    //     //
-    // }
+    public function showMission($id) {
+        $userMission = UserMission::with('mission', 'missionary.user')->findOrFail($id);
+        return view('admin.dasboard.mission.show', compact('userMission'));
+    }
+
+    public function validateMission($id) {
+        $userMission = UserMission::findOrFail($id);
+        $userMission->mission_complete_at = now();
+        $userMission->save();
+    
+        $reward = $userMission->mission->reward;
+        $userReward = null;
+        if ($reward) {
+            $userReward = UserReward::create([
+                'missionary_id' => $userMission->missionary_id,
+                'reward_id' => $reward->id,
+                'reward_status' => 'unclaimed'
+            ]);
+    
+            // Kirim notifikasi reward
+            Notification::create([
+                'type' => 'App\Notifications\RewardNotification',
+                'notifiable_id' => $userMission->missionary->user->id,
+                'notifiable_type' => 'App\Models\User',
+                'data' => json_encode([
+                    'title' => 'Reward Received',
+                    'message' => 'You have received a reward for completing the mission.',
+                    'reward' => $reward->reward, // Pastikan menyimpan nilai reward
+                ]),
+                'expires_at' => Carbon::now()->addDays(3),
+                'mission_id' => $userMission->mission_id,
+                'user_mission_id' => $userMission->id,
+                'user_reward_id' => $userReward->id,
+            ]);
+        }
+    
+        return redirect()->route('admin.missions.show', $id)->with('success', 'Mission validated and reward assigned successfully.');
+    }    
 }

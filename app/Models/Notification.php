@@ -8,6 +8,8 @@ use Ramsey\Uuid\Uuid;
 
 class Notification extends Model
 {
+    use HasFactory;
+
     public function mission(){
         return $this->belongsTo(Mission::class);
     }
@@ -32,6 +34,4 @@ class Notification extends Model
             $model->id = Uuid::uuid4()->toString();
         });
     }
-
-    use HasFactory;
 }

@@ -84,7 +84,7 @@
                         <i class="fas fa-phone text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Contact</h3>
-                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="mailto:support@mailerbakery.com" target="_blank" rel="noopener noreferrer" class="hover:underline">+62 8892 626 889</a></p>
+                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="https://wa.me/628892626889?text=Halo%20Mindo,%20ada%20yang%20ingin%20aku%20tanyakan" target="_blank" rel="noopener noreferrer" class="hover:underline">+62 8892 626 889</a></p>
                 </div>
 
                   <!-- Kartu email -->
@@ -93,7 +93,7 @@
                         <i class="fas fa-envelope text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Email</h3>
-                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="mailto:info@doitnow.id" target="_blank" rel="noopener noreferrer" class="hover:underline">info@doitnow.id</a></p>        
+                    <p class="text-gray-600 mb-1 text-center text-lg"><a href="mailto:info@doitnow.id?subject=Halo%20Mindo&body=Halo%20Mindo,%20ada%20yang%20ingin%20aku%20tanyakan" target="_blank" rel="noopener noreferrer" class="hover:underline">info@doitnow.id</a></p>        
                 </div>
             </div>
 

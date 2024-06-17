@@ -57,10 +57,10 @@ class MissionCategoryController extends Controller
      * @param  \App\Models\MissionCategory  $missionCategory
      * @return \Illuminate\Http\Response
      */
-    // public function show(MissionCategory $missionCategory)
-    // {
-    //     //
-    // }
+    public function show(MissionCategory $missionCategory)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -82,7 +82,16 @@ class MissionCategoryController extends Controller
      */
     public function update(UpdateMissionCategoryRequest $request, MissionCategory $missionCategory)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:2',
+            'desc' => 'required'
+        ]);
+        
+        $missionCategory->name = $request['name'];
+        $missionCategory->desc = $request['desc'];
+        $missionCategory->save();
+
+        return redirect('admin/dashboard/categories')->with('success', 'Category updated!');
     }
 
     /**

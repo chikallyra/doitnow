@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('missionary_id')->constrained('missionaries');
             $table->foreignId('mission_id')->constrained('missions');
-            $table->timestamp('mission_complete_at');
+            $table->timestamp('mission_complete_at')->nullable()->change();
             $table->timestamp('joined_at')->nullable();
             $table->text('steps_completed')->nullable();
             $table->timestamps();

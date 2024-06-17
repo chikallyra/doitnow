@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Mission;
 use App\Models\UserMission;
 use App\Models\UserReward;
-use App\Notifications\NewMissionNotification;
-use App\Notifications\MissionErrorNotification;
-use App\Notifications\RewardNotification;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Notification;
@@ -15,10 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
-
     public function showNotifications()
     {
-        $notifications = Notification::where('user_id', auth()->id())->orderBy('created_at', 'desc')->get();
+        $notifications = Notification::where('notifiable_id', auth()->id())->orderBy('created_at', 'desc')->get();
         return view('platform.notif', ['notifications' => $notifications]);
     }
 
@@ -27,8 +23,8 @@ class NotificationController extends Controller
         $mission = Mission::findOrFail($missionId);
         $userId = $request->user()->id;
 
-        $mission->notifications()->create([
-            'type' => NewMissionNotification::class,
+        Notification::create([
+            'type' => 'App\Notifications\NewMissionNotification',
             'notifiable_id' => $userId,
             'notifiable_type' => 'App\Models\User',
             'data' => json_encode([
@@ -46,8 +42,8 @@ class NotificationController extends Controller
         $userMission = UserMission::findOrFail($userMissionId);
         $userId = $request->user()->id;
 
-        $userMission->notifications()->create([
-            'type' => MissionErrorNotification::class,
+        Notification::create([
+            'type' => 'App\Notifications\MissionErrorNotification',
             'notifiable_id' => $userId,
             'notifiable_type' => 'App\Models\User',
             'data' => json_encode([
@@ -65,8 +61,8 @@ class NotificationController extends Controller
         $userReward = UserReward::findOrFail($userRewardId);
         $userId = $request->user()->id;
 
-        $userReward->notifications()->create([
-            'type' => RewardNotification::class,
+        Notification::create([
+            'type' => 'App\Notifications\RewardNotification',
             'notifiable_id' => $userId,
             'notifiable_type' => 'App\Models\User',
             'data' => json_encode([

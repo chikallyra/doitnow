@@ -12,7 +12,11 @@ use Illuminate\Http\Request;
 
 class CompanyDashboardController extends Controller
 {
-    public function index () {
+    public function index (Request $request) {
+        $companyId = $request->query('company_id');
+        $missions = Mission::with('reward', 'category')
+                        ->where('company_id', $companyId)
+                        ->get();
         $missions = Mission::with('reward', 'category')->get();
         
         foreach($missions as $mission) {

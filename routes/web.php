@@ -21,8 +21,10 @@ use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserMissionController;
 use App\Models\CobaStep;
 use App\Models\MissionCategory;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +88,12 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::get('/platform/profil/{id}', [PlatformController::class, 'profil'])->name('platform.profil');
     Route::put('/platform/profil/{id}/edit', [PlatformController::class, 'updateProfile'])->name('platform.profil.edit');
 
+    //misi
+    Route::post('/api/take-mission', [UserMissionController::class, 'takeMission'])->name('take-mission');
+    Route::post('/api/complete-step', [UserMissionController::class, 'completeStep']);
+    Route::post('/api/complete-mission', [UserMissionController::class, 'completeMission']);
+
+
     // notifikasi 
     Route::post('/notify/new-mission/{missionId}', [NotificationController::class, 'notifyNewMission']);
     Route::post('/notify/mission-error/{userMissionId}', [NotificationController::class, 'notifyMissionError']);
@@ -111,8 +119,10 @@ Route::middleware(['auth', 'user-access:company'])->group(function () {
 
 //Auth Admin
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    //CMS Blog
+
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin');
+
+    //CMS Blog
     Route::get('/admin/dashboard/blog', [DashboardController::class, 'blog'])->name('table.blog');
     Route::get('/admin/dashboard/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/admin/dashboard/store', [BlogController::class, 'store'])->name('blog.store');
@@ -129,12 +139,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/dashboard/create/mcategories', [MissionCategoryController::class, 'create'])->name('mcategories.create');
     Route::post('/admin/dashboard/store/mcategories', [MissionCategoryController::class, 'store'])->name('mcategories.store');
     Route::get('/admin/{missionCategory}/dashboard/edit', [MissionCategoryController::class, 'edit'])->name('mcategories.edit');
+    Route::put('/admin/{missionCategory}/dashboard/update', [MissionCategoryController::class, 'update'])->name('mcategories.update');
     Route::delete('/admin/{missionCategory}/dashboard/delete', [MissionCategoryController::class, 'destroy'])->name('mcategories.delete');
 
     // CMS Blog Categories
     Route::get('/admin/dashboard/create/bcategories', [BlogCategoryController::class, 'create'])->name('bcategories.create');
     Route::post('/admin/dashboard/store/bcategories', [BlogCategoryController::class, 'store'])->name('bcategories.store');
-    Route::get('/admin/{id}/dashboard/bedit', [BlogCategoryController::class, 'edit'])->name('bcategories.edit');
+    Route::get('/admin/{blogCategory}/dashboard/bedit', [BlogCategoryController::class, 'edit'])->name('bcategories.edit');
+    Route::put('/admin/{blogCategory}/dashboard/update', [BlogCategoryController::class, 'update'])->name('bcategories.update');
     Route::delete('/admin/{blogCategory}/dashboard/delete', [BlogCategoryController::class, 'destroy'])->name('bcategories.delete');
 
     // Ban & Unban User
@@ -142,6 +154,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/admin/user/{user}/unban', [UserController::class, 'unbanUser'])->name('user.unban');
     Route::get('/admin/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/admin/user/{user}/update', [UserController::class, 'update'])->name('user.update');
+
+    // CMS Missionary
+
+    Route::get('/admin/user/mission/{id}', [DashboardController::class, 'userMission'])->name('admin.user.missions');
+    Route::get('/admin/mission', [DashboardController::class, 'listMission'])->name('admin.missions');
+    Route::get('/admin/mission/{id}', [DashboardController::class, 'showMission'])->name('admin.missions.show');
+    Route::post('/admin/missions/{id}/validate', [DashboardController::class, 'validateMission'])->name('admin.missions.validate');
 });
 
 

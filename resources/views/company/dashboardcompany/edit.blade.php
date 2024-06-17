@@ -1,9 +1,18 @@
 @extends('company.dashboardcompany.layouts.main')
 @section('container')
 <section class="pt-64 pb-10">
-    <div class="h-full ">
+    <div class="h-full">
         <h1 class="ml-36 mt-5 text-4xl uppercase tracking-wider font-bold text-red-600 mb-5">Edit Mission</h1>
-        <a href="{{ route ('company') }}" class="ml-36 bg-red-400 px-5 py-1 rounded-xl text-base hover:bg-red-500 text-white font-medium  ">Back</a>
+        <a href="{{ route('company') }}" class="ml-36 bg-red-400 px-5 py-1 rounded-xl text-base hover:bg-red-500 text-white font-medium">Back</a>
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
         <form action="{{ route('update.mission', $mission->id) }}" method="POST" enctype="multipart/form-data" class="mx-10 mb-8">
             @csrf
             @method('PUT')
@@ -12,16 +21,16 @@
                 <div class="mt-8">
                     <div class="flex items-center justify-center">
                         <div class="relative w-64 h-64 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                          <img id="image-preview" src="{{ asset('/storage/' . $mission->image) }}" alt="Preview" class="absolute w-full h-full object-cover hidden" />
-                          <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
-                          <input id="image-input" name="image" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
-                          @error('image')
-                          <div class="text-red-500">
-                              {{ $message }}
-                          </div>
-                          @enderror
+                            <img id="image-preview" src="{{ asset('/storage/' . $mission->image) }}" alt="Preview" class="absolute w-full h-full object-cover hidden" />
+                            <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
+                            <input id="image-input" name="image" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
+                            @error('image')
+                            <div class="text-red-500">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
-                      </div>
+                    </div>
                     <h2 class="mt-3 text-center mr-4 text-lg font-medium text-red-500">Edit Picture</h2>
                 </div>
                 {{-- End Add Foto --}}
@@ -30,7 +39,7 @@
                 <div class="lg:col-span-2 mt-8">
                     <div class="mb-4">
                         <label for="mission_name" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Mission Name</label>
-                        <input type="text" name="title" value="{{ old('title', $mission->title ) }}" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="Name of mission" required />
+                        <input type="text" name="title" value="{{ old('title', $mission->title) }}" id="mission_name" class="bg-gray-50 border-2 border-gray-300 text-black text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5" placeholder="Name of mission" required />
                         @error('title')
                         <div class="text-red-500">
                             {{ $message }}
@@ -59,7 +68,7 @@
                             <div class="flex space-x-2">
                                 <input type="number" id="day_start" name="day_start" value="{{ old('day_start', $day_start) }}" placeholder="DD" min="1" max="31" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                                 <input type="number" id="month_start" name="month_start" value="{{ old('month_start', $month_start) }}" placeholder="MM" min="1" max="12" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
-                                <input type="number" id="year_start" name="year_start" value="{{ old('year_start', $year_start) }}" value="2024" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
+                                <input type="number" id="year_start" name="year_start" value="{{ old('year_start', $year_start) }}" placeholder="YYYY" min="1900" max="2100" class="shadow appearance-none border py-2 px-3 text-black leading-tight focus:outline-none placeholder:text-gray-800 focus:shadow-outline bg-gray-50 border-1 rounded-2xl">
                             </div>
                             @error('day_start')
                             <div class="text-red-500">
@@ -69,7 +78,6 @@
                             @error('month_start')
                             <div class="text-red-500">
                                 {{ $message }}
-                            </div>
                             @enderror
                             @error('year_start')
                             <div class="text-red-500">
@@ -112,7 +120,7 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                 </svg>
                             </button>
-                            <input type="text" name="max_missionary" value="{{ old('max_missionary', $mission->max_missionaries) }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
+                            <input type="text" name="max_missionaries" value="{{ old('max_missionaries', $mission->max_missionaries) }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
                             @error('max_missionary')
                             <div class="text-red-500">
                                 {{ $message }}
@@ -164,18 +172,35 @@
                         </div>
                         @enderror
                     </div>
-                    
                     {{-- End Rewards --}}
 
                     {{-- Steps --}}
                     <div class="mb-4">
-                        <label for="steps" class="block mb-2 text-lg font-medium text-gray-900 ml-1">Steps</label>
-                        <textarea id="steps" name="steps">{{ old('steps', $mission->steps) }}</textarea>
+                        <label for="steps" class="block mb-2 text-lg font-medium text-gray-900">Steps</label>
+                        <ul id="steps-list" class="list-group">
+                            @php
+                                $steps = json_decode($mission->steps, true);
+                            @endphp
+                            @foreach ($steps as $index => $step)
+                                <li class="list-group-item">
+                                    <select name="steps[{{ $index }}][type]" class="form-control mb-2 bg-white border-2 text-black rounded-lg px-5 py-1">
+                                        <option value="text" {{ $step['type'] == 'text' ? 'selected' : '' }}>Text</option>
+                                        <option value="file" {{ $step['type'] == 'file' ? 'selected' : '' }}>File</option>
+                                        <option value="hidden" {{ $step['type'] == 'hidden' ? 'selected' : '' }}>Confirmation</option>
+                                    </select>
+                                    <input type="text" name="steps[{{ $index }}][description]" class="form-control mb-2 bg-white border-2 text-black rounded-lg w-full pl-3 py-1" value="{{ $step['description'] }}" placeholder=" -- Step description -- ">
+                                    <div class="flex justify-end">
+                                        <button type="button" class="bg-red-600 rounded-lg px-2 py-1 text-white hover:bg-red-800 remove-step">Remove</button>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                         @error('steps')
                         <div class="text-red-500">
                             {{ $message }}
                         </div>
                         @enderror
+                        <button type="button" class="bg-slate-800 mt-2 rounded-lg px-8 py-1 text-white hover:bg-slate-950" id="add-step">Add Step</button>
                     </div>
                     {{-- End Steps --}}
 
@@ -206,36 +231,76 @@
 
 @section('scripts')
 
-    <script>
-       $('#steps').summernote({
-        placeholder: 'Please press enter each time you finish writing one step.',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-        //   ['table', ['table']],
-        //   ['insert', ['link', 'picture', 'video']],
-          ['view', ['codeview', 'help']]
-        ]
-      });
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var stepsList = document.getElementById('steps-list');
+    var addStepButton = document.getElementById('add-step');
 
-       $('#description').summernote({
-        placeholder: 'Enter mission descriprtion here....',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-        //   ['table', ['table']],
-        //   ['insert', ['link', 'picture', 'video']],
-        //   ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-      });
-    </script>
-    
+    // Initialize SortableJS
+    var sortable = Sortable.create(stepsList, {
+        animation: 150,
+        onEnd: function(evt) {
+            updateStepOrder();
+        }
+    });
+
+    // Add new step
+    addStepButton.addEventListener('click', function() {
+        var newStep = document.createElement('li');
+        newStep.className = 'list-group-item';
+        newStep.innerHTML = `
+            <select class="form-control mb-2 bg-white border-2 text-black rounded-lg px-5 py-1">
+                <option value="text">Text</option>
+                <option value="file">File</option>
+                <option value="hidden">Confirmation</option>
+                <!-- Add more options for different step types -->
+            </select>
+            <input type="text" class="form-control mb-2 bg-white border-2 text-black rounded-lg w-full pl-3 py-1" placeholder=" -- Step description -- ">
+            <div class="flex justify-end">
+                <button type="button" class="bg-red-600 rounded-lg px-2 py-1 text-white hover:bg-red-800 remove-step">Remove</button>
+            </div>
+        `;
+        stepsList.appendChild(newStep);
+        updateStepOrder();
+    });
+
+    // Remove step
+    stepsList.addEventListener('click', function(evt) {
+        if (evt.target.classList.contains('remove-step')) {
+            evt.target.closest('li').remove();
+            updateStepOrder();
+        }
+    });
+
+    // Update step order
+    function updateStepOrder() {
+        var steps = stepsList.querySelectorAll('li');
+        steps.forEach((step, index) => {
+            var stepTypeSelect = step.querySelector('select');
+            stepTypeSelect.name = `steps[${index}][type]`;
+
+            var stepDescriptionInput = step.querySelector('input');
+            stepDescriptionInput.name = `steps[${index}][description]`;
+        });
+    }
+
+    // No toggleDescriptionInput logic needed since inputs are always visible
+
+    // Initialize updateStepOrder on page load
+    updateStepOrder();
+});
+
+$('#description').summernote({
+    placeholder: 'Enter mission descriprtion here....',
+    tabsize: 2,
+    height: 120,
+    toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'underline', 'clear']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+    ]
+});
+</script>
+
 @endsection

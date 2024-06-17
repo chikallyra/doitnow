@@ -25,20 +25,22 @@ class UpdateMissionRequest extends FormRequest
     {
         return [
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'title' => 'required|min:5',
-        'link' => 'nullable',
-        'steps' => 'required|min:10',
-        'description' => 'required|min:10',
-        'max_missionary' => 'required|integer',
-        'category_id' => 'required|exists:mission_categories,id',
-        'existing_reward' => 'nullable|exists:rewards,id',
-        'new_reward' => 'nullable|string|required_without:existing_reward',
-        'day_start' => 'required|integer|min:1|max:31',
-        'month_start' => 'required|integer|min:1|max:12',
-        'year_start' => 'required|integer|min:2024|max:2026',
-        'day_end' => 'required|integer|min:1|max:31',
-        'month_end' => 'required|integer|min:1|max:12',
-        'year_end' => 'required|integer|min:2024|max:2026'
+            'title' => 'required|min:5',
+            'link' => 'nullable',
+            'steps' => 'required|array',
+            'steps.*.type' => 'required|string|in:text,file,hidden', // Validasi untuk jenis langkah-langkah
+            'steps.*.description' => 'required|string', // Validasi untuk deskripsi langkah-langkah
+            'description' => 'required|min:10',
+            'max_missionaries' => 'required|integer',
+            'category_id' => 'required|exists:mission_categories,id',
+            'existing_reward' => 'nullable|exists:rewards,id',
+            'new_reward' => 'nullable|string|required_without:existing_reward',
+            'day_start' => 'required|integer|min:1|max:31',
+            'month_start' => 'required|integer|min:1|max:12',
+            'year_start' => 'required|integer|min:2024|max:2026',
+            'day_end' => 'required|integer|min:1|max:31',
+            'month_end' => 'required|integer|min:1|max:12',
+            'year_end' => 'required|integer|min:2024|max:2026'
         ];
     }
 }

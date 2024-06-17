@@ -71,7 +71,7 @@ class BlogCategoryController extends Controller
      */
     public function edit(BlogCategory $blogCategory)
     {
-        //
+        return view('admin.dasboard.categories.edit-bcategory', compact('blogCategory'));
     }
 
     /**
@@ -82,9 +82,23 @@ class BlogCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateBlogCategoryRequest $request, BlogCategory $blogCategory)
-    {
-        //
-    }
+{
+    \Log::info('Request data: ', $request->all());
+
+    $request->validate([
+        'name' => 'required|min:2',
+        'desc' => 'required'
+    ]);
+
+    $blogCategory->name = $request->input('name');
+    $blogCategory->desc = $request->input('desc');
+    $blogCategory->save();
+
+    \Log::info('Updated category: ', $blogCategory->toArray());
+
+    return redirect('admin/dashboard/categories')->with('success', 'Category updated!');
+}
+
 
     /**
      * Remove the specified resource from storage.

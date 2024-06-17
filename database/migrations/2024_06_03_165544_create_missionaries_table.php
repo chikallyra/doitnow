@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->date('dob')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

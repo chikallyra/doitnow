@@ -116,10 +116,10 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    1
+                                    {{ $user->completed_mission }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Rp.88.000
+                                    Rp.{{ $user->reward_earned }}
                                 </td>
                                 <td class="px-6 py-4">
                                     Aktif
@@ -128,7 +128,7 @@
                                     <div class="grid grid-cols-4 gap-4">
                                         <!-- View Button -->
                                         <div>
-                                            <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
+                                            <a href="{{ route('admin.user.missions', $user->id) }}"><i class="far fa-eye hover:text-green-500"></i></a> 
                                         </div>
                                         
                                         <!-- Edit Button -->
@@ -161,106 +161,6 @@
                                 </td>
                                 
                             @endforeach
-                            
-                            {{-- <tr class="bg-red-100 text-black text-center">
-                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    001
-                                </th>
-                                <td class="px-6 py-4">
-                                    Jhon
-                                </td>
-                                <td class="px-6 py-4">
-                                    jhon@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    1
-                                </td>
-                                <td class="px-6 py-4">
-                                    Rp.88.000
-                                </td>
-                                <td class="px-6 py-4">
-                                    Aktif
-                                </td>
-                                <td class="px-6 py-4  ">
-                                    <div class="grid grid-cols-3 ">
-                                        <div>
-                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
-                                        </div>
-                                        <div class="">
-                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
-                                        </div>
-                                        <div>
-                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
-                                        </div>
-                                      </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-red-100 text-black text-center">
-                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    001
-                                </th>
-                                <td class="px-6 py-4">
-                                    Jhon
-                                </td>
-                                <td class="px-6 py-4">
-                                    jhon@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    1
-                                </td>
-                                <td class="px-6 py-4">
-                                    Rp.88.000
-                                </td>
-                                <td class="px-6 py-4">
-                                    Aktif
-                                </td>
-                                <td class="px-6 py-4  ">
-                                    <div class="grid grid-cols-3 ">
-                                        <div>
-                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
-                                        </div>
-                                        <div class="">
-                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
-                                        </div>
-                                        <div>
-                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
-                                        </div>
-                                      </div>
-                                </td>
-                            </tr>
-                            <tr class="bg-red-100 text-black text-center">
-                                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap ">
-                                    001
-                                </th>
-                                <td class="px-6 py-4">
-                                    Jhon
-                                </td>
-                                <td class="px-6 py-4">
-                                    jhon@gmail.com
-                                </td>
-                                <td class="px-6 py-4">
-                                    1
-                                </td>
-                                <td class="px-6 py-4">
-                                    Rp.88.000
-                                </td>
-                                <td class="px-6 py-4">
-                                    Aktif
-                                </td>
-                                <td class="px-6 py-4  ">
-                                    <div class="grid grid-cols-3 ">
-                                        <div>
-                                           <a href=""><i class="far fa-eye hover:text-green-500"></i></a> 
-                                        </div>
-                                        <div class="">
-                                            <a href=""><i class="far fa-edit hover:text-yellow-500"></i></a>
-                                        </div>
-                                        <div>
-                                            <a href=""><i class="far fa-trash-alt hover:text-red-500"></i></a>
-                                        </div>
-                                      </div>
-                                </td>
-                            </tr> --}}
                             
                         </tbody>
                     </table>

@@ -32,7 +32,7 @@
     <x-head.tinymce-config/>
 </head>
 
-<body class=" bg-white h-[1000px] ">
+<body class=" bg-white h-full ">
     @include('admin.dasboard.layouts.navbardashboard')
     @yield('container')
 

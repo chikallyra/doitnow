@@ -1,46 +1,47 @@
 @extends('platform.layouts.main_p')
 @section('container')
     {{-- navbar --}}
-    <div class="flex justify-between lg:mx-24 mx-10 pt-5  ">
-        <a href="/platform"><i class="fas fa-arrow-left text-black font-bold text-3xl"></i></a>
-        <h1 class="text-black text-2xl font-bold  ">Mission Center</h1>
-        <ul class="flex">
-            <li>
-                
-                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" " type="button">
-                    <i class="fas fa-sliders-h mx-3 text-black font-bold text-3xl"></i>
-                </button>
+    <section class="w-full bg-white fixed z-30 ">
+        <div class="flex justify-between items-center lg:mx-24 mx-10 pt-5 py-5">
+            <a href="/platform"><i class="fas fa-arrow-left text-black font-bold text-3xl"></i></a>
+            <h1 class="text-black text-2xl font-bold  ">Mission Center</h1>
+            <ul class="flex">
+                <li>
                     
-                    <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">All</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Sosial</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Media</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Game</a>
-                        </li>
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" " type="button">
+                        <i class="fas fa-sliders-h mx-3 text-black font-bold text-3xl"></i>
+                    </button>
                         
-                        </ul>
-                    </div>
-            </li>             
-        </ul>
-    </div>
-    <div class="border-b-2 border mt-2 border-gray-300"></div>
-    {{-- end navbar --}}
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">All</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Sosial</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Media</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Game</a>
+                            </li>
+                            
+                            </ul>
+                        </div>
+                </li>             
+            </ul>
+        </div>
+        <div class="border-b-2 border mt-2 border-gray-300"></div>
+        {{-- end navbar --}}
+    </section>
+    
 
     {{-- content --}}
     {{-- 1 --}}
-    
-        
-    
-    <div class="mx-10 lg:mx-32 mt-10 bg-white h-screen ">
+       
+    <div class="mx-10 lg:mx-32 pt-32 bg-white h-full pb-10 ">
         @foreach ($missions as $mission)
         <a href="{{ route('platform.misi', $mission->id) }}" class="">
             <div class="h-40 rounded-2xl my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">

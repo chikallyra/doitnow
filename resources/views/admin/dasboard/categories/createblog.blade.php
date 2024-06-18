@@ -1,9 +1,9 @@
 @extends('admin.dasboard.layouts.maindashboard')
 @section('container')
-    <div class="pt-24">
+    <div class="pt-24 h-screen">
         <div class="container mx-auto">
             <div class="bg-white shadow-md rounded-lg p-6">
-                <h2 class="text-4xl font-bold mb-6 text-center text-red-600">Create Category</h2>
+                <h2 class="text-4xl font-bold mb-6 text-center text-red-600">Create Category Blog</h2>
                 <form action="{{ route('bcategories.store') }}" method="POST">
                     @csrf
                     {{-- <!-- Nama -->
@@ -40,7 +40,7 @@
                     <!-- Tombol Submit -->
                     <div class="flex items-center justify-between">
                         <button type="submit"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Submit
                         </button>
                     </div>

@@ -1,6 +1,7 @@
 @extends('admin.dasboard.layouts.maindashboard')
 @section('container')
-    <div class="pt-24 mx-32">
+<section class="h-screen">
+    <div class="pt-24 mx-32 ">
         <div class="container mx-auto">
             <div class="bg-white shadow-md rounded-lg overflow-hidden">
                 <!-- Header -->
@@ -35,4 +36,6 @@
             </div>
         </div>
     </div>
+</section>
+    
 @endsection

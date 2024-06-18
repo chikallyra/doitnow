@@ -1,15 +1,15 @@
 @extends('admin.dasboard.layouts.maindashboard')
 
 @section('container')
-    <div class="pt-24 mx-20">
-        <h1 class="text-red-600 font-bold text-5xl mb-12">Categories Content</h1>
+    <div class="pt-20 pb-10 mx-20">
+        <h1 class="text-red-600 font-bold text-5xl mb-12 ml-10">Categories Content</h1>
         <a href="{{ route('mcategories.create') }}" class="bg-red-400 py-1.5 px-5 text-lg text-white font-semibold rounded-lg shadow-md shadow-slate-400 hover:bg-red-600 ml-10 mb-10  "> + Create Category for Mission</a>
         <a href="{{ route('bcategories.create') }}" class="bg-red-400 py-1.5 px-5 text-lg text-white font-semibold rounded-lg shadow-md shadow-slate-400 hover:bg-red-600 ml-10 mb-10  "> + Create Category for Blog</a>
         <div class="flex justify-center items-center">
             <div class="container mx-auto">
                 <!-- Mission Table -->
                 <div class="bg-rose-50 shadow-md rounded-lg overflow-x-auto mt-5 p-5">
-                    <h2 class="text-xl font-bold mb-3">Mission Categories</h2>
+                    <h2 class="text-xl text-black font-bold mb-3">Mission Categories</h2>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-red-500 text-white">
                             <tr class="text-center text-black">
@@ -44,7 +44,7 @@
         
                 <!-- Blog Table -->
                 <div class="bg-rose-50 shadow-md rounded-lg overflow-x-auto mt-5 p-5">
-                    <h2 class="text-xl font-bold mb-3">Blog Categories</h2>
+                    <h2 class="text-xl text-black font-bold mb-3">Blog Categories</h2>
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-red-500 text-white">
                             <tr class="text-center text-black">

@@ -1,6 +1,6 @@
 @extends('platform.layouts.main_p')
 @section('container')
-<section>
+<section class="h-full">
     {{-- Navbar --}}
     <!-- Your existing navbar code -->
 
@@ -15,7 +15,7 @@
         <h1 class="uppercase bg-red-600 font-semibold py-1 px-3 rounded-lg text-center tracking-wider max-w-fit text-white">{{ $mission->category->name }}</h1>
         <h5 class="mt-3 text-3xl text-black font-bold">{{ $mission->title }}</h5>
         <p class="mt-2 font-semibold text-gray-500">by {{ $mission->company->name }}</p>
-        <p class="text-lg text-slate-800 font-medium mt-2">{!! $mission->description !!}</p>
+        <p class="text-lg text-black font-medium mt-2">{!! $mission->description !!}</p>
         @if (!empty($mission->link))
         <div class="flex flex-col mt-3">
             <div class="flex justify-between">
@@ -37,7 +37,7 @@
         <div class="border p-3 rounded-lg">
             @foreach($mission->steps as $index => $step)
             <div class="step-container m-4 flex items-center" data-index="{{ $index }}">
-                <span class="step-description text-black font-normal">{{ $step['description'] }}</span>
+                <span class="step-description cursor-pointer hover:text-red-600 hover:underline text-black font-normal">{{ $step['description'] }}</span>
                 <input type="checkbox" id="togglePopup-{{ $index }}" class="form-checkbox h-5 w-5 text-red-600 bg-white border-gray-400 ml-2 hidden" onclick="showPopup({{ $index }})" disabled>
             </div>
 

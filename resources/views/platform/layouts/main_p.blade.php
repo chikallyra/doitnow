@@ -70,10 +70,7 @@ document.getElementById('image-input').addEventListener('change', function(event
 </script>
 </body>
 
-{{-- script js --}}
-<script src="https://cdn.tailwindcss.com"></script>
-{{-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 
 {{-- copy--}}
 <script>
@@ -118,8 +115,11 @@ document.getElementById('image-input').addEventListener('change', function(event
     }
 </script>
 
-<script>
-    
-</script>
+{{-- script js --}}
+<script src="/js/script.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 
 </html>

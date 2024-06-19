@@ -27,12 +27,12 @@
     {{-- End Navbar --}}
 
     {{-- Content --}}
-    <section class="h-screen pt-20">
+    <section class="h-full pt-20">
         @forelse($history as $mission)
-        <div class="mx-10 lg:mx-32  ">
+        <div class="mx-10 lg:mx-32   ">
             <a href="{{ route('platform.misi', $mission->id) }}" class="">
-                <div class="h-40 rounded-2xl my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
-                    <div class="flex items-start mx-3 lg:mx-10 mt-5">
+                <div class="h-40 rounded-2xl my-3 border-2 shadow-lg pb-3 mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
+                    <div class="flex items-start mx-3 lg:mx-10 mt-5 ">
                         <div class="border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2">
                             <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 lg:w-24 h-24 mx-auto rounded-3xl" alt="mission foto">
                         </div>

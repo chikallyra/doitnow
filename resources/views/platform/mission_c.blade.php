@@ -51,13 +51,14 @@
                 </div> 
                     <div class="truncate ml-2 lg:ml-8 ">
                         <div class="flex justify-between items-end">
-                            <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16 uppercase">sosial</h1>
-                            <h3 class="mt-2 text-white bg-gray-500 rounded-md px-2 uppercase w-full lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[750px] " data-end-time="{{ $mission->end_time_unix }}">
-                                {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
-                                <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
-                                    {{ $mission->time_ago }}
-                                </span>
-                            </h3>
+                            <div class="flex justify-between gap-2 ">
+                                <ul class="flex justify-between gap-2 items-center">
+                                    <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">{{ $mission->category->name }}</li>
+                                    <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium  " data-end-time="{{ $mission->end_time_unix }}"><span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
+                                        {{ $mission->time_ago }}
+                                    </span></li>
+                                </ul>
+                            </div>
                         </div>
                         <h2 class="  text-black font-semibold text-lg truncate">{{ $mission->title }}</h2>
                         <p class="text-sm">{{ $mission->max_missionaries }} participant</p>

@@ -18,7 +18,9 @@
             <tr>
                 <td class="py-2">{{ $mission->missionary->user->name }}</td>
                 <td class="py-2">{{ $mission->mission->title }}</td>
-                <td class="py-2">{{ $mission->mission_complete_at ? 'Completed' : 'Pending' }}</td>
+                <td class="py-2"><span class="{{ $userMission->mission_complete_at ? 'text-green-500' : 'text-red-500' }}">
+                    {{ $userMission->mission_complete_at ? 'Completed' : 'Pending' }}
+                </span></td>
                 <td class="py-2">
                     <a href="{{ route('admin.missions.show', $mission->id) }}" class="text-blue-500">View</a>
                 </td>

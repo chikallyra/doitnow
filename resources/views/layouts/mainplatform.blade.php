@@ -36,16 +36,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 
-{{-- vanilla tilt --}}
-{{-- <script type="text/javascript" src="/js/vanilla-tilt.min.js"></script>
-<script type="text/javascript">
-    VanillaTilt.init(document.querySelector(".car-img"), {
-        max: 25,
-        speed: 400
-    });
-     --}}
-    {{-- //It also supports NodeList
-    // VanillaTilt.init(document.querySelectorAll(".your-element")); --}}
-</script>
-
 </html>

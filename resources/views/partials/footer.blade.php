@@ -1,4 +1,4 @@
-<footer class="bg-red-600 text-white py-8 mx-5 rounded-lg mt-5">
+<footer class="bg-red-600 text-white py-8 mx-5 rounded-lg mt-10">
   <div class="container mx-auto px-3 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-5 gap-8">
     
     <!-- Logo dan Deskripsi -->

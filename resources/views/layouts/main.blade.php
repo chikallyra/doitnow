@@ -15,10 +15,12 @@
     {{-- icon --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
    rel="stylesheet">
-   {{-- daisy ui --}}
-   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.5/dist/full.min.css" rel="stylesheet" type="text/css" />
    {{-- css --}}
    <link rel="stylesheet" href="css/style.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+   {{-- AOS --}}
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef"/>
@@ -61,17 +63,10 @@
 <script src="/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
 
-{{-- vanilla tilt --}}
-{{-- <script type="text/javascript" src="/js/vanilla-tilt.min.js"></script>
-<script type="text/javascript">
-    VanillaTilt.init(document.querySelector(".car-img"), {
-        max: 25,
-        speed: 400
-    });
-     --}}
-    {{-- //It also supports NodeList
-    // VanillaTilt.init(document.querySelectorAll(".your-element")); --}}
-</script>
 
 </html>

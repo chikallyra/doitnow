@@ -35,17 +35,18 @@
                     </form> 
             </div>
 
-            <div>
+            {{-- tabel --}}
+            <div id="container">
                 <div class="grid grid-cols-3 gap-4 lg:grid-cols-3 lg:gap-8 p-8">
                     @foreach ($missions as $mission)
                     <a href="{{ route('show.mission', $mission->id) }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
                         <div class="h-32 rounded-lg bg-white border-2 boerder-gray-300 shadow-lg shadow-gray-500"> 
                             <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
                                 <div class="border-4 border-red-700 w-4/5 lg:w-24 h-4/5 rounded-3xl mt-2 ml-2  ">
-                                    <img src="{{ asset('storage/' . $mission->image) }}" class="w-4/5 lg:w-24 h-full  rounded-3xl " alt="">
+                                    <img src="{{ asset('storage/' . $mission->image) }}" class="w-4/5 lg:w-24 h-24  rounded-3xl " alt="">
                                 </div>
                                 <div class="h-32 lg:col-span-2">
-                                    <h1 class="text-white uppercase bg-red-600 font-medium w-20 rounded-md text-center mt-2 text-sm">{{ $mission->category->name }}</h1>
+                                    <h1 class="text-white uppercase bg-red-600 font-medium w-full rounded-md text-center mt-2">{{ $mission->category->name }}</h1>
                                     <h2 class="text-black font-semibold text-xl truncate pt-1">{{ $mission->title }}</h2>
                                     <p class="text-sm text-gray-400">{{ $mission->max_missionaries }} participant</p>
                                     <div class="flex justify-between">

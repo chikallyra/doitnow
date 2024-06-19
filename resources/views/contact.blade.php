@@ -67,10 +67,10 @@
             </div>
 
             {{-- card --}}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10 mb-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10 mb-10" >
                 <!-- Kartu Alamat -->
-                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
-                  <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                <div class="bg-red-50 p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                  <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-200 text-red-500 mx-auto ">
                     <i class="fas fa-map-marker-alt text-3xl"></i>
                   </div>
                   <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Address</h3>
@@ -79,8 +79,8 @@
                 </div>
                 
                 <!-- Kartu contact -->
-                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
-                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                <div class="bg-red-50 p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-200 text-red-500 mx-auto ">
                         <i class="fas fa-phone text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Contact</h3>
@@ -88,8 +88,8 @@
                 </div>
 
                   <!-- Kartu email -->
-                <div class="bg-white p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow">
-                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-100 text-red-500 mx-auto ">
+                <div class="bg-red-50 p-3 rounded-lg border shadow-xl hover:shadow-lg transition-shadow" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                    <div class="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-red-200 text-red-500 mx-auto ">
                         <i class="fas fa-envelope text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Email</h3>

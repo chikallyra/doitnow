@@ -2,7 +2,15 @@
 @section('container')
 <section class="h-full">
     {{-- Navbar --}}
-    <!-- Your existing navbar code -->
+    <section class="w-full bg-white fixed z-30">
+        <div class=" flex-grow  justify-center lg:mx-24 mx-10 pt-5">
+            <a href="/platform"><i class="fas fa-arrow-left text-black font-bold text-3xl"></i></a>
+            <h1 class="  text-black text-2xl font-bold text-center mt-[-30px] pb-3">Mission</h1>   
+        </div>
+        <div class="border-b-2 border mt-2 border-gray-300"></div>
+    </section>
+   
+    {{-- End Navbar --}}
 
     {{-- Gambar --}}
     <div class="flex justify-center items-center pt-24">

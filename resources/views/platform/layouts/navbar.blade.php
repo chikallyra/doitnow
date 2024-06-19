@@ -9,7 +9,7 @@
             </a>
             <div class="flex items-center">
                 {{-- setting --}}
-                <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white font-medium rounded-lg text-3xl px-5 py-2.5 text-center " type="button">
+                <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white hover:text-gray-300 font-medium rounded-lg text-3xl px-5 py-2.5 text-center " type="button">
                     <span><i class="fas fa-ellipsis-v"></i></span>
                 </button>
     

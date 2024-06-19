@@ -45,8 +45,9 @@
                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                        </svg>
                    </div>
-                <input type="text" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission" required />
+                <input type="text" id="keyword" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
                </div>
+               {{-- <button type="submit" name="seerch" id="search">search</button> --}}
                <button type="submit" class="p-2.5 ms-3 text-sm font-medium text-black ">
                    <svg class="w-6 h-6 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 4v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2m6-16v2m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v10m6-16v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2"/>
@@ -68,20 +69,20 @@
     </div>
     @foreach ($missions as $mission)
     <a href="{{ route('platform.misi', $mission->id) }}" class="">
-        <div class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
+        <div id="container" class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
             <div class="flex items-start mx-3 lg:mx-10 mt-5">
-                <div class="border-4 border-red-700 w-3/5 lg:w-24 h-3/5 rounded-3xl mt-2">
-                    <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 lg:w-24 h-24 mx-auto rounded-3xl" alt="misi foto">
+                <div class="border-4 border-red-700 w-2/5 lg:w-24 h-2/5 rounded-3xl mt-2">
+                    <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 h-24 lg:w-24 lg:h-24 mx-auto rounded-3xl" alt="misi foto">
                 </div>
                 <div class="truncate ml-2 lg:ml-8">
-                    <div class="flex justify-between items-end gap-2">
-                        <h1 class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-16 uppercase">{{ $mission->category->name }}</h1>
-                        <h3 class="mt-2 text-white bg-gray-500 rounded-md px-2 uppercase w-full lg:text-[12px] text-[10px] text-center py-1 font-medium lg:ml-[750px] " data-end-time="{{ $mission->end_time_unix }}">
-                            {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
-                            <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
+                    <div class="flex justify-between gap-2 ">
+                        <ul class="flex justify-between gap-2 items-center">
+                            <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">{{ $mission->category->name }}</li>
+                            <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium  " data-end-time="{{ $mission->end_time_unix }}"> {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
+                                <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
                                 {{ $mission->time_ago }}
-                            </span>
-                        </h3>
+                            </span></li>
+                        </ul>
                     </div>
                     <h2 class="text-black font-semibold text-lg truncate">{{ $mission->title }}</h2>
                     <p class="text-sm">{{ $mission->max_missionaries }} participant only</p>
@@ -95,6 +96,7 @@
             </div>
         </div>
     </a>
+    
     @endforeach  
 </div>
 {{-- End Mission --}}

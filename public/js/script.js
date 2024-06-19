@@ -109,6 +109,23 @@ function copyReferralCode() {
     });
 }
 
+// add foto
+document.getElementById('image-input').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById('image-preview');
+            preview.src = e.target.result;
+            preview.classList.remove('hidden'); // Menampilkan gambar
+            document.getElementById('upload-placeholder').classList.add('hidden'); // Menyembunyikan placeholder
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
 
 
 

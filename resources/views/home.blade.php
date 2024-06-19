@@ -119,10 +119,10 @@
   <h2 class=" lg:text-[53px] text-2xl h-20 mx-5 lg:ml-32 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101] sm:text-4xl  to-[#FF0000]">Do you as a company?</h2>
   <div class="grid grid-cols-2 gap-4 lg:grid-cols-2 lg:gap-8 mx-5 -mt-8">
     <div class="h-96 lg:ml-32 text-sm md:text-3xl  lg:text-[34px] sm:text-xl font-semibold lg:mt-5 mt-3">
-      <p class="mb-1 lg:mb-5 lg:leading-9 md:mb-2 text-black">Connecting you with a community</p>
-      <p class="mb-1 lg:mb-5 md:mb-2 text-black">of active, reward-seeking</p>
-      <p class="mb-1 lg:mb-5 md:mb-2 text-black">individuals eager to interact with</p>
-      <p class="mb-3 lg:mb-8 md:mb-5 text-black">your brand</p>
+      <p class="mb-1 lg:mb-5 lg:leading-9 md:mb-2 text-black" data-aos="fade-right">Connecting you with a community</p>
+      <p class="mb-1 lg:mb-5 md:mb-2 text-black" data-aos="fade-left">of active, reward-seeking</p>
+      <p class="mb-1 lg:mb-5 md:mb-2 text-black" data-aos="fade-right">individuals eager to interact with</p>
+      <p class="mb-3 lg:mb-8 md:mb-5 text-black" data-aos="fade-left">your brand</p>
         {{-- company --}}
       
           <!-- Modal toggle -->
@@ -167,7 +167,9 @@
 
     </div>
     <div class="h-32 ">
-      <img src="/img/grafik.png" class="w-32  lg:ml-32 lg:w-[400px] sm:w-96" alt="">
+      <img src="/img/grafik.png" class="w-32  lg:ml-32 lg:w-[400px] sm:w-96" alt="" data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1500">
     </div>
   </div>
 </section> 
@@ -186,15 +188,17 @@
   <section class=" ml-20 lg:mt-[-300px] mt-[-170px] ">
     
     <div class="grid grid-cols-2 gap-1 lg:grid-cols-3 lg:gap-8">
-      <div class=" ">
-        <img src="/img/hp.png" class="w-32 ml-[-30px] md:w-56 sm:w-48 lg:w-full" alt="">
+      <div class=" mt-10 ">
+        <img src="/img/hp.png" class="w-32 ml-[30px] md:w-56 sm:w-48 lg:w-80" alt="hp" data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">
       </div>
       
-      <div class=" lg:mt-44 md:mt-10 md:ml-[-80px] lg:ml-0 sm:ml-[-80px] sm:mt-8 ml-[-30px] lg:col-span-2">      
-        <h1 class="lg:text-[49px]  lg:mb-8 md:text-4xl sm:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101]  to-[#FF0000]">Do You as a missionary? </h1>
-        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[65px] text-black  font-semibold mb-10">
-          <p>Monetize Your Mission with</p>
-          <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 ">doitnow: Earn, Share, and Impact</p>
+      <div class=" lg:mt-20 md:mt-10 md:ml-[-80px] lg:ml-0 sm:ml-[-80px] sm:mt-8 ml-[-30px] lg:col-span-2">      
+        <h1 class="lg:text-[60px] lg:mb-28 md:text-4xl py-3 sm:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101]  to-[#FF0000]">Do You as a missionary? </h1>
+        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[60px] text-black  font-semibold mb-10">
+          <p class="" data-aos="fade-right">Monetize Your Mission with</p>
+          <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 " data-aos="fade-left">doitnow: Earn, Share, and Impact</p>
               {{-- missionary --}}
              <!-- Modal toggle -->
              <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block border rounded-lg text-[26px] lg:text-3xl px-8 py-1 lg:px-12 sm:px-10 sm:text-2xl md:text-3xl lg:py-3 bg-[#DD2120] text-white transition custom-btn inline-blocfont-semibold shadow-xl shadow-slate-300  duration-300 transform hover:scale-105 font-medium text-sm text-center" type="button">
@@ -234,7 +238,7 @@
     </div>
     
     <div class="flex lg:justify-end">
-      <img src="/img/bg5.png" class="z-[-30px] lg:mt-[200px] lg:mr-96 lg:w-[200px] w-16 mt-[8px] ml-[-30px] sm:mt-20 sm:ml-20 " alt="">
+      <img src="/img/bg5.png" class="z-[-30px] lg:mt-[30px] lg:mr-96 lg:w-[200px] w-16 mt-[8px] ml-[-30px] sm:mt-20 sm:ml-20 " alt="">
     </div>
   </section>
 </div>
@@ -242,38 +246,38 @@
 
 {{-- content 6 carousel --}}
 <section class=" lg:mx-20 mx-5 sm:ml-10 sm:mt-[-20px] lg:mt-0 md:ml-20 mt-3 justify-center items-center block ">
-  <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8">
-    <div class="lg:h-72 h-32 rounded-lg bg-[#DD2120] lg:col-span-2 text-black">
-      <h1 class="lg:text-[52px] lg:font-semibold font-bold lg:mx-28 m-2">Unlock Rewards, Accomplish </h1>
-      <p class="lg:text-[52px] lg:font-semibold lg:mx-28 font-bold mx-2">Missions.</p>
-      <p class=" justify-end flex mr-5 lg:text-4xl font-bold text-white m-2 lg:mt-[-10px] ">doitnow</p>
-    </div>
-    <div class="lg:h-72 h-32 mt-[-10px] sm:ml-12  ">
-      <div id="default-carousel" class="relative w-full" data-carousel="slide">
-        <!-- Carousel wrapper -->
-        <div class="relative lg:h-66 h-64 overflow-hidden rounded-lg md:h-96 ">
-            <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/img/Property1.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6" alt="...">
-            </div>
-            <!-- Item 2 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/img/Property2.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6" alt="...">
-            </div>
-            <!-- Item 3 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/img/Property3.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/img/Property1.png" class=" lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-              <img src="/img/Property2.png" class=" lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
-            </div>
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8">
+      <div class="lg:h-72 h-32 rounded-lg bg-[#DD2120] lg:col-span-2 text-black">
+        <h1 class="lg:text-[52px] lg:font-semibold font-bold lg:mx-28 m-2">Unlock Rewards, Accomplish </h1>
+        <p class="lg:text-[52px] lg:font-semibold lg:mx-28 font-bold mx-2">Missions.</p>
+        <p class=" justify-end flex mr-5 lg:text-4xl font-bold text-white m-2 lg:mt-[-10px] ">doitnow</p>
+      </div>
+      <div class="lg:h-72 h-32 mt-[-10px] sm:ml-12  ">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="relative lg:h-66 h-64 overflow-hidden rounded-lg md:h-96 ">
+              <!-- Item 1 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                  <img src="/img/Property1.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6" alt="...">
+              </div>
+              <!-- Item 2 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                  <img src="/img/Property2.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6" alt="...">
+              </div>
+              <!-- Item 3 -->
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/img/Property3.png" class="lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/img/Property1.png" class=" lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
+              </div>
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="/img/Property2.png" class=" lg:mx-24 w-32 lg:w-[260px] mx-6 " alt="">
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 {{-- end content 6 carousel --}}
 

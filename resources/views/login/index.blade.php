@@ -33,7 +33,7 @@
         <div class="max-w-md px-8 py-6 bg-white bg-opacity-30 border-2 border-gray-200 rounded-lg shadow-xl shadow-slate-300 sm:p-6 md:p-8 w-full  mt-[-90px] lg:mt-6 lg:ml-20 lg:w-full  mx-4">
             <form class="space-y-5" action="{{ route('login.getemail') }}" method="POST">
                 @csrf
-                <h5 class="text-3xl font-bold text-center pb-3 text-gray-900">Log in to Button as...</h5>
+                <h5 class="text-4xl font-bold text-center pb-3 text-gray-900">Log in </h5>
                 <div>
                     <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter your email" autofocus >
                     @error('email')

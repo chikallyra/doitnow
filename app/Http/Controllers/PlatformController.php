@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\TimeAgoHelper;
+use App\Models\MissionCategory;
 use Illuminate\Support\Facades\Storage;
 
 class PlatformController extends Controller
@@ -32,7 +33,8 @@ class PlatformController extends Controller
             $mission->formatted_start_date = $start_date;
             $mission->formatted_end_date = $end_date;
         }
-        return view('platform.index', compact('missions'));
+        $categories = MissionCategory::all();
+        return view('platform.index', compact('missions', 'categories'));
     }
     
     public function misi($id) {
@@ -46,6 +48,33 @@ class PlatformController extends Controller
     
         $isMissionCompleted = $userMission && $userMission->mission_complete_at !== null;
         return view('platform.misi', compact('mission', 'isMissionCompleted'));
+    }
+
+    public function search(Request $request)
+    {
+        if($request->ajax()) {
+            $missions = Mission::where('title', 'LIKE', '%'.$request->keyword.'%')
+                        ->orWhere('description', 'LIKE', '%'.$request->keyword.'%')
+                        ->get();
+            
+            $result = view('platform.search-result', compact('missions'))->render();
+            
+            return response()->json(['html' => $result]);
+        }
+        return response()->json(['html' => '']);
+    }
+
+    public function filter(Request $request)
+    {
+        if($request->ajax()) {
+            $categoryId = $request->get('category_id');
+            $missions = Mission::where('category_id', $categoryId)->get();
+            
+            $result = view('platform.search-result', compact('missions'))->render();
+            
+            return response()->json(['html' => $result]);
+        }
+        return response()->json(['html' => '']);
     }
 
     public function addfriend() {

@@ -1,6 +1,6 @@
 @extends('platform.layouts.main')
- @section('container')
- <section class="lg:pt-52 pt-32">
+@section('container')
+<section class="lg:pt-52 pt-32">
     {{-- rewads --}}
     <a href="" class="">
         <div class="flex items-center mx-5 lg:mx-32">
@@ -45,7 +45,7 @@
                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                        </svg>
                    </div>
-                <input type="text" id="keyword" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
+                <input type="text" id="search" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
                </div>
                {{-- <button type="submit" name="seerch" id="search">search</button> --}}
                <button type="submit" class="p-2.5 ms-3 text-sm font-medium text-black ">
@@ -54,54 +54,57 @@
                    </svg>                          
                    <span class="sr-only">Search</span>
                </button>
+    {{-- end live searching --}}
                <a href="{{ route('platform.history') }}" class="p-2.5  text-sm font-medium text-black hover:bg-gray-200 rounded-lg ">
                         <h1 class=" flex justify-center items-center text-lg"><i class="fas fa-history pr-1 pt-0.5 text-lg"></i>History</h1>
                </a >
         </form> 
-
     </div>
-    {{-- end live searching --}}
 
- {{-- Mission --}}
- <div class="mx-5 lg:mx-32 mt-10 pb-10">
-    <div class="flex justify-between">
-        <h1 class="font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
-    </div>
-    @foreach ($missions as $mission)
-    <a href="{{ route('platform.misi', $mission->id) }}" class="">
-        <div id="container" class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
-            <div class="flex items-start mx-3 lg:mx-10 mt-5">
-                <div class="border-4 border-red-700 w-2/5 lg:w-24 h-2/5 rounded-3xl mt-2">
-                    <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 h-24 lg:w-24 lg:h-24 mx-auto rounded-3xl" alt="misi foto">
-                </div>
-                <div class="truncate ml-2 lg:ml-8">
-                    <div class="flex justify-between gap-2 ">
-                        <ul class="flex justify-between gap-2 items-center">
-                            <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">{{ $mission->category->name }}</li>
-                            <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium  " data-end-time="{{ $mission->end_time_unix }}"> {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
-                                <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
-                                {{ $mission->time_ago }}
-                            </span></li>
-                        </ul>
+    <div id="search-results">
+
+    {{-- Mission --}}
+    <div class="mx-5 lg:mx-32 mt-10 pb-10">
+        <div class="flex justify-between">
+            <h1 class="font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
+        </div>
+        @foreach ($missions as $mission)
+        <a href="{{ route('platform.misi', $mission->id) }}" class="">
+            <div id="container" class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
+                <div class="flex items-start mx-3 lg:mx-10 mt-5">
+                    <div class="border-4 border-red-700 w-2/5 lg:w-24 h-2/5 rounded-3xl mt-2">
+                        <img src="{{ asset('storage/' . $mission->image) }}" class="w-24 h-24 lg:w-24 lg:h-24 mx-auto rounded-3xl" alt="misi foto">
                     </div>
-                    <h2 class="text-black font-semibold text-lg truncate">{{ $mission->title }}</h2>
-                    <p class="text-sm">{{ $mission->max_missionaries }} participant only</p>
-                    <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10 mt-2">
-                        <h1 class="text-base text-center text-white font-bold">Rp</h1>
+                    <div class="truncate ml-2 lg:ml-8">
+                        <div class="flex justify-between gap-2 ">
+                            <ul class="flex justify-between gap-2 items-center">
+                                <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">{{ $mission->category->name }}</li>
+                                <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium  " data-end-time="{{ $mission->end_time_unix }}"> {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
+                                    <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
+                                    {{ $mission->time_ago }}
+                                </span></li>
+                            </ul>
+                        </div>
+                        <h2 class="text-black font-semibold text-lg truncate">{{ $mission->title }}</h2>
+                        <p class="text-sm">{{ $mission->max_missionaries }} participant only</p>
+                        <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10 mt-2">
+                            <h1 class="text-base text-center text-white font-bold">Rp</h1>
+                        </div>
+                        <div class="flex justify-start items-center mt-[-35px] ml-12">
+                            <h1 class="text-2xl text-red-600 font-medium">{{ $mission->reward->reward }}</h1>    
+                        </div>                      
                     </div>
-                    <div class="flex justify-start items-center mt-[-35px] ml-12">
-                        <h1 class="text-2xl text-red-600 font-medium">{{ $mission->reward->reward }}</h1>    
-                    </div>                      
                 </div>
             </div>
-        </div>
-    </a>
-    
-    @endforeach  
+        </a>
+        
+        @endforeach  
+    </div>
 </div>
-{{-- End Mission --}}
+    {{-- End Mission --}}
 </section>
 @endsection
+
 
 @section('scripts')
 <script>
@@ -134,5 +137,25 @@ function startCountdown() {
 }
 
 document.addEventListener('DOMContentLoaded', startCountdown);
+
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', function() {
+    const keyword = this.value;
+    if (keyword.length > 2) {
+        fetch(`/search?keyword=${keyword}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const searchResults = document.getElementById('search-results');
+            searchResults.innerHTML = data.html;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+});
 </script>
 @endsection

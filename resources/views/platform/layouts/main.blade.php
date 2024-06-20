@@ -17,7 +17,10 @@
    rel="stylesheet">
    {{-- css --}}
    <link rel="stylesheet" href="css/style.css">
-   
+
+   {{-- js     --}}
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef"/>
     <link rel="apple-touch-icon" href="{{ asset('../icon/logo_d.png') }}">

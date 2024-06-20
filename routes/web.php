@@ -80,6 +80,7 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // platform
     Route::get('/platform', [PlatformController::class, 'index'])->name('platform');
+    Route::get('/search', [PlatformController::class, 'search'])->name('search.misi');
     Route::get('/platform/misi/{id}', [PlatformController::class, 'misi'])->name('platform.misi');
     Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
     Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');

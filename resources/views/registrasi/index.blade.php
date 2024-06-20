@@ -13,7 +13,7 @@
     <p class="mt-1 text-center leading-relaxed text-gray-500">
         Get started  - deliver your best work with us
     </p>
-    <h2 class="text-center mt-5 text-lg lg:text-[25px] font-medium text-gray-600">Sign Up to Button as...</h2>
+    <h2 class="text-center mt-5 text-lg lg:text-[25px] font-bold text-gray-800">Sign Up </h2>
       <div class="mb-4 ">
         <div class="max-w-md relative justify-center items-center mx-auto">
           <form class="max-w-sm mx-auto mt-6 "  action="{{ route('register.company') }}" method="POST">

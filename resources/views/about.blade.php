@@ -12,7 +12,7 @@
         <div class="md:w-1/2 p-4">
             <h1 class="text-5xl font-bold text-red-600">doitnow</h1>
             <p class="mt-4 mb-6 text-gray-900 text-lg">doitnow is a platform that matches mission creators with mission participants. The platform offers a variety of interesting missions that you can complete to earn rewards such as money, vouchers, and products.</p>
-            <a href="" class=" bg-red-600 text-white px-10 py-2 rounded-xl shadow-lg text-lg hover:bg-red-800 transition duration-300">Join Us</a href="">
+            <a href="{{ route('register.miss') }}" class=" bg-red-600 text-white px-10 py-2 rounded-xl shadow-lg text-lg hover:bg-red-800 transition duration-300">Join Us</a href="">
         </div>
     </div>
 </section>
@@ -57,8 +57,8 @@
                 <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
                 <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
-                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
-                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/tommyhartono/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/tommyhartonocom?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 

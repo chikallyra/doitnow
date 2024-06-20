@@ -178,14 +178,14 @@
 {{-- content 5 missionary --}}
 <div class=" mt-4 md:mt-8 lg:mt-[-200px] sm:mt-36 ">
   <div class="flex justify-end items-end">
-    <img src="/img/bg3.png" class="z-[-30px] md:w-56 md:h-56 md:mt-[10px] mt-[-200px] w-40 h-40 lg:w-96 lg:h-96 lg:mt-64 " alt="">
+    <img src="/img/bg3.png" class="z-[-30px] md:w-56 md:h-56 md:mt-[10px] mt-[-200px] w-40 h-40 lg:w-96 lg:h-96 lg:mt-96 " alt="">
   </div>
   
   <div class=" flex justify-center lg:mt-[-180px]">
     <img src="/img/bg4.png" class="z-[-30px]  mt-[-200px] lg:mt-[-30px] w-24 h-24 " alt="">
   </div>
   
-  <section class=" ml-20 lg:mt-[-300px] mt-[-170px] ">
+  <section class=" ml-20 lg:mt-[-300px] mt-[-170px] container ">
     
     <div class="grid grid-cols-2 gap-1 lg:grid-cols-3 lg:gap-8">
       <div class=" mt-10 ">
@@ -196,7 +196,7 @@
       
       <div class=" lg:mt-20 md:mt-10 md:ml-[-80px] lg:ml-0 sm:ml-[-80px] sm:mt-8 ml-[-30px] lg:col-span-2">      
         <h1 class="lg:text-[60px] lg:mb-28 md:text-4xl py-3 sm:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101]  to-[#FF0000]">Do You as a missionary? </h1>
-        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[60px] text-black  font-semibold mb-10">
+        <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[60px] text-slate-800  font-semibold mb-10">
           <p class="" data-aos="fade-right">Monetize Your Mission with</p>
           <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 " data-aos="fade-left">doitnow: Earn, Share, and Impact</p>
               {{-- missionary --}}

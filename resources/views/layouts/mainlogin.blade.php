@@ -21,7 +21,7 @@
     <title>DoitNow</title>
 </head>
 
-<body>
+<body class="bg-white h-screen">
     @include('partials.navbar')
     @yield('container')
     

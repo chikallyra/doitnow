@@ -22,6 +22,7 @@ use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserMissionController;
+use App\Http\Controllers\WithdrawController;
 use App\Models\CobaStep;
 use App\Models\MissionCategory;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -92,6 +93,7 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::get('/platform/mission_c', [PlatformController::class, 'mission_c'])->name('platform.mission_c');
     Route::get('/platform/profil/{id}', [PlatformController::class, 'profil'])->name('platform.profil');
     Route::put('/platform/profil/{id}/edit', [PlatformController::class, 'updateProfile'])->name('platform.profil.edit');
+    Route::get('/platform/withdraw', [PlatformController::class, 'withdraw'])->name('platform.withdraw');
 
     //misi
     Route::post('/api/take-mission', [UserMissionController::class, 'takeMission'])->name('take-mission');

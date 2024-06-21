@@ -1,3 +1,110 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.background {
+background: rgb(221,33,32);
+background: linear-gradient(90deg, rgba(221,33,32,1) 50%, rgba(119,18,17,1) 100%);
+}
+
+.background1 {
+background: rgb(221,33,32);
+background: linear-gradient(90deg, rgba(221,33,32,1) 50%, rgba(255,217,217,1) 100%);
+}
+
+@keyframes bullet-move-top {
+0% { top: 0; right: 0; }
+50% { top: 10px; right: 10px; }
+100% { top: 0; right: 0; }
+}
+
+@keyframes bullet-move-bottom {
+0% { bottom: 0; left: 0; }
+50% { bottom: 10px; left: 20px; }
+100% { bottom: 0; left: 0; }
+}
+
+.animate-bullet-top {
+animation: bullet-move-top 3s ease-in-out infinite;
+}
+
+.animate-bullet-bottom {
+animation: bullet-move-bottom 3s ease-in-out infinite;
+}
+
+.animate-lingkaran {
+background: rgb(198,8,8);
+background: linear-gradient(90deg, rgba(198,8,8,1) 50%, rgba(56,0,0,1) 100%);
+}
+
+.bg-grid {
+background: rgb(198,8,8);
+background: linear-gradient(90deg, rgba(198,8,8,1) 50%, rgba(56,0,0,1) 100%);
+}
+
+.bg-copyrigth {
+background: rgb(220,219,219);
+background: linear-gradient(90deg, rgba(220,219,219,1) 50%, rgba(253,247,247,1) 100%);
+}
+
+@keyframes slide-in {
+0% {
+  transform: translateX(-50px) translateY(-50px) scale(0.5);
+  opacity: 0;
+}
+100% {
+  transform: translateX(0) translateY(0) scale(1);
+  opacity: 1;
+}
+}
+
+.animate-slide-in {
+animation: slide-in 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+.animated-image-banner {
+animation: fadeIn 3s ease-in-out;
+}
+
+.animate-text-banner {
+animation: fadeIn 3s ease-in-out;
+}
+
+.custom-btn {
+  transition: all 0.3s ease-in-out;
+}
+.custom-btn:hover {
+  transform: scale(1.05);
+  background-color: black;
+}
+
+
+@keyframes move {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-move {
+  animation: move 5s infinite;
+}

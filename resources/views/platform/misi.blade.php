@@ -88,7 +88,7 @@
             @if ($isMissionCompleted)
                 <button class="block bg-green-500 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-16" disabled>You have completed this mission</button>
             @elseif ($currentMissionariesCount >= $mission->max_missionaries)
-                <button class="block bg-gray-500 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-16" disabled>Mission is full</button>
+                <button class="block bg-green-500 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-16" disabled>Mission is full</button>
             @else
                 <button id="take-mission-button" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block bg-red-700 text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-16 hover:bg-red-800">Take a mission</button>
             @endif

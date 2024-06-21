@@ -75,6 +75,10 @@ class PlatformController extends Controller
         return view('platform.addfriend');
     }
 
+    public function withdraw() {
+        return view('platform.withdraw');
+    }
+
     public function history() {
         $user = auth()->user();
         if ($user && $user->missionary) {

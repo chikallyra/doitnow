@@ -15,7 +15,7 @@
             <a href="{{ route('register.miss') }}" class=" bg-red-600 text-white px-10 py-2 rounded-xl shadow-lg text-lg hover:bg-red-800 transition duration-300">Join Us</a href="">
         </div>
     </div>
-</section>
+  </section>
 
 <!-- Vision & Mission Section -->
 <section class="bg-[linear-gradient(90deg,rgba(169,25,24,1)_51%,rgba(119,18,17,1)_100%)] text-white py-5 lg:py-20">
@@ -25,14 +25,16 @@
 </section>
 
 <section class="bg-white pb-8 flex justify-center ">
-    <div class="border-2 border-white shadow-gray-300 shadow-lg p-5 rounded-xl lg:mt-[-20px]  bg-white  ">
+    <div class="border-2 border-white shadow-gray-300 shadow-lg p-5 rounded-xl lg:mt-[-20px]  bg-white mx-5 lg:mx-0 ">
         <h1 class="text-center font-extrabold mb-5 lg:text-3xl text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#dd211f] via-[#771211] to-[#771211]">VISION & MISSION</h1>
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center" data-aos="fade-right">
+            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom" >
                 <h3 class="text-xl font-bold text-red-500">VISION</h3>
                 <p class="mt-4 text-gray-600">To build a community where every task is an opportunity and every achievement is celebrated.</p>
             </div>
-            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center" data-aos="fade-left">
+            <div class="bg-white p-6 border border-red-500 rounded-lg shadow-lg text-center" data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom" >
                 <h3 class="text-xl font-bold text-red-500">MISSION</h3>
                 <p class="mt-4 text-gray-600">To motivate individuals to accomplish their goals by providing exciting missions and rewarding their efforts.</p>
             </div>

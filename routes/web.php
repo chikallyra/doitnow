@@ -47,8 +47,12 @@ Route::get('/blog/index', function () {
     return view('blog.index', compact('blog3'));
 })->name('blog.index');
 
+// Route::get('/coba', function () {
+//     return view('company.dashboardcompany.coba-create');
+// });
+
 Route::get('/coba', function () {
-    return view('company.dashboardcompany.coba-create');
+    return view('platform.cobanotif');
 });
 
 Route::post('coba/store', [CobaStepController::class, 'store'])->name('step.store');
@@ -93,7 +97,6 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::post('/api/take-mission', [UserMissionController::class, 'takeMission'])->name('take-mission');
     Route::post('/api/complete-step', [UserMissionController::class, 'completeStep']);
     Route::post('/api/complete-mission', [UserMissionController::class, 'completeMission']);
-
 
     // notifikasi 
     Route::post('/notify/new-mission/{missionId}', [NotificationController::class, 'notifyNewMission']);
@@ -162,6 +165,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/mission', [DashboardController::class, 'listMission'])->name('admin.missions');
     Route::get('/admin/mission/{id}', [DashboardController::class, 'showMission'])->name('admin.missions.show');
     Route::post('/admin/missions/{id}/validate', [DashboardController::class, 'validateMission'])->name('admin.missions.validate');
+    Route::post('/admin/missions/reject/{userMission}', [DashboardController::class, 'rejectMission'])->name('admin.missions.reject');
 });
 
 

@@ -7,7 +7,7 @@
             <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16  ">
                 <h1 class="text-center text-xl lg:text-4xl text-white font-bold">Rp</h1>
             </div>
-            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">88.000 </h1>    
+            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">{{  number_format($totalReward, 0, ',', '.') }} </h1>    
         </div>
     </a>
     {{-- end rewads --}}

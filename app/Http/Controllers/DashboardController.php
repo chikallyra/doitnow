@@ -12,8 +12,10 @@ use App\Models\Reward;
 use App\Models\User;
 use App\Models\UserMission;
 use App\Models\UserReward;
+use App\Notifications\MissionRejectedNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -101,4 +103,33 @@ class DashboardController extends Controller
     
         return redirect()->route('admin.missions.show', $id)->with('success', 'Mission validated and reward assigned successfully.');
     }    
+        public function rejectMission(Request $request, UserMission $userMission)
+        {
+            try {
+                Log::info('Reject mission request received', ['request' => $request->all(), 'userMission' => $userMission]);
+
+                $validatedData = $request->validate([
+                    'rejection_reason' => 'required|string'
+                ]);
+
+                Log::info('Validation passed', ['validatedData' => $validatedData]);
+
+                $userMission->rejection_reason = $validatedData['rejection_reason'];
+                $userMission->rejected_at = now();
+                $userMission->save();
+
+                Log::info('User mission updated', ['userMission' => $userMission]);
+
+                // Send notification to missionary
+                $user = $userMission->missionary->user;
+                $user->notify(new MissionRejectedNotification($validatedData['rejection_reason'], $userMission->mission->title));
+
+                Log::info('Notification sent', ['user' => $user]);
+
+                return redirect()->route('admin.missions.show', $userMission->id)->with('success', 'Mission rejected successfully.');
+            } catch (\Exception $e) {
+                Log::error('Error rejecting mission: ' . $e->getMessage(), ['exception' => $e]);
+                return redirect()->back()->with('error', 'Internal Server Error');
+            }
+        }
 }

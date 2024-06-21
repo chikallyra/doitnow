@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\TimeAgoHelper;
 use App\Models\MissionCategory;
+use App\Models\UserReward;
 use Illuminate\Support\Facades\Storage;
 
 class PlatformController extends Controller
@@ -34,7 +35,13 @@ class PlatformController extends Controller
             $mission->formatted_end_date = $end_date;
         }
         $categories = MissionCategory::all();
-        return view('platform.index', compact('missions', 'categories'));
+
+        $missionaryId = auth()->user()->missionary->id; // Assuming the logged-in user is a missionary
+        $totalReward = UserReward::where('missionary_id', $missionaryId)
+            ->join('rewards', 'user_rewards.reward_id', '=', 'rewards.id')
+            ->sum('rewards.reward');
+
+        return view('platform.index', compact('missions', 'categories', 'totalReward'));
     }
     
     public function misi($id) {
@@ -90,29 +97,63 @@ class PlatformController extends Controller
             return redirect('/login'); // Atau halaman yang sesuai jika pengguna tidak login
         }
     }
-    
-    public function notif() {
-        $notifications = auth()->user()->notifications;
-        return view('platform.notif', ['notifications' => $notifications]);
+
+    public function notif(Request $request)
+    {
+        $notifications = auth()->user()->notifications()->paginate(10);
+
+        foreach ($notifications as $notification) {
+            $notification->data = is_array($notification->data) ? $notification->data : json_decode($notification->data, true);
+        }
+
+        if ($request->ajax()) {
+            return view('platform.partials.notifications', compact('notifications'))->render();
+        }
+
+        return view('platform.notif', compact('notifications'));
     }
 
-    public function mission_c() {
-        $missions = Mission::with('reward', 'category')->get();
-        $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->get(); 
     
-        foreach ($missions as $mission) {
-            $start_date = Carbon::parse($mission->start_date)->format('d M Y');
-            $end_date = Carbon::parse($mission->end_date)->format('d M Y');
-    
-            $time_ago = TimeAgoHelper::timeAgo($mission->start_date, $mission->end_date);
-            $mission->time_ago = $time_ago;
-    
-            $mission->end_time_unix = Carbon::parse($mission->end_date)->timestamp;
-    
-            $mission->formatted_start_date = $start_date;
-            $mission->formatted_end_date = $end_date;
+    // public function notif() {
+    //     $notifications = auth()->user()->notifications;
+    //     return view('platform.notif', ['notifications' => $notifications]);
+    // }
+
+    public function mission_c(Request $request)
+    {
+        $query = Mission::with('reward', 'category')->orderBy('created_at', 'desc');
+
+        if ($request->ajax()) {
+            if ($request->has('category_id') && $request->category_id != 'all') {
+                $query->where('category_id', $request->category_id);
+            }
+
+            $missions = $query->paginate(10);
+
+            foreach ($missions as $mission) {
+                $start_date = Carbon::parse($mission->start_date)->format('d M Y');
+                $end_date = Carbon::parse($mission->end_date)->format('d M Y');
+
+                $time_ago = TimeAgoHelper::timeAgo($mission->start_date, $mission->end_date);
+                $mission->time_ago = $time_ago;
+
+                $mission->end_time_unix = Carbon::parse($mission->end_date)->timestamp;
+
+                $mission->formatted_start_date = $start_date;
+                $mission->formatted_end_date = $end_date;
+            }
+
+            return view('platform.partials.mission_card', compact('missions'))->render();
         }
-        return view('platform.mission_c', compact('missions'));
+
+        if ($request->has('category_id') && $request->category_id != 'all') {
+            $query->where('category_id', $request->category_id);
+        }
+
+        $missions = $query->paginate(10);
+        $categories = MissionCategory::all();
+
+        return view('platform.mission_c', compact('missions', 'categories'));
     }
 
     public function profil($id) {

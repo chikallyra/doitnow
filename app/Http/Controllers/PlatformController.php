@@ -71,19 +71,6 @@ class PlatformController extends Controller
         return response()->json(['html' => '']);
     }
 
-    public function filter(Request $request)
-    {
-        if($request->ajax()) {
-            $categoryId = $request->get('category_id');
-            $missions = Mission::where('category_id', $categoryId)->get();
-            
-            $result = view('platform.search-result', compact('missions'))->render();
-            
-            return response()->json(['html' => $result]);
-        }
-        return response()->json(['html' => '']);
-    }
-
     public function addfriend() {
         return view('platform.addfriend');
     }

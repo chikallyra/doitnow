@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\UserMission;
 use App\Http\Requests\StoreUserMissionRequest;
 use App\Http\Requests\UpdateUserMissionRequest;
+use App\Models\Mission;
 use App\Models\Missionary;
 use App\Models\Notification;
 use Illuminate\Http\Request;
@@ -20,50 +21,55 @@ class UserMissionController extends Controller
      */
 
 
-
-
-
      public function takeMission(Request $request)
-    {
-        try {
-            Log::info('Received take mission request', ['request' => $request->all()]);
+{
+    try {
+        Log::info('Received take mission request', ['request' => $request->all()]);
 
-            $validatedData = $request->validate([
-                'mission_id' => 'required|exists:missions,id',
-                'user_id' => 'required|exists:users,id'
-            ]);
+        $validatedData = $request->validate([
+            'mission_id' => 'required|exists:missions,id',
+            'user_id' => 'required|exists:users,id'
+        ]);
 
-            Log::info('Validation passed', ['validatedData' => $validatedData]);
+        Log::info('Validation passed', ['validatedData' => $validatedData]);
 
-            $missionary = Missionary::where('user_id', $validatedData['user_id'])->first();
+        $mission = Mission::findOrFail($validatedData['mission_id']);
+        $currentMissionariesCount = UserMission::where('mission_id', $mission->id)->count();
 
-            if (!$missionary) {
-                Log::warning('Missionary not found', ['user_id' => $validatedData['user_id']]);
-                return response()->json(['success' => false, 'message' => 'Missionary not found'], 404);
-            }
-
-            Log::info('Missionary found', ['missionary' => $missionary]);
-
-            $userMission = UserMission::firstOrCreate(
-                [
-                    'missionary_id' => $missionary->id,
-                    'mission_id' => $validatedData['mission_id'],
-                ],
-                [
-                    'joined_at' => now(),
-                    'mission_complete_at' => null,
-                    'steps_completed' => json_encode([]),
-                ]
-            );
-
-            Log::info('User mission created', ['userMission' => $userMission]);
-
-            return response()->json(['success' => true, 'userMission' => $userMission]);
-        } catch (\Exception $e) {
-            Log::error('Error taking mission: ' . $e->getMessage(), ['exception' => $e]);
-            return response()->json(['success' => false, 'message' => 'Internal Server Error'], 500);
+        if ($currentMissionariesCount >= $mission->max_missionaries) {
+            return response()->json(['success' => false, 'message' => 'This mission has reached the maximum number of participants.'], 400);
         }
+
+        $missionary = Missionary::where('user_id', $validatedData['user_id'])->first();
+
+        if (!$missionary) {
+            Log::warning('Missionary not found', ['user_id' => $validatedData['user_id']]);
+            return response()->json(['success' => false, 'message' => 'Missionary not found'], 404);
+        }
+
+        Log::info('Missionary found', ['missionary' => $missionary]);
+
+        $userMission = UserMission::firstOrCreate(
+            [
+                'missionary_id' => $missionary->id,
+                'mission_id' => $validatedData['mission_id'],
+            ],
+            [
+                'joined_at' => now(),
+                'mission_complete_at' => null,
+                'steps_completed' => json_encode([]),
+            ]
+        );
+
+        Log::info('User mission created', ['userMission' => $userMission]);
+
+        return response()->json(['success' => true, 'userMission' => $userMission]);
+    } catch (\Exception $e) {
+        Log::error('Error taking mission: ' . $e->getMessage(), ['exception' => $e]);
+        return response()->json(['success' => false, 'message' => 'Internal Server Error'], 500);
     }
+}
+
 
     public function completeStep(Request $request)
     {

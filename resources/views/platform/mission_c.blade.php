@@ -25,9 +25,28 @@
         </div>
         <div class="border-b-2 border mt-2 border-gray-300"></div>
     </section>
+    {{--  endnavbar --}}
     
+    
+{{-- live searching --}}
+<div class=" mx-5 lg:mx-32 pt-32">
+    <form class="">   
+        <label for="simple-search" class="sr-only">Search</label>
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+            </div>
+            <input type="text" id="search" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
+        </div>
+        
+{{-- end live searching --}}
+
     {{-- Content --}}
-    <div id="missions-container" class="mx-10 lg:mx-32 pt-32 bg-white h-full pb-10">
+    <div id="missions-container" class="mx-10 lg:mx-32  bg-white h-full pb-10">
+        
+
         @if($missions->isEmpty())
             <p class="text-center text-gray-500">No missions available in this category.</p>
         @else

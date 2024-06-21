@@ -16,11 +16,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
    rel="stylesheet">
    {{-- css --}}
-   <link rel="stylesheet" href="css/style.css">
+   
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
-   {{-- js     --}}
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+   
     <!-- PWA  -->
     <meta name="theme-color" content="#6777ef"/>
     <link rel="apple-touch-icon" href="{{ asset('../icon/logo_d.png') }}">
@@ -30,12 +29,14 @@
      <meta name="keywords" content="doitnow.id, penghasilan tambahan, pekerjaan sampingan, freelance mahasiswa, freelance pelajar, kerja di rumah, kerja tanpa modal, kegiatan produktif, penambah followers, aplikasi penambah followers tiktok, penambah followers ig gratis, bot youtube view, penambah pengikut fb, meningkatkan brand awareness, meningkatkan engagement">
      <meta name="description" content="DoitNow adalah platform yang membantu Anda mendapatkan penghasilan tambahan, bekerja dari rumah tanpa modal, melakukan kegiatan produktif, meningkatkan brand awareness, meningkatkan engagement, dan menambah followers.">
     <title>DoitNow</title>
+    <x-head.tinymce-config/>
+    
 </head>
 
-<body class=" bg-white ">
+<body class=" bg-white">
     @include('platform.layouts.navbar', ['user' => auth()->user()])
     @yield('container')
-    @yield('scripts')
+
         <script src="{{ asset('/sw.js') }}"></script>
     <script>
     if ("serviceWorker" in navigator) {
@@ -56,9 +57,9 @@
 </body>
 
 {{-- script js --}}
-
-<script src="/js/ajax.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+
 </html>

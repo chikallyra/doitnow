@@ -2,12 +2,12 @@
 @section('container')
 <section class="lg:pt-52 pt-32">
     {{-- rewads --}}
-    <a href="" class="">
+    <a href="{{ route('platform.withdraw') }}" class="">
         <div class="flex items-center mx-5 lg:mx-32">
             <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16  ">
-                <h1 class="text-center text-xl lg:text-4xl text-white font-bold">Rp</h1>
+                <h1 class="text-center text-xl lg:text-3xl text-white font-bold p-3">Rp</h1>
             </div>
-            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">{{  number_format($totalReward, 0, ',', '.') }} </h1>    
+            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">{{  number_format($totalReward, 0, ',', '.') }} <span><i class="fas fa-angle-right"></i></span></h1>    
         </div>
     </a>
     {{-- end rewads --}}
@@ -47,13 +47,6 @@
                    </div>
                 <input type="text" id="search" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
                </div>
-               {{-- <button type="submit" name="seerch" id="search">search</button> --}}
-               <button type="submit" class="p-2.5 ms-3 text-sm font-medium text-black ">
-                   <svg class="w-6 h-6 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 4v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2m6-16v2m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v10m6-16v10m0 0a2 2 0 1 0 0 4m0-4a2 2 0 1 1 0 4m0 0v2"/>
-                   </svg>                          
-                   <span class="sr-only">Search</span>
-               </button>
     {{-- end live searching --}}
                <a href="{{ route('platform.history') }}" class="p-2.5  text-sm font-medium text-black hover:bg-gray-200 rounded-lg ">
                         <h1 class=" flex justify-center items-center text-lg"><i class="fas fa-history pr-1 pt-0.5 text-lg"></i>History</h1>
@@ -64,7 +57,7 @@
     <div id="search-results">
 
     {{-- Mission --}}
-    <div class="mx-5 lg:mx-32 mt-10 pb-10">
+    <div class="mx-5 lg:mx-32 mt-10 pb-10 ">
         <div class="flex justify-between">
             <h1 class="font-bold text-black lg:text-3xl text-xl mb-8">Mission</h1>
         </div>

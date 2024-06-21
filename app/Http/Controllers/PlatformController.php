@@ -18,9 +18,8 @@ use Illuminate\Support\Facades\Storage;
 class PlatformController extends Controller
 {
     public function index() {
-        $missions = Mission::with('reward', 'category')->latest()->paginate(5);
-        $missions = Mission::with('reward', 'category')->get();
-        $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->get(); 
+        // Hanya satu query yang digunakan dengan pagination
+        $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->paginate(5);
     
         foreach ($missions as $mission) {
             $start_date = Carbon::parse($mission->start_date)->format('d M Y');
@@ -34,15 +33,16 @@ class PlatformController extends Controller
             $mission->formatted_start_date = $start_date;
             $mission->formatted_end_date = $end_date;
         }
+    
         $categories = MissionCategory::all();
-
-        $missionaryId = auth()->user()->missionary->id; // Assuming the logged-in user is a missionary
+    
+        $missionaryId = auth()->user()->missionary->id; 
         $totalReward = UserReward::where('missionary_id', $missionaryId)
             ->join('rewards', 'user_rewards.reward_id', '=', 'rewards.id')
             ->sum('rewards.reward');
-
+    
         return view('platform.index', compact('missions', 'categories', 'totalReward'));
-    }
+    }    
     
     public function misi($id) {
         $mission = Mission::with('company', 'reward', 'category')->findOrFail($id);

@@ -43,7 +43,7 @@ class PlatformController extends Controller
     
         return view('platform.index', compact('missions', 'categories', 'totalReward'));
     }    
-    
+
     public function misi($id) {
         $mission = Mission::with('company', 'reward', 'category')->findOrFail($id);
         $mission->steps = json_decode($mission->steps, true);

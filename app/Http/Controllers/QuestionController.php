@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
+use App\Mail\QuestionReceived;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class QuestionController extends Controller
 {
@@ -50,7 +52,12 @@ class QuestionController extends Controller
             'message' => 'required'
         ]);
 
-        Question::create($validatedData);
+        $question = Question::create($validatedData);
+
+         // Send email notification to admin
+        $adminEmail = 'hounixyra@gmail.com'; 
+        Mail::to($adminEmail)->send(new QuestionReceived($question));
+
         return redirect('/contact')->with('successs', 'Question has beeen delivered! Please wait our team to reach you');
     }
 

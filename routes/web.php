@@ -22,9 +22,11 @@ use App\Http\Controllers\StatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserMissionController;
+use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\WithdrawController;
 use App\Models\CobaStep;
 use App\Models\MissionCategory;
+use Illuminate\Support\Facades\Mail;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -51,6 +53,18 @@ Route::get('/blog/index', function () {
 // Route::get('/coba', function () {
 //     return view('company.dashboardcompany.coba-create');
 // });
+
+Route::get('/test-email', function() {
+    $details = [
+        'title' => 'Mail from DoitNow',
+        'body' => 'This is for testing email using smtp'
+    ];
+
+    \Mail::to('hounixyra@example.com')->send(new \App\Mail\MyTestMail($details));
+
+    return 'Email has been sent';
+});
+
 
 Route::get('/coba', function () {
     return view('platform.cobanotif');
@@ -95,10 +109,13 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::put('/platform/profil/{id}/edit', [PlatformController::class, 'updateProfile'])->name('platform.profil.edit');
     Route::get('/platform/withdraw', [PlatformController::class, 'withdraw'])->name('platform.withdraw');
 
-    //misi
+    // misi
     Route::post('/api/take-mission', [UserMissionController::class, 'takeMission'])->name('take-mission');
     Route::post('/api/complete-step', [UserMissionController::class, 'completeStep']);
     Route::post('/api/complete-mission', [UserMissionController::class, 'completeMission']);
+
+    // With
+    Route::post('/platform/withdraw', [WithdrawalController::class, 'store'])->name('withdraw.store');
 
     // notifikasi 
     Route::post('/notify/new-mission/{missionId}', [NotificationController::class, 'notifyNewMission']);

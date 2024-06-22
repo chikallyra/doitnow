@@ -21,6 +21,11 @@ class UserMission extends Model
         return $this->hasMany(Notification::class);
     }
 
+    public function withdrawal()
+    {
+        return $this->hasOne(Withdrawal::class, 'user_mission_id');
+    }
+
     protected $guarded = ['id'];
 
     protected $casts = [

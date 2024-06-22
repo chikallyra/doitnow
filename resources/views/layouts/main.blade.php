@@ -27,35 +27,46 @@
     <link rel="apple-touch-icon" href="{{ asset('../icon/logo_d.png') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
-     <!-- Meta Tags -->
-     <meta name="keywords" content="doitnow.id, penghasilan tambahan, pekerjaan sampingan, freelance mahasiswa, freelance pelajar, kerja di rumah, kerja tanpa modal, kegiatan produktif, penambah followers, aplikasi penambah followers tiktok, penambah followers ig gratis, bot youtube view, penambah pengikut fb, meningkatkan brand awareness, meningkatkan engagement">
-     <meta name="description" content="DoitNow adalah platform yang membantu Anda mendapatkan penghasilan tambahan, bekerja dari rumah tanpa modal, melakukan kegiatan produktif, meningkatkan brand awareness, meningkatkan engagement, dan menambah followers.">
+    <!-- Meta Tags -->
+    <meta name="keywords" content="doitnow.id, penghasilan tambahan, pekerjaan sampingan, freelance mahasiswa, freelance pelajar, kerja di rumah, kerja tanpa modal, kegiatan produktif, penambah followers, aplikasi penambah followers tiktok, penambah followers ig gratis, bot youtube view, penambah pengikut fb, meningkatkan brand awareness, meningkatkan engagement">
+    <meta name="description" content="DoitNow adalah platform yang membantu Anda mendapatkan penghasilan tambahan, bekerja dari rumah tanpa modal, melakukan kegiatan produktif, meningkatkan brand awareness, meningkatkan engagement, dan menambah followers.">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="DoitNow - Join With Us">
+    <meta property="og:description" content="DoitNow adalah platform yang membantu Anda mendapatkan penghasilan tambahan, bekerja dari rumah tanpa modal, melakukan kegiatan produktif, meningkatkan brand awareness, meningkatkan engagement, dan menambah followers.">
+    <meta property="og:image" content="{{ asset('/img/meta-tag/doitnow.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DoitNow - Join With Us">
+    <meta name="twitter:description" content="DoitNow adalah platform yang membantu Anda mendapatkan penghasilan tambahan, bekerja dari rumah tanpa modal, melakukan kegiatan produktif, meningkatkan brand awareness, meningkatkan engagement, dan menambah followers.">
+    <meta name="twitter:image" content="{{ asset('/img/meta-tag/doitnow-introduction.jpg') }}">
+
     <title>DoitNow</title>
     <x-head.tinymce-config/>
 </head>
 
-<body class=" bg-white">
+<body class="bg-white">
     @include('partials.navbar')
     @yield('container')
     @include('partials.footer')
 
-        <script src="{{ asset('/sw.js') }}"></script>
+    <script src="{{ asset('/sw.js') }}"></script>
     <script>
-    if ("serviceWorker" in navigator) {
-        // Register a service worker hosted at the root of the
-        // site using the default scope.
-        navigator.serviceWorker.register("/sw.js").then(
-        (registration) => {
-            console.log("Service worker registration succeeded:", registration);
-        },
-        (error) => {
-            console.error(`Service worker registration failed: ${error}`);
-        },
-        );
-    } else {
-        console.error("Service workers are not supported.");
-    }
-</script>
+        if ("serviceWorker" in navigator) {
+            // Register a service worker hosted at the root of the
+            // site using the default scope.
+            navigator.serviceWorker.register("/sw.js").then(
+                (registration) => {
+                    console.log("Service worker registration succeeded:", registration);
+                },
+                (error) => {
+                    console.error(`Service worker registration failed: ${error}`);
+                },
+            );
+        } else {
+            console.error("Service workers are not supported.");
+        }
+    </script>
 </body>
 
 {{-- script js --}}
@@ -66,7 +77,6 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
-  </script>
-
+</script>
 
 </html>

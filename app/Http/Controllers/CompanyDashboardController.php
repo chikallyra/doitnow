@@ -20,20 +20,20 @@ class CompanyDashboardController extends Controller
     // Fetch the company IDs associated with the logged-in user
     $companyIds = $user->companies()->pluck('companies.id')->toArray();
 
-    // Debugging: Check if the company IDs are correctly retrieved
-    if (empty($companyIds)) {
-        dd('No company IDs found for the authenticated user.');
-    }
+    // // Debugging: Check if the company IDs are correctly retrieved
+    // if (empty($companyIds)) {
+    //     dd('No company IDs found for the authenticated user.');
+    // }
 
     // Retrieve missions that belong to the logged-in user's companies
     $missions = Mission::with('reward', 'category')
                         ->whereIn('company_id', $companyIds)
                         ->get();
 
-    // Debugging: Check if missions are retrieved
-    if ($missions->isEmpty()) {
-        dd('No missions found for the company IDs: ' . implode(', ', $companyIds));
-    }
+    // // Debugging: Check if missions are retrieved
+    // if ($missions->isEmpty()) {
+    //     dd('No missions found for the company IDs: ' . implode(', ', $companyIds));
+    // }
 
     // Format the dates
     foreach ($missions as $mission) {

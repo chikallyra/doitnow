@@ -54,7 +54,7 @@
         <div class=" max-w-7xl lg:mx-auto mx-5 grid grid-cols-1 md:grid-cols-3 gap-8">
             {{-- pak tommy --}}
             <div class="bg-red-50 rounded-lg p-6 flex flex-col items-center text-center shadow-lg"  data-aos="flip-left">
-                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="img/paktommy.jpg" alt="Jack Clark">
+                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="/img/team/pak tommy.png" alt="Jack Clark">
                 <h2 class="text-2xl text-slate-900 font-semibold">Tommy Hartanto</h2>
                 <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
                 <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
@@ -66,24 +66,24 @@
 
             {{-- pak nollan --}}
             <div class="bg-red-50  rounded-lg p-6 flex flex-col items-center text-center shadow-lg " data-aos="flip-left">
-                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="https://via.placeholder.com/150" alt="Jack Clark">
-                <h2 class="text-2xl text-slate-900 font-semibold">pak nollan</h2>
+                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="/img/team/pak nollan.png" alt="Jack Clark">
+                <h2 class="text-2xl text-slate-900 font-semibold">Nolan Pudjanegara</h2>
                 <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
                 <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
-                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
-                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/nolan-pudjanegara-61a428171/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.instagram.com/nolanpudj/?hl=id" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             {{-- pak Michell --}}
             <div class="bg-red-50  rounded-lg p-6 flex flex-col items-center text-center shadow-lg" data-aos="flip-left">
-                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="https://via.placeholder.com/150" alt="Jack Clark">
-                <h2 class="text-2xl text-slate-900 font-semibold">pak michell</h2>
+                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="/img/team/pak michael.png" alt="Jack Clark">
+                <h2 class="text-2xl text-slate-900 font-semibold">Michael Nathanael Hasim</h2>
                 <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
                 <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
-                  <a href="#" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
+                  <a href="https://www.linkedin.com/in/michael-nathanael-hasim-179748254/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
                   <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>

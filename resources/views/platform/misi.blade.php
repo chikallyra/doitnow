@@ -301,5 +301,29 @@
         });
     });
 
+    // copy
+    function copyText() {
+    // Dapatkan elemen input
+    var copyText = document.getElementById("myInput");
+
+    // Pilih teks di input
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // Untuk perangkat mobile
+
+    // Salin teks ke clipboard
+    document.execCommand("copy");
+
+    // Tampilkan alert
+    var feedback = document.getElementById("copyFeedback");
+    feedback.classList.remove("hidden");
+    
+    // Sembunyikan alert setelah 2 detik
+    setTimeout(function() {
+        feedback.classList.add("hidden");
+    }, 2000);
+
+
+}
+
 </script>
 @endsection

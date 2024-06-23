@@ -301,6 +301,32 @@ $('#description').summernote({
         ['para', ['ul', 'ol', 'paragraph']],
     ]
 });
+
+    //   add foto
+    document.getElementById('image-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('image-preview');
+            const placeholder = document.getElementById('upload-placeholder');
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Set the preview image's source to the file's data URL
+                    preview.src = e.target.result;
+                    // Display the image preview and hide the placeholder
+                    preview.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                // Hide the preview image and show the placeholder if no file is selected
+                preview.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+                preview.src = '';
+            }
+    });
 </script>
 
 @endsection

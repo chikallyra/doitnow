@@ -62,6 +62,21 @@
     </div>
     
     {{-- end ket --}}
+
+    {{-- script --}}
+    <script>
+        // referral code
+        function copyReferralCode() {
+                    const referralCode = 'ABCD-1234-EFGH';
+                    navigator.clipboard.writeText(referralCode).then(() => {
+                        const message = document.getElementById('copy-message');
+                        message.classList.remove('hidden');
+                        setTimeout(() => {
+                            message.classList.add('hidden');
+                        }, 2000);
+                    });
+        }
+        </script>
 </section>
     
 @endsection

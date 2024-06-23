@@ -8,6 +8,9 @@ use App\Models\Missionary;
 use App\Notifications\WithdrawalNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
+use Spatie\FlareClient\View;
+
+use function Ramsey\Uuid\v1;
 
 class WithdrawalController extends Controller
 {
@@ -22,6 +25,10 @@ class WithdrawalController extends Controller
 
         // Pass data ke view
         return view('platform.withdraw', compact('missionary', 'userReward'));
+    }
+
+    public function withdraw () {
+        return view('admin.dasboard.withdraw.withdraw');
     }
 
     public function store(Request $request)

@@ -1,7 +1,7 @@
 @extends('admin.dasboard.layouts.maindashboard')
 
 @section('container')
-    <div class="pt-20 pb-10 mx-20">
+    <div class="pt-32 pb-10 mx-20">
         <h1 class="text-red-600 font-bold text-5xl mb-12 ml-10">Categories Content</h1>
         <a href="{{ route('mcategories.create') }}" class="bg-red-400 py-1.5 px-5 text-lg text-white font-semibold rounded-lg shadow-md shadow-slate-400 hover:bg-red-600 ml-10 mb-10  "> + Create Category for Mission</a>
         <a href="{{ route('bcategories.create') }}" class="bg-red-400 py-1.5 px-5 text-lg text-white font-semibold rounded-lg shadow-md shadow-slate-400 hover:bg-red-600 ml-10 mb-10  "> + Create Category for Blog</a>

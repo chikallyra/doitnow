@@ -73,7 +73,7 @@
                             <ul class="flex justify-between gap-2 items-center">
                                 <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">{{ $mission->category->name }}</li>
                                 <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium  " data-end-time="{{ $mission->end_time_unix }}"> {{ $mission->formatted_start_date }} - {{ $mission->formatted_end_date }} | 
-                                    <span class="time-remaining"  data-time-ago="{{ $mission->time_ago }}">
+                                    <span class="time-remaining hidden md:block"  data-time-ago="{{ $mission->time_ago }}">
                                     {{ $mission->time_ago }}
                                 </span></li>
                             </ul>

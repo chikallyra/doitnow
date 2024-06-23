@@ -1,9 +1,9 @@
 @extends('admin.dasboard.layouts.maindashboard')
 
 @section('container')
-<section class="bg-white min-h-screen">
+<section class="bg-white min-h-screen pt-32">
     <div class="container mx-auto p-4 text-black">
-        <h1 class="text-4xl font-bold  mb-3 text-red-600">Mission List</h1>
+        <h1 class="text-4xl font-bold  mb-8 text-red-600">Mission List</h1>
         <a href="" class="bg-red-400 px-5 py-1 rounded-xl hover:bg-red-700 text-white text-lg  "> Back </a>
     
         <table class="min-w-full bg-white border-2 border-black mt-9">

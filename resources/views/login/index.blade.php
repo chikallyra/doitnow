@@ -3,7 +3,7 @@
 @section('container')
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8 pt-20 bg-white h-screen ">
   <div class=" items-center flex  justify-center lg:h-full bg-red-600 h-32  " >
-    <img src="/img/loginbanner.png" class="w-[200px] lg:w-[400px] lg:mt-14 md:mt-10" h-70 alt="">
+    <img src="/img/loginbanner.png" class="w-[200px] lg:w-[400px] lg:mt-14 md:mt-10 h-70"  alt="">
   </div>
   <div class="">
     <div class="flex flex-wrap items-center justify-center lg:mr-20 lg:mt-[50px]">
@@ -33,7 +33,7 @@
         <div class="max-w-md px-8 py-6 bg-white bg-opacity-30 border-2 border-gray-200 rounded-lg shadow-xl shadow-slate-300 sm:p-6 md:p-8 w-full  mt-[-90px] lg:mt-6 lg:ml-20 lg:w-full  mx-4">
             <form class="space-y-5" action="{{ route('login.getemail') }}" method="POST">
                 @csrf
-                <h5 class="text-4xl font-bold text-center pb-3 text-gray-900">Log in </h5>
+                <h5 class="text-4xl  mt-10 font-bold text-center pb-3 text-gray-900">Log in </h5>
                 <div>
                     <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Enter your email" autofocus >
                     @error('email')

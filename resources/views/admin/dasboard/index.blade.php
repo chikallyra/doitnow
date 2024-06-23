@@ -1,10 +1,10 @@
 @extends('admin.dasboard.layouts.maindashboard')
 
 @section('container')
-    <section class="bg-white ">
+    <section class="bg-white pt-36 ">
         <h1 class="ml-10 py-10 text-4xl font-bold text-slate-900 ">Welcome Back, {{ auth()->user()->name }}</h1>
         <div class=" flex justify-start items-center">
-            <div class="grid grid-cols-4 gap-2 lg:grid-cols-4 lg:gap-8 mt-10 lg:mx-10 mx-5  ">
+            <div class="grid grid-cols-10  gap-8 mt-10 mx-10  ">
                 <a href="" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
                     <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
                         <div class="flex justify-center items-center mt-4">
@@ -51,6 +51,18 @@
                             </div>
                         </div>
                         <h1 class="text-center text-black font-medium  text-base px-2 pt-1 ">Question</h1>
+                    </div>
+                </a>
+                <a href="{{ route('withdraw.home') }}" class="transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-200 duration-300">
+                    <div class="h-24 w-20 lg:h-32 lg:w-32  rounded-lg bg-white shadow-lg shadow-gray-400 border-2 hover:bg-gray-100">
+                        <div class="flex justify-center items-center mt-4">
+                            <div class="bg-[#F9D2BC] rounded-full h-14 w-14">
+                                <div class="flex justify-center items-center">
+                                    <i class="fas fa-dollar-sign text-4xl pt-2 text-red-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-center text-black font-medium  text-base px-2 pt-1 ">Withdraw</h1>
                     </div>
                 </a>
                 

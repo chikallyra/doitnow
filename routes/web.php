@@ -179,12 +179,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/admin/user/{user}/update', [UserController::class, 'update'])->name('user.update');
 
     // CMS Missionary
-
     Route::get('/admin/user/mission/{id}', [DashboardController::class, 'userMission'])->name('admin.user.missions');
     Route::get('/admin/mission', [DashboardController::class, 'listMission'])->name('admin.missions');
     Route::get('/admin/mission/{id}', [DashboardController::class, 'showMission'])->name('admin.missions.show');
     Route::post('/admin/missions/{id}/validate', [DashboardController::class, 'validateMission'])->name('admin.missions.validate');
     Route::post('/admin/missions/reject/{userMission}', [DashboardController::class, 'rejectMission'])->name('admin.missions.reject');
+
+    // withdraw
+    Route::get('/admin/dashboard/withdraw', [WithdrawalController::class, 'withdraw'])-> name('withdraw.home');
 });
 
 

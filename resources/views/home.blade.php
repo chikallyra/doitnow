@@ -2,7 +2,7 @@
 
 @section('container')
 
-<section class=" container">
+<section class=" ">
   {{-- banner --}}
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-10 lg:pt-72 lg:place-items-auto  place-items-center  ">
       <div class=" pt-12  lg:order-none order-2 ">
@@ -88,7 +88,7 @@
       </div>
       <div class="lg:mx-32 lg:pt-0 pt-28">
         <h1 class="lg:text-[63px] text-xl mb-10 mt-[-50px] lg:pt-20 lg:h-36 lg:ml-0 ml-8 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101] to-[#FF0000] sm:text-4xl md:text-5xl  ">What is your position ?</h1>
-          <div class="grid grid-cols-2  lg:grid-cols-2 lg:gap-8 lg:mt-14 lg:mx-24">
+          <div class="grid grid-cols-2  lg:grid-cols-2 lg:gap-8 lg:mt-14 lg:mx-24 ">
             {{-- company --}}
             <a href="/registrasi" class="block transition duration-300 transform hover:scale-105  font-medium rounded-lg text-sm px-5 py-2.5 text-center">
               <div class="lg:h-32  flex justify-center py-3 lg:py-0 content-center shadow-lg shadow-slate-500 rounded-lg bg-grid  ">
@@ -177,7 +177,7 @@
   {{-- end content 4 compony --}}
 
   {{-- content 5 missionary --}}
-  <div class=" mt-4 md:mt-8 lg:mt-[-200px] sm:mt-36 ">
+  <div class=" mt-4 md:mt-8 lg:mt-[-130px] sm:mt-36 ">
     <div class="flex justify-end items-end">
       <img src="/img/bg3.png" class="z-[-30px] md:w-56 md:h-56 md:mt-[10px] mt-[-200px] w-40 h-40 lg:w-64 lg:h-64 lg:mt-96  " alt="">
     </div>
@@ -197,7 +197,7 @@
         
         <div class=" lg:mt-20 md:mt-10 md:ml-[-80px] lg:ml-0 sm:ml-[-80px] sm:mt-8 ml-[-30px] lg:col-span-2">      
           <h1 class="lg:text-[60px] lg:mb-28 md:text-4xl py-3 sm:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#010101]  to-[#FF0000]">Do You as a missionary? </h1>
-          <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[60px] text-slate-800  font-semibold mb-10">
+          <div class="mt-5 md:text-4xl sm:text-3xl lg:text-[60px] text-black font-semibold mb-10">
             <p class="" data-aos="fade-right">Monetize Your Mission with</p>
             <p class="mb-3 md:mb-10 lg:mt-10 lg:mb-10 lg:leading-normal md:mt-3 " data-aos="fade-right" data-aos-duration="1500">doitnow: Earn, Share, and Impact</p>
                 {{-- missionary --}}
@@ -209,7 +209,7 @@
             <!-- Main modal -->
             <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
               <div class="relative p-4 w-full max-w-md max-h-full">
-                  <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <div class="relative bg-white rounded-lg shadow ">
                       <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
                           <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -501,6 +501,90 @@
 </div>
 </div>
 {{-- end banner akhir --}}
+
+{{-- script --}}
+<script>
+  // card slide
+let sliderContainer = document.getElementById('sliderContainer');
+let slider = document.getElementById('slider');
+let cards = slider.getElementsByTagName('li');
+
+let elementsToShow = 2;
+
+if (document.body.clientWidth < 1000) {
+    elementsToShow = 1;
+}
+
+let sliderContainerWidth = sliderContainer.clientWidth;
+
+let cardWidth = sliderContainerWidth / elementsToShow;
+
+slider.style.width = cards.length * cardWidth + 'px';
+slider.style.transition = 'margin';
+slider.style.transitionDuration = '1s';
+
+
+for (let index = 0; index < cards.length; index++) {
+    const element = cards[index];
+    element.style.width = cardWidth + 'px';
+}
+
+function prev() {
+    if (+slider.style.marginLeft.slice(0, -2) != -cardWidth * (cards.length - elementsToShow))
+        slider.style.marginLeft = ((+slider.style.marginLeft.slice(0, -2)) - cardWidth) + 'px';
+}
+
+function next() {
+    if (+slider.style.marginLeft.slice(0, -2) != 0)
+        slider.style.marginLeft = ((+slider.style.marginLeft.slice(0, -2)) + cardWidth) + 'px';
+}
+
+// count
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = [
+      { id: 'counter1', end: 120 }, // Adjust the end value as needed
+      { id: 'counter2', end: 100 }, // Adjust the end value as needed
+      { id: 'counter3', end: 300 }   // Adjust the end value as needed
+  ];
+
+  const animateCount = (element, start, end, duration) => {
+      let current = start;
+      const increment = end > start ? 1 : -1;
+      const stepTime = Math.abs(Math.floor(duration / (end - start)));
+      
+      const timer = setInterval(() => {
+          current += increment;
+          element.textContent = current;
+          if (current === end) {
+              clearInterval(timer);
+          }
+      }, stepTime);
+  };
+
+  const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              counters.forEach(counter => {
+                  const element = document.getElementById(counter.id);
+                  if (!element.classList.contains('counted')) {
+                      animateCount(element, 0, counter.end, 2000); // Animate over 2 seconds
+                      element.classList.add('counted'); // Add class to ensure it only animates once
+                  }
+              });
+              observer.disconnect(); // Stop observing once animation is triggered
+          }
+      });
+  }, {
+      threshold: 0.5 // Adjust this threshold as needed
+  });
+
+  counters.forEach(counter => {
+      const element = document.getElementById(counter.id);
+      observer.observe(element);
+  });
+});
+
+</script>
 
 </section>
 

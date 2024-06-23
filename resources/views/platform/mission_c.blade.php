@@ -25,28 +25,26 @@
         </div>
         <div class="border-b-2 border mt-2 border-gray-300"></div>
     </section>
-    {{--  endnavbar --}}
-    
-    
-{{-- live searching --}}
-<div class=" mx-5 lg:mx-32 pt-32">
-    <form class="">   
-        <label for="simple-search" class="sr-only">Search</label>
-        <div class="relative w-full">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                </svg>
+    {{-- endnavbar --}}
+
+    {{-- live searching --}}
+    <div class="mx-5 lg:mx-32 pt-32">
+        <form id="search-form">
+            <label for="simple-search" class="sr-only">Search</label>
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                </div>
+                <input type="text" id="keyword" name="keyword" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10 p-2.5" placeholder="Find a mission"/>
             </div>
-            <input type="text" id="search" name="keyword" id="simple-search" class="w-full bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block lg:w-96 ps-10  p-2.5 " placeholder="Find a mission"  />
-        </div>
-        
-{{-- end live searching --}}
+        </form>
+    </div>
+    {{-- end live searching --}}
 
     {{-- Content --}}
-    <div id="missions-container" class="mx-10 lg:mx-32  bg-white h-full pb-10">
-        
-
+    <div id="missions-container" class="mx-10 lg:mx-32 bg-white h-full pb-10">
         @if($missions->isEmpty())
             <p class="text-center text-gray-500">No missions available in this category.</p>
         @else
@@ -55,62 +53,81 @@
             @endforeach
         @endif
     </div>
-    
+
     <div id="loading-spinner" style="display: none; text-align: center; margin-top: 20px;">
         <p>Loading...</p>
     </div>
-@endsection
 
-@section('scripts')
+    {{-- JavaScript for live search --}}
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    let page = 1;
-    let loading = false;
+    document.getElementById('keyword').addEventListener('input', function() {
+        const keyword = this.value;
+        const missionsContainer = document.getElementById('missions-container');
+        const loadingSpinner = document.getElementById('loading-spinner');
 
-    function loadMoreMissions() {
-        if (loading) return;
+        if (keyword.length >= 3) { // Minimum length for keyword
+            loadingSpinner.style.display = 'block';
+            missionsContainer.innerHTML = '';
 
-        loading = true;
-        document.getElementById('loading-spinner').style.display = 'block';
+            fetch(`{{ route('search.misi') }}?keyword=${keyword}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    loadingSpinner.style.display = 'none';
+                    if (data.length > 0) {
+                        missionsContainer.innerHTML = ''; // Clear container before appending new results
+                        data.forEach(mission => {
+                            const missionCard = `
+                                <a href="/platform/misi/${mission.id}" class="">
+                                    <div id="container" class="h-40 rounded-lg my-3 border-2 shadow-lg mb-5 shadow-gray-400 transition ease-in-out delay-100 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-gray-100 duration-300">
+                                        <div class="flex items-start mx-3 lg:mx-10 mt-5">
+                                            <div class="border-4 border-red-700 w-2/5 lg:w-24 h-2/5 rounded-3xl mt-2">
+                                                <img src="/storage/${mission.image}" class="w-24 h-24 lg:w-24 lg:h-24 mx-auto rounded-3xl" alt="misi foto">
+                                            </div>
+                                            <div class="truncate ml-2 lg:ml-8">
+                                                <div class="flex justify-between gap-2 ">
+                                                    <ul class="flex justify-between gap-2 items-center">
+                                                        <li class="border-2 border-red-600 bg-red-500 text-white font-medium rounded-lg px-1 text-sm w-full uppercase">${mission.category.name}</li>
+                                                        <li class=" text-[10px] text-white bg-gray-500 rounded-md px-2 uppercase max-w-md lg:text-[12px] text-left py-1 font-medium" data-end-time="${mission.end_time_unix}"> ${mission.formatted_start_date} - ${mission.formatted_end_date} | 
+                                                            <span class="time-remaining" data-time-ago="${mission.time_ago}">
+                                                            ${mission.time_ago}
+                                                        </span></li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="text-black font-semibold text-lg truncate">${mission.title}</h2>
+                                                <p class="text-sm">${mission.max_missionaries} participant only</p>
+                                                <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-10 h-10 mt-2">
+                                                    <h1 class="text-base text-center text-white font-bold">Rp</h1>
+                                                </div>
+                                                <div class="flex justify-start items-center mt-[-35px] ml-12">
+                                                    <h1 class="text-2xl text-red-600 font-medium">${mission.reward.reward}</h1>    
+                                                </div>                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            `;
 
-        page++;
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryId = urlParams.get('category_id') || 'all';
+                            missionsContainer.innerHTML += missionCard;
+                        });
 
-        fetch(`{{ route('platform.mission_c') }}?page=${page}&category_id=${categoryId}`, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        })
-        .then(response => response.text())
-        .then(data => {
-            if (data.trim().length === 0) {
-                // No more data
-                window.removeEventListener('scroll', handleScroll);
-                document.getElementById('loading-spinner').style.display = 'none';
-                return;
-            }
-
-            document.getElementById('missions-container').insertAdjacentHTML('beforeend', data);
-            document.getElementById('loading-spinner').style.display = 'none';
-            loading = false;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('loading-spinner').style.display = 'none';
-            loading = false;
-        });
-    }
-
-    function handleScroll() {
-        const bottomOfWindow = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100;
-
-        if (bottomOfWindow) {
-            loadMoreMissions();
+                        // Apply any additional JS to format or handle time-related data if needed
+                    } else {
+                        missionsContainer.innerHTML = '<p class="text-center text-gray-500">No missions found.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    missionsContainer.innerHTML = '<p class="text-center text-gray-500">An error occurred: ' + error.message + '. Please try again later.</p>';
+                    loadingSpinner.style.display = 'none';
+                });
+        } else {
+            loadingSpinner.style.display = 'none';
         }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-});
+    });
 </script>
 @endsection

@@ -73,16 +73,15 @@
             </div>
         @endif
 
-        {{-- Withdraw --}}
-        @if($notification->type == 'App\Notifications\WithdrawalNotification')
-                <div class="bg-white rounded-2xl mx-2 hover:bg-gray-100 lg:mx-20 mb-3 p-4 border border-red-600">
+        @if($notification->type == 'App\Notifications\WithdrawalValidatedNotification')
+                <div class="bg-green-600 rounded-2xl mx-2 lg:mx-20 mb-3 p-4 hover:bg-green-700">
                     <div class="flex flex-row items-center">
-                        <div class="border-4 border-red-600 bg-red-600 rounded-full w-10 h-10 flex items-center justify-center mt-2">
-                            <img src="/img/notif.png" alt="">
+                        <div class="border-4 border-white bg-green-600 rounded-full w-10 h-10 flex items-center justify-center mt-2">
+                            <h1 class="text-base text-white font-bold">✓</h1>
                         </div>
                         <div class="ml-4">
-                            <h2 class="text-black font-bold">{{ $data['title'] }}</h2>
-                            <p class="text-gray-500">{{ $data['message'] }}</p>
+                            <h2 class="text-white font-bold">{{ $data['title'] }}</h2>
+                            <p class="text-white">{{ $data['message'] }}</p>
                         </div>
                     </div>
                 </div>

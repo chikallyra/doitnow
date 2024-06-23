@@ -17,15 +17,15 @@
             {{-- edit foto --}}
             <div class="mt-8 flex flex-col items-center">
                 <div class="relative w-64 h-64 border-2 border-dashed border-gray-300 flex items-center justify-center rounded-lg overflow-hidden">
-                    <img id="image-preview" src="{{ asset('storage/' . $user->missionary->image) }}" alt="Preview" class="absolute w-full h-full object-cover hidden" />
-                    <span id="upload-placeholder" class="text-gray-500">Pilih Gambar</span>
+                    <img id="image-preview" src="{{ asset('storage/' . $user->missionary->image) }}" alt="Preview" class="absolute w-full h-full object-cover" />
+                    <span id="upload-placeholder" class="text-gray-500 hidden">Pilih Gambar</span>
                     <input id="image-input" name="image" type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" />
                     @error('image')
                     <div class="text-red-500">
                         {{ $message }}
                     </div>
                     @enderror
-                  </div>
+                </div>
                 
                 <!-- Edit Picture Text -->
                 <h2 class="mt-3 text-lg font-medium text-red-500">Edit Picture</h2>

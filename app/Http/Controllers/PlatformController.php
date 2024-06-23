@@ -14,16 +14,16 @@ use App\Helpers\TimeAgoHelper;
 use App\Models\MissionCategory;
 use App\Models\UserReward;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class PlatformController extends Controller
 {
     public function index() {
-        // Hanya satu query yang digunakan dengan pagination
         $missions = Mission::with('reward', 'category')->orderBy('created_at', 'desc')->paginate(5);
     
         foreach ($missions as $mission) {
-            $start_date = Carbon::parse($mission->start_date)->format('d M Y');
-            $end_date = Carbon::parse($mission->end_date)->format('d M Y');
+            $start_date = Carbon::parse($mission->start_date)->format('d M');
+            $end_date = Carbon::parse($mission->end_date)->format('d M');
     
             $time_ago = TimeAgoHelper::timeAgo($mission->start_date, $mission->end_date);
             $mission->time_ago = $time_ago;
@@ -37,12 +37,20 @@ class PlatformController extends Controller
         $categories = MissionCategory::all();
     
         $missionaryId = auth()->user()->missionary->id; 
-        $totalReward = UserReward::where('missionary_id', $missionaryId)
-            ->join('rewards', 'user_rewards.reward_id', '=', 'rewards.id')
-            ->sum('rewards.reward');
     
-        return view('platform.index', compact('missions', 'categories', 'totalReward'));
-    }    
+        $unclaimedRewards = UserReward::where('missionary_id', $missionaryId)
+        ->where('reward_status', 'unclaimed')
+        ->join('rewards', 'user_rewards.reward_id', '=', 'rewards.id')
+        ->select('rewards.reward', 'user_rewards.claimed_at')
+        ->get();
+
+        $totalUnclaimedRewards = $unclaimedRewards->reduce(function ($carry, $item) {
+            $reward = preg_replace('/[^\d]/', '', $item->reward);
+            return $carry + intval($reward);
+        }, 0);
+
+        return view('platform.index', compact('missions', 'categories', 'totalUnclaimedRewards'));
+    }
 
     public function misi($id) {
         $mission = Mission::with('company', 'reward', 'category')->findOrFail($id);
@@ -57,20 +65,6 @@ class PlatformController extends Controller
         return view('platform.misi', compact('mission', 'isMissionCompleted'));
     }
 
-    public function search(Request $request)
-    {
-        if($request->ajax()) {
-            $missions = Mission::where('title', 'LIKE', '%'.$request->keyword.'%')
-                        ->orWhere('description', 'LIKE', '%'.$request->keyword.'%')
-                        ->get();
-            
-            $result = view('platform.search-result', compact('missions'))->render();
-            
-            return response()->json(['html' => $result]);
-        }
-        return response()->json(['html' => '']);
-    }
-
     public function addfriend() {
         return view('platform.addfriend');
     }
@@ -82,10 +76,10 @@ class PlatformController extends Controller
     public function history() {
         $user = auth()->user();
         if ($user && $user->missionary) {
-            $history = $user->missionary->missions; // Mengambil misi melalui relasi Missionary
+            $history = $user->missionary->missions;
             return view('platform.history', compact('history'));
         } else {
-            return redirect('/login'); // Atau halaman yang sesuai jika pengguna tidak login
+            return redirect('/platform'); 
         }
     }
 
@@ -104,11 +98,46 @@ class PlatformController extends Controller
         return view('platform.notif', compact('notifications'));
     }
 
-    
-    // public function notif() {
-    //     $notifications = auth()->user()->notifications;
-    //     return view('platform.notif', ['notifications' => $notifications]);
-    // }
+    public function search(Request $request)
+    {
+        try {
+            $keyword = $request->input('keyword');
+            Log::info('Keyword received: ' . $keyword);
+
+            $missions = Mission::where('title', 'LIKE', "%{$keyword}%")->with('category', 'reward')->get();
+            Log::info('Missions found: ' . $missions->count());
+
+            $formattedMissions = $missions->map(function($mission) {
+                $start_date = Carbon::parse($mission->start_date)->format('d M Y');
+                $end_date = Carbon::parse($mission->end_date)->format('d M Y');
+
+                $time_ago = TimeAgoHelper::timeAgo($mission->start_date, $mission->end_date);
+
+                return [
+                    'id' => $mission->id,
+                    'title' => $mission->title,
+                    'description' => $mission->description,
+                    'image' => $mission->image,
+                    'category' => [
+                        'name' => $mission->category->name,
+                    ],
+                    'formatted_start_date' => $start_date,
+                    'formatted_end_date' => $end_date,
+                    'time_ago' => $time_ago,
+                    'reward' => [
+                        'reward' => $mission->reward->reward,
+                    ],
+                    'max_missionaries' => $mission->max_missionaries,
+                    'end_time_unix' => Carbon::parse($mission->end_date)->timestamp,
+                ];
+            });
+
+            return response()->json($formattedMissions);
+        } catch (\Exception $e) {
+            Log::error('Error during search: ' . $e->getMessage());
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+    }
 
     public function mission_c(Request $request)
     {
@@ -119,7 +148,12 @@ class PlatformController extends Controller
                 $query->where('category_id', $request->category_id);
             }
 
-            $missions = $query->paginate(10);
+            if ($request->has('keyword')) {
+                $keyword = $request->keyword;
+                $query->where('title', 'like', "%{$keyword}%");
+            }
+
+            $missions = $query->get();
 
             foreach ($missions as $mission) {
                 $start_date = Carbon::parse($mission->start_date)->format('d M Y');
@@ -134,7 +168,9 @@ class PlatformController extends Controller
                 $mission->formatted_end_date = $end_date;
             }
 
-            return view('platform.partials.mission_card', compact('missions'))->render();
+            $html = view('platform.partials.mission_card', compact('missions'))->render();
+
+            return response()->json(['html' => $html]);
         }
 
         if ($request->has('category_id') && $request->category_id != 'all') {
@@ -146,27 +182,27 @@ class PlatformController extends Controller
 
         return view('platform.mission_c', compact('missions', 'categories'));
     }
-
+    
     public function profil($id) {
-    $user = User::with('missionary')->findOrFail($id);
-    $missionary = $user->missionary;
+        $user = User::with('missionary')->findOrFail($id);
+        $missionary = $user->missionary;
 
-    $dob = $missionary ? $missionary->dob : null;
+        $dob = $missionary ? $missionary->dob : null;
 
-    $day = '';
-    $month = '';
-    $year = '';
+        $day = '';
+        $month = '';
+        $year = '';
 
-    if (!empty($dob) && strpos($dob, '-') !== false) {
-        $pecahan = explode('-', $dob);
-        if (count($pecahan) === 3) {
-            $year = (int)  $pecahan[0];
-            $month = (int)  $pecahan[1];
-            $day = (int)  $pecahan[2];
+        if (!empty($dob) && strpos($dob, '-') !== false) {
+            $pecahan = explode('-', $dob);
+            if (count($pecahan) === 3) {
+                $year = (int)  $pecahan[0];
+                $month = (int)  $pecahan[1];
+                $day = (int)  $pecahan[2];
+            }
         }
-    }
 
-    return view('platform.profil', compact('user', 'missionary', 'year', 'month', 'day'));
+        return view('platform.profil', compact('user', 'missionary', 'year', 'month', 'day'));
     }
     
     public function updateProfile(Request $request, $id) {
@@ -189,9 +225,8 @@ class PlatformController extends Controller
         $user->save();
 
         //update missionary
-
         $missionary->gender = $request->input('gender');
-        $missionary->dob = Carbon::createFromDate($request->input('year'), $request->input('month'), $request->input('day') );
+        $missionary->dob = Carbon::createFromDate($request->input('year'), $request->input('month'), $request->input('day'));
 
         if($request->hasFile('image')){
             if ($missionary->image) {
@@ -204,6 +239,5 @@ class PlatformController extends Controller
         $missionary->save();
 
         return redirect()->route('platform.profil', $id)->with('success', 'Profile updated successfully.');
-
     }
 }

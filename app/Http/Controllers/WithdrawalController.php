@@ -6,6 +6,7 @@ use App\Models\Withdrawal;
 use App\Models\UserReward;
 use App\Models\Missionary;
 use App\Notifications\WithdrawalNotification;
+use App\Notifications\WithdrawalValidatedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Spatie\FlareClient\View;
@@ -28,7 +29,8 @@ class WithdrawalController extends Controller
     }
 
     public function withdraw () {
-        return view('admin.dasboard.withdraw.withdraw');
+        $withdrawal = Withdrawal::with('missionary', 'userreward')->get();
+        return view('admin.dasboard.withdraw.withdraw', compact('withdrawal'));
     }
 
     public function store(Request $request)
@@ -62,34 +64,26 @@ class WithdrawalController extends Controller
         return redirect()->back()->with('success', 'Withdrawal request has been submitted successfully!');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'amount' => 'required|integer|min:5000',
-    //         'payment_method' => 'required|string',
-    //         'phone_number' => 'required|string|max:15',
-    //     ]);
+    public function validateWithdrawal(Request $request, $id) {
+        $withdrawal =  Withdrawal::findOrFail($id);
+        $userReward = UserReward::findOrFail($withdrawal->user_reward_id);
 
-    //     // Mendapatkan user yang sedang login
-    //     $missionary = auth()->user()->missionary->id; 
-    //     $userReward = UserReward::where('missionary_id', $missionary)->first();
+        if ($withdrawal->status !== 'pending') {
+            return redirect()->back()->withErrors(['msg' => 'Withdrwal has been validated']);
+        }
 
-    //     if (!$userReward) {
-    //         return redirect()->back()->withErrors(['error' => 'User reward not found']);
-    //     }
+        $withdrawal->status = 'completed';
+        $withdrawal->save();
 
-    //     // Membuat data withdrawal
-    //     $withdrawal = Withdrawal::create([
-    //         'missionary_id' => $missionary,
-    //         'user_reward_id' => $userReward->id,
-    //         'amount' => $validatedData['amount'],
-    //         'payment_method' => $validatedData['payment_method'],
-    //         'phone_number' => $validatedData['phone_number'],
-    //         'status' => 'pending',
-    //     ]);
+        $userReward->reward_status = 'claimed';
+        $userReward->claimed_at = now();
+        $userReward->save();
 
-    //     return redirect('/platform/withdraw')
-    //         ->with('success', 'Withdrawal request has been submitted successfully!');
-    // }
+        $missionary = $withdrawal->missionary;
+        $missionary->user->notify(new WithdrawalValidatedNotification($withdrawal, $withdrawal->amount));
+
+        return redirect()->back()->with('success', 'Withdrawal has been approved and user reward updated.');
+
+    }
 }
 

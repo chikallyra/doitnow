@@ -54,7 +54,7 @@
                 console.log("Service worker registration succeeded:", registration);
             },
             (error) => {
-                console.error(`Service worker registration failed: ${error}`);
+                console.error(Service worker registration failed: ${error});
             },
             );
         } else {
@@ -66,8 +66,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     AOS.init();
+  </script>
+
+  <script>
+    // JavaScript untuk live search
+document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            searchInput.addEventListener('input', function() {
+                const keyword = this.value.trim();
+                if (keyword.length > 2) {
+                    fetch(/search?keyword=${keyword}, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const searchResults = document.getElementById('search-results');
+                        searchResults.innerHTML = data.html;
+                    })
+                    .catch(error => console.error('Error:', error));
+                } else {
+                    document.getElementById('search-results').innerHTML = ''; // Bersihkan hasil jika kurang dari 3 karakter
+                }
+            });
+        });
   </script>
 
 </html>

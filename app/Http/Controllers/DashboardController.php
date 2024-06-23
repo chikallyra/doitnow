@@ -24,23 +24,36 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index () {
+    public function index() {
         $users = User::where('type', 0)->with('missionary')->get();
+        
         foreach($users as $user){
             $user->missionary = Missionary::where('user_id', $user->id)->first();
+            
             if ($user->missionary) {
-                $user->completed_mission = UserMission::where('missionary_id', $user->missionary->id)->whereNotNull('mission_complete_at')->count();
-
-                $rewards = UserReward::where('missionary_id', $user->missionary->id)->whereNotNull('reward_id')->pluck('reward_id');
-                $user->reward_earned = Reward::whereIn('id',  $rewards)->sum('reward');
-            }else{
+                $user->completed_mission = UserMission::where('missionary_id', $user->missionary->id)
+                    ->whereNotNull('mission_complete_at')
+                    ->count();
+    
+                $rewards = UserReward::where('missionary_id', $user->missionary->id)
+                    ->whereNotNull('reward_id')
+                    ->pluck('reward_id');
+    
+                $user->reward_earned = Reward::whereIn('id', $rewards)
+                    ->get()
+                    ->reduce(function ($carry, $item) {
+                        $reward = preg_replace('/[^\d]/', '', $item->reward);
+                        return $carry + intval($reward);
+                    }, 0);
+            } else {
                 $user->completed_mission = 0;
-                $user->reward_earned = 000;
+                $user->reward_earned = 0;
             }
         }
+    
         return view('admin.dasboard.index', compact('users'));
     }
-    
+        
     public function blog() {
         $blogs = Blog::with('blogCategory')->get();
         return view('admin.dasboard.blog.blog', compact('blogs'));

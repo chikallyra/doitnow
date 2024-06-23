@@ -99,7 +99,10 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     // platform
     Route::get('/platform', [PlatformController::class, 'index'])->name('platform');
+
     Route::get('/search', [PlatformController::class, 'search'])->name('search.misi');
+    Route::get('/platform/mission-center', [MissionController::class, 'mission_c'])->name('platform.mission_c'); 
+
     Route::get('/platform/misi/{id}', [PlatformController::class, 'misi'])->name('platform.misi');
     Route::get('/platform/addfriend', [PlatformController::class, 'addfriend'])->name('platform.addfriend');
     Route::get('/platform/history', [PlatformController::class, 'history'])->name('platform.history');
@@ -114,7 +117,7 @@ Route::middleware(['auth', 'user-access:user', 'check_banned'])->group(function 
     Route::post('/api/complete-step', [UserMissionController::class, 'completeStep']);
     Route::post('/api/complete-mission', [UserMissionController::class, 'completeMission']);
 
-    // With
+    // Withdraw
     Route::post('/platform/withdraw', [WithdrawalController::class, 'store'])->name('withdraw.store');
 
     // notifikasi 
@@ -185,8 +188,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('/admin/missions/{id}/validate', [DashboardController::class, 'validateMission'])->name('admin.missions.validate');
     Route::post('/admin/missions/reject/{userMission}', [DashboardController::class, 'rejectMission'])->name('admin.missions.reject');
 
-    // withdraw
+    // Withdraw
     Route::get('/admin/dashboard/withdraw', [WithdrawalController::class, 'withdraw'])-> name('withdraw.home');
+    Route::post('/admin/withdraw/{id}/validate', [WithdrawalController::class, 'validateWithdrawal'])->name('withdraw.validate');
 });
 
 

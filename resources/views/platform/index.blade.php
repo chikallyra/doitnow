@@ -1,4 +1,3 @@
-{{-- resources/views/platform/index.blade.php --}}
 @extends('platform.layouts.main')
 
 @section('container')

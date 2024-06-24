@@ -1,16 +1,27 @@
 @extends('platform.layouts.main')
 @section('container')
 <section class="lg:pt-52 pt-32">
-    {{-- rewads --}}
+    
+        {{-- rewards --}}
+    @if($totalUnclaimedRewards >= 5000)
     <a href="{{ route('platform.withdraw') }}" class="">
         <div class="flex items-center mx-5 lg:mx-32">
-            <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16  ">
+            <div class="border-4 border-white bg-red-600 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16">
                 <h1 class="text-center text-xl lg:text-3xl text-white font-bold p-3">Rp</h1>
             </div>
-            <h1 class=" text-3xl lg:text-5xl  text-slate-800 font-medium ml-3 ">{{  number_format($totalReward, 0, ',', '.') }} <span><i class="fas fa-angle-right"></i></span></h1>    
+            <h1 class="text-3xl lg:text-5xl text-slate-800 font-medium ml-3">{{ number_format($totalUnclaimedRewards, 0, ',', '.') }} <span><i class="fas fa-angle-right"></i></span></h1>
         </div>
     </a>
-    {{-- end rewads --}}
+    @else
+    <div class="flex items-center mx-5 lg:mx-32 cursor-not-allowed" title="Minimum reward of 5000 required to withdraw">
+        <div class="border-4 border-white bg-gray-400 flex items-center justify-center rounded-full w-12 h-12 lg:w-16 lg:h-16">
+            <h1 class="text-center text-xl lg:text-3xl text-white font-bold p-3">Rp</h1>
+        </div>
+        <h1 class="text-3xl lg:text-5xl text-slate-800 font-medium ml-3">{{ number_format($totalUnclaimedRewards, 0, ',', '.') }} <span><i class="fas fa-angle-right"></i></span></h1>
+    </div>
+    @endif
+    {{-- end rewards --}}
+
 
     {{-- card --}}
     <div class="flex justify-start items-center">

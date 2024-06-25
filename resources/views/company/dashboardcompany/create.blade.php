@@ -119,7 +119,7 @@
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                     </svg>
                                 </button>
-                                <input type="text" name="max_missionaries" value="{{ old('max_missionaries') }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
+                                <input type="text" name="max_missionaries" value="{{ old('max_missionaries') }}" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="500" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5" placeholder="999" required />
                                 @error('max_missionaries')
                                 <div class="text-red-500">
                                     {{ $message }}

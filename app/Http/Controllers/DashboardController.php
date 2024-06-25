@@ -25,7 +25,10 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $users = User::where('type', 0)->with('missionary')->get();
+        $users = User::where('type', 0)
+             ->with('missionary')
+             ->orderBy('created_at', 'desc')
+             ->get();
         
         foreach($users as $user){
             $user->missionary = Missionary::where('user_id', $user->id)->first();

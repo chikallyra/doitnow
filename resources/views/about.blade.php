@@ -78,13 +78,13 @@
 
             {{-- pak Michell --}}
             <div class="bg-red-50  rounded-lg p-6 flex flex-col items-center text-center shadow-lg" data-aos="flip-left">
-                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="/img/team/pak michael.png" alt="Jack Clark">
+                <img class="rounded-full border-8 border-white w-40 h-40 object-cover mb-4" src="/img/team/michael.jpg" alt="Jack Clark">
                 <h2 class="text-2xl text-slate-900 font-semibold">Michael Nathanael Hasim</h2>
                 <p class="text-red-600 mb-1 text-lg ">Project Manager</p>
                 <a href="" class=" mb-4 bg-red-600 px-3 py-1 rounded-xl text-white font-medium">Portofolio</a>
                 <div class="flex space-x-3 text-lg">
                   <a href="https://www.linkedin.com/in/michael-nathanael-hasim-179748254/" target="blank" class="text-gray-600 hover:text-blue-500"><i class="fab fa-linkedin "></i></a>
-                  <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/michaelnh_/" target="blank" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>

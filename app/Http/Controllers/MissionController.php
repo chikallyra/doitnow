@@ -126,9 +126,6 @@ class MissionController extends Controller
     
         return redirect('/dashboard/company')->with('success', 'Mission created successfully');
     }
-    
-
-
 
     /**
      * Display the specified resource.

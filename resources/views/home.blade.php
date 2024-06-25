@@ -135,7 +135,7 @@
             <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
                     <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <div class="relative bg-white rounded-lg shadow ">
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 rounded-t dark:border-gray-600">
                             <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
@@ -329,33 +329,36 @@
     </div>
     <div id="sliderContainer" class="w-full overflow-hidden">
         <ul id="slider" class="flex w-full duration-700 text-black">
-          <li class="p-3 ">
-            <div class="bg-white border border-gray-200 shadow-xl rounded-lg p-3 h-full w-full   ">
-                <p>
-                  "Lorem ipsum dolor sit amet consectetur. Condimentum eget vitae ligula sed urna sit sagittis interdum a. Blandit mattis mattis lobortis orci. Facilisis dui sagittis tempor egestas pellentesque eu maecenas. Risus lectus nisl."
-                </p>
-                
-                <div class="flex items-center space-x-4 ">
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                    class="size-14 rounded-full object-cover"
-                  />
-                  <div>
-                    <p class="text-lg font-bold mt-9">Paul Starr</p>
-                    <p class="text-[#909B99]">Missionary</p>
-                    {{-- diubah gpt --}}
-                    <div class="flex items-center lg:ml-[200px] ml-18 mt-[-10px] mb-8 space-x-1">
-                      <span class="text-yellow-400 lg:text-4xl text-2xl ">&#9733;</span>
-                      <span class="text-yellow-400 lg:text-4xl text-2xl">&#9733;</span>
-                      <span class="text-yellow-400 lg:text-4xl text-2xl">&#9733;</span>
-                      <span class="text-yellow-400 lg:text-4xl text-2xl">&#9733;</span>
-                      <span class="text-yellow-400 lg:text-4xl text-2xl">&#9733;</span>
-                    </div>
+          @foreach ($feedbacks as $feedback)
+          <li class="p-3">
+              <div class="bg-white border border-gray-200 shadow-xl rounded-lg p-3 h-full w-full">
+                  <p>{{ $feedback->comment }}</p>
+                  
+                  <div class="flex items-center space-x-4">
+                      <img
+                          alt=""
+                          src="{{ asset($feedback->photo) }}"
+                          class="size-14 rounded-full object-cover"
+                      />
+                      <div>
+                          <p class="text-lg font-bold mt-9">{{ $feedback->name }}</p>
+                          <p class="text-[#909B99]">{{ $feedback->position }}</p>
+                          
+                          {{-- Display stars based on rating --}}
+                          <div class="flex items-center lg:ml-[200px] ml-18 mt-[-10px] mb-8 space-x-1">
+                              @for ($i = 1; $i <= 5; $i++)
+                                  @if ($i <= $feedback->rating)
+                                      <span class="text-yellow-400 lg:text-4xl text-2xl">&#9733;</span>
+                                  @else
+                                      <span class="text-gray-300 lg:text-4xl text-2xl">&#9733;</span>
+                                  @endif
+                              @endfor
+                          </div>
+                      </div>
                   </div>
-                </div>
-            </div>
-          </li>   
+              </div>
+          </li>
+          @endforeach
           <li class="p-3 ">
             <div class="bg-white border border-gray-200 shadow-xl rounded-lg p-3 h-full w-full   ">
                 <p>
@@ -476,6 +479,115 @@
 </section>
 {{-- end content card --}}
 
+{{-- Feed back --}}
+<section class="flex justify-end mr-24">
+  <!-- Modal toggle -->
+  <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-24" type="button">
+    Add Feedback
+  </button>
+
+  <!-- Main modal -->
+  <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow ">
+              <!-- Modal header -->
+              <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                  <button type="button" class="text-gray-500 bg-transparent hover:bg-gray-500 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="default-modal">
+                      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                  </button>
+              </div>
+              <!-- Modal body -->
+              <h2 class="text-2xl font-bold mb-6 mt-8 text-center text-gray-800">Form Feedback </h2>
+              <div class="w-full bg-white p-8 rounded-lg shadow-lg flex justify-center ">  
+                <form action="{{ route('feedback.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6 w-full">
+                  @csrf
+                  <!-- Input Nama -->
+                  <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name ..."
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                    />
+                  </div>
+              
+                  <!-- Pilihan Position -->
+                  <div>
+                    <label for="profession" class="block text-sm font-medium text-gray-700">Position</label>
+                    <select
+                      id="profession"
+                      name="position"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-indigo-500 sm:text-sm"
+                    >
+                      <option value="">Please choose your position</option>
+                      <option value="Company">Company</option>
+                      <option value="Missionary">Missionary</option>
+                    </select>
+                  </div>
+
+                  <!-- Input fEEDBACK-->
+                  <div>
+                    <label for="comment" class="block text-sm font-medium text-gray-700">Your Feedback </label>
+                    <textarea
+                      id="comment"
+                      name="comment"
+                      rows="4"
+                      placeholder="Write your feedback here..."
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    ></textarea>
+                  </div>
+              
+                  
+              
+                  <!-- Upload Foto -->
+                  <div>
+                    <label for="photo" class="block text-sm font-medium text-gray-700">Photo</label>
+                    <input
+                      type="file"
+                      id="photo"
+                      name="photo"
+                      accept="image/*"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      onchange="previewImage(event)"
+                    />
+                    <img id="photo-preview" class="mt-4 w-20 h-20 rounded-full object-cover" style="display: none;" />
+                  </div>
+              
+                  <!-- Penilaian Bintang -->
+                  <div class="flex items-center justify-center mt-4 space-x-2 cursor-pointer ">
+                    <input type="hidden" id="rating" name="rating" value="">
+                    <!-- Bintang penilaian interaktif -->
+                    <span class="star text-yellow-400 text-4xl hover:text-yellow-600" data-value="1">&#9733;</span>
+                    <span class="star text-yellow-400 text-4xl hover:text-yellow-600 " data-value="2">&#9733;</span>
+                    <span class="star text-yellow-400 text-4xl hover:text-yellow-600" data-value="3">&#9733;</span>
+                    <span class="star text-yellow-400 text-4xl hover:text-yellow-600" data-value="4">&#9733;</span>
+                    <span class="star text-yellow-400 text-4xl hover:text-yellow-600" data-value="5">&#9733;</span>
+                  </div>
+              
+                  <!-- Tombol Submit -->
+                  <div class="mt-6">
+                    <button
+                      type="submit"
+                      class="w-full py-2 px-4 bg-red-600 text-white rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{{-- end feedback --}}
+
+
 {{-- banner akhir --}}
 <div class="relative w-full h-screen lg:mt-10 mt-10 ">
  
@@ -584,11 +696,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+ // Fungsi untuk pratinjau gambar
+ function previewImage(event) {
+      const reader = new FileReader();
+      const photoPreview = document.getElementById('photo-preview');
+
+      reader.onload = function() {
+        if (reader.readyState === 2) {
+          photoPreview.src = reader.result;
+          photoPreview.style.display = 'block';
+        }
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+    // Fungsi untuk interaktivitas bintang
+    document.addEventListener('DOMContentLoaded', () => {
+      const stars = document.querySelectorAll('.star');
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const value = star.getAttribute('data-value');
+          document.getElementById('rating').value = value;
+          // Reset warna bintang
+          stars.forEach(s => {
+            if (s.getAttribute('data-value') <= value) {
+              s.classList.add('text-yellow-400');
+              s.classList.remove('text-gray-300');
+            } else {
+              s.classList.add('text-gray-300');
+              s.classList.remove('text-yellow-400');
+            }
+          });
+        });
+      });
+    });
+
 </script>
 
 </section>
-
-
-
 
 @endsection

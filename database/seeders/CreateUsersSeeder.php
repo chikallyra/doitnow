@@ -24,19 +24,13 @@ class CreateUsersSeeder extends Seeder
                'phone' => "0912821752"
             ],
             [
-               'name'=>'Company User',
-               'email'=>'com@pany.com',
-               'type'=> 1,
+               'name'=>'Admin Doitnow',
+               'email'=>'admin@doitnow.id',
+               'type'=>2,
                'password'=> Hash::make('123456'), // Gunakan Hash::make() untuk meng-hash password
                'phone' => "0912821752"
             ],
-            [
-               'name'=>'User',
-               'email'=>'user@user.com',
-               'type'=>0,
-               'password'=> Hash::make('123456'), // Gunakan Hash::make() untuk meng-hash password
-               'phone' => "0912821752"
-            ],
+
         ];
     
         foreach ($users as $key => $user) {

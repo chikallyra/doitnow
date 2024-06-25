@@ -8,8 +8,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  @vite(['resources/css/app.css','resources/js/app.js'])
+  {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  @vite(['resources/css/app.css','resources/js/app.js']) --}}
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
   {{-- logo --}}
   <link rel="icon" href="/img/logo_d.png">

@@ -10,6 +10,7 @@ use App\Http\Controllers\CompanyDashboardController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardQuestionsController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MissionCategoryController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\UserMissionController;
 use App\Http\Controllers\WithdrawalController;
 use App\Http\Controllers\WithdrawController;
 use App\Models\CobaStep;
+use App\Models\Feedback;
 use App\Models\MissionCategory;
 use Illuminate\Support\Facades\Mail;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -42,7 +44,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     $blog = Blog::orderBy('id', 'desc')->paginate(3);
-    return view('home', compact('blog'));
+    $feedbacks = Feedback::all();
+    return view('home', compact('blog', 'feedbacks'));
 })->name('index');
 
 Route::get('/blog/index', function () {
@@ -86,6 +89,9 @@ Route::get('/about', function () {
 // Contact us
 Route::get('/contact', [QuestionController::class, 'index'])->name('contact');
 Route::post('/contact', [QuestionController::class, 'store'])->name('question');
+
+// Feedback
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login.mail');
